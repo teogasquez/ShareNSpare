@@ -1,0 +1,22 @@
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Home from './pages/Home/Home';
+import C2C from './pages/C2C/C2C';
+import B2B from './pages/B2B/B2B';
+
+function App() {
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/c2c" element={<C2C />} />
+        <Route path="/b2b" element={<B2B />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
+
+export default App;
