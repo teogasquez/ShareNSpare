@@ -1,109 +1,235 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import mascotImage from '../../assets/images/mascotte-removebg-preview.webp';
 
+// Navigation links simplifiés
+const navItems = [
+  { path: '/', label: 'Accueil' },
+  { path: '/c2c', label: 'Particuliers' },
+  { path: '/b2b', label: 'Entreprises' },
+  { path: '/about', label: 'À propos' },  // Lien simple vers une page à propos
+  { 
+    label: 'Contact',
+    hasSubmenu: true,
+    submenu: [
+      { path: '/c2c#contact', label: 'Particuliers' }, // Section de contact dans C2C
+      { path: '/b2b#contact', label: 'Entreprises' }   // Section de contact dans B2B
+    ]
+  }
+];
+
+// Available languages
 const languages = [
   { code: 'fr', name: 'Français' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'it', name: 'Italiano' },
+  { code: 'en', name: 'English' },
+  { code: 'de', name: 'Deutsch' }
 ];
 
 const Header = () => {
-  const [currentLang, setCurrentLang] = useState('fr');
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+  const [currentLang, setCurrentLang] = useState('fr');
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const submenuTimeoutRef = useRef<number | null>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Handle scroll effect
   useEffect(() => {
-    // Détecter la langue du navigateur
-    const userLang = navigator.language.split('-')[0];
-    if (languages.some(lang => lang.code === userLang)) {
-      setCurrentLang(userLang);
-    }
-    
-    // Gérer le scroll pour changer l'apparence du header
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Déterminer si le header doit être coloré
-      if (currentScrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-      
-      // Masquer le header lors du défilement vers le bas
-      // Afficher le header lors du défilement vers le haut
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-      
-      setLastScrollY(currentScrollY);
+      setIsScrolled(window.scrollY > 20);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
-  
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+  }, []);
+
+  // Close mobile menu on location change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  // Nettoyer les timeouts lors du démontage du composant
+  useEffect(() => {
+    return () => {
+      if (submenuTimeoutRef.current !== null) {
+        clearTimeout(submenuTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Effect pour gérer le scroll vers les ancres après la navigation
+  useEffect(() => {
+    // Si l'URL contient une ancre, faire défiler vers cette ancre
+    if (location.hash) {
+      const id = location.hash.substring(1); // Enlever le # du début
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
+    }
+  }, [location]);
+
+  // Fonction pour gérer le clic sur les liens avec ancres de manière plus efficace
+  const handleContactClick = (path: string) => {
+    const [route, hash] = path.split('#');
+    
+    // Si on est déjà sur la bonne page, on peut juste faire défiler vers l'ancre
+    if (location.pathname === route) {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Sinon, naviguer vers la nouvelle page avec l'ancre
+      navigate(path);
+    }
+    
+    // Fermer le sous-menu après le clic
+    setActiveSubmenu(null);
+  };
+
+  // Vérifie si le chemin actuel correspond à un élément du menu
+  const isActiveNavItem = (item: any) => {
+    if (item.path) {
+      // Pour les chemins avec ancres, on vérifie si le pathname correspond
+      const itemPath = item.path.split('#')[0];
+      if (itemPath === '') return location.pathname === '/';
+      return location.pathname === itemPath;
+    }
+    if (item.hasSubmenu && item.submenu) {
+      return item.submenu.some((subItem: any) => {
+        const pathWithoutHash = subItem.path.split('#')[0];
+        return location.pathname === pathWithoutHash;
+      });
+    }
+    return false;
+  };
+
+  // Gestion de l'affichage des sous-menus au survol avec délai
+  const handleMouseEnter = (label: string) => {
+    // Annule tout délai de fermeture en cours
+    if (submenuTimeoutRef.current !== null) {
+      clearTimeout(submenuTimeoutRef.current);
+      submenuTimeoutRef.current = null;
+    }
+    setActiveSubmenu(label);
+  };
+
+  const handleMouseLeave = () => {
+    // Ajoute un délai avant de fermer le sous-menu
+    submenuTimeoutRef.current = window.setTimeout(() => {
+      setActiveSubmenu(null);
+    }, 300); // Délai de 300ms
+  };
+
+  // Pour le menu mobile
+  const toggleSubmenu = (label: string) => {
+    setActiveSubmenu(activeSubmenu === label ? null : label);
   };
 
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 px-5 py-5 transition-all duration-400 
-      ${scrolled ? 'bg-white/98 shadow-md py-3' : 'bg-white/85 backdrop-blur-md'}
-      ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 py-4'
+      }`}
     >
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="z-10 no-underline">
-          <h1 className="text-xl font-extrabold text-[#00613a] relative px-4 py-1 transition-all duration-300">
-            ShareNSpare
-            <span className="absolute bottom-[-2px] left-4 w-10 h-[3px] bg-[#00613a] rounded transition-all duration-300"></span>
-          </h1>
-        </Link>
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          {/* Logo and brand name */}
+          <Link to="/" className="flex items-center gap-3">
+        
+            
+            {/* Mascotte à côté du texte ShareNSpare */}
+            <div className="flex items-center">
+              <img 
+                src={mascotImage} 
+                alt="Share N Spare Mascotte" 
+                className="h-10 w-auto mr-2" 
+              />
+              <span className="text-xl font-bold text-[#00613a] hidden sm:inline">ShareNSpare</span>
+            </div>
+          </Link>
+          
+          {/* Desktop navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
+            <ul className="flex items-center gap-6">
+              {navItems.map((item: any) => (
+                <li 
+                  key={item.label} 
+                  className="relative"
+                  onMouseEnter={() => item.hasSubmenu && handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {!item.hasSubmenu ? (
+                    // Élément de menu standard avec lien
+                    <Link
+                      to={item.path}
+                      className={`transition-all duration-300 font-medium ${
+                        isActiveNavItem(item)
+                          ? 'text-[#00613a] font-bold text-xl transform scale-110' 
+                          : 'text-gray-700 hover:text-[#00613a] text-base'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    // Élément avec sous-menu
+                    <div className="cursor-pointer">
+                      <span 
+                        className={`transition-all duration-300 font-medium flex items-center ${
+                          isActiveNavItem(item) || activeSubmenu === item.label
+                            ? 'text-[#00613a] font-bold text-xl transform scale-110' 
+                            : 'text-gray-700 hover:text-[#00613a] text-base'
+                        }`}
+                      >
+                        {item.label}
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
 
-        <div className="flex items-center gap-4">
-          <nav className={`hidden md:flex items-center gap-4`}>
-            <ul className="flex gap-7 m-0 p-0 items-center h-full list-none">
-              <li>
-                <Link to="/about" className="text-gray-700 font-medium relative px-2 py-2 transition-all duration-300 hover:text-[#00613a]">
-                  À propos
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="text-gray-700 font-medium relative px-2 py-2 transition-all duration-300 hover:text-[#00613a]">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-700 font-medium relative px-2 py-2 transition-all duration-300 hover:text-[#00613a]">
-                  Contact
-                </Link>
-              </li>
+                      {/* Sous-menu avec ses propres événements de survol */}
+                      {activeSubmenu === item.label && item.submenu && (
+                        <div 
+                          className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-48 z-10"
+                          onMouseEnter={() => handleMouseEnter(item.label)}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          {item.submenu.map((subItem: any) => (
+                            <button
+                              key={subItem.path}
+                              className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-[#00613a] hover:text-white transition-colors"
+                              onClick={() => handleContactClick(subItem.path)}
+                            >
+                              {subItem.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </li>
+              ))}
             </ul>
             
-            <div className="bg-[rgba(0,97,58,0.08)] rounded-full px-5 py-1.5 flex items-center shadow-md h-11 overflow-hidden relative transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg">
-              <Link to="/download" className="text-[#00613a] font-semibold flex items-center relative z-10">
-                <span className="mr-2">Télécharger l'app</span>
-                <i className="fas fa-download text-lg"></i>
-              </Link>
-            </div>
+            <Link 
+              to="/download" 
+              className="bg-[rgba(0,97,58,0.08)] text-[#00613a] font-semibold py-3 px-5 rounded-full flex items-center"
+            >
+              <span className="mr-2">Télécharger l'app</span>
+              <i className="fas fa-download"></i>
+            </Link>
             
-            <div className="bg-[#00613a] rounded-full px-5 py-1.5 flex items-center shadow-md h-11 relative overflow-hidden transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg">
+            <div className="bg-[#00613a] rounded-full p-1">
               <select 
-                className="bg-transparent border-0 text-white font-semibold px-3 py-2 cursor-pointer outline-none appearance-none pr-6 relative z-10"
+                className="bg-transparent border-0 text-white font-semibold p-2 cursor-pointer outline-none appearance-none"
                 value={currentLang}
                 onChange={(e) => setCurrentLang(e.target.value)}
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5'%3E%3Cpath fill='white' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E")`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'right 0.5rem center',
-                }}
               >
                 {languages.map(lang => (
                   <option key={lang.code} value={lang.code}>
@@ -114,48 +240,89 @@ const Header = () => {
             </div>
           </nav>
           
-          <button 
-            className="md:hidden flex items-center justify-center bg-[#00613a] text-white border-0 text-lg cursor-pointer w-11 h-11 rounded-full shadow-md transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg"
-            aria-label="Menu"
-            onClick={toggleMobileMenu}
+          {/* Mobile menu button */}
+          <button
+            className="lg:hidden text-gray-700 focus:outline-none"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+            {mobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
       
-      {/* Menu mobile */}
+      {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-40 pt-20 px-5">
-          <nav className="flex flex-col gap-6">
-            <ul className="flex flex-col gap-5 m-0 p-0 list-none">
-              <li>
-                <Link 
-                  to="/about" 
-                  className="text-gray-700 font-medium text-lg block py-2 hover:text-[#00613a]"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  À propos
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/faq" 
-                  className="text-gray-700 font-medium text-lg block py-2 hover:text-[#00613a]"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/contact" 
-                  className="text-gray-700 font-medium text-lg block py-2 hover:text-[#00613a]"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </li>
+        <div className="lg:hidden bg-white shadow-lg border-t mt-2 absolute w-full">
+          <nav className="container mx-auto px-4 py-6">
+            <ul className="flex flex-col gap-4 mb-6">
+              {navItems.map((item: any) => (
+                <li key={item.label} className="relative">
+                  {!item.hasSubmenu ? (
+                    // Élément de menu standard
+                    <Link
+                      to={item.path}
+                      className={`block transition-all duration-300 py-2 ${
+                        isActiveNavItem(item)
+                          ? 'text-[#00613a] font-bold text-xl' 
+                          : 'text-gray-700 hover:text-[#00613a] font-medium text-base'
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    // Élément avec sous-menu (version mobile)
+                    <div>
+                      <div 
+                        className={`flex justify-between items-center transition-all duration-300 py-2 ${
+                          isActiveNavItem(item)
+                            ? 'text-[#00613a] font-bold text-xl' 
+                            : 'text-gray-700 hover:text-[#00613a] font-medium text-base'
+                        }`}
+                        onClick={() => toggleSubmenu(item.label)}
+                      >
+                        {item.label}
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          className={`h-5 w-5 transition-transform ${activeSubmenu === item.label ? 'transform rotate-180' : ''}`} 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+
+                      {/* Sous-menu mobile */}
+                      {activeSubmenu === item.label && item.submenu && (
+                        <div className="pl-4 mt-2 border-l-2 border-gray-200">
+                          {item.submenu.map((subItem: any) => (
+                            <button
+                              key={subItem.path}
+                              className="block w-full text-left py-2 text-gray-600 hover:text-[#00613a]"
+                              onClick={() => {
+                                handleContactClick(subItem.path);
+                                setMobileMenuOpen(false);
+                              }}
+                            >
+                              {subItem.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </li>
+              ))}
             </ul>
             
             <div className="flex flex-col gap-4">
