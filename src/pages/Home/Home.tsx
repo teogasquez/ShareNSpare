@@ -1,13 +1,42 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import mascotImage from '../../assets/images/mascotte-removebg-preview.webp';
 import '../../styles/globals.css';
 
+// Style pour l'animation de respiration
+const mascotBreathingStyle = `
+  @keyframes mascotBreath {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
+    }
+  }
+`;
+
 const Home = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useEffect(() => {
+    // Déclencher l'animation après un court délai
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <main className="pt-16 font-sans antialiased">
-      <section className="min-h-screen flex items-center bg-gradient-to-br from-white to-gray-50">
-        <div className="container mx-auto px-6 py-16 flex flex-col lg:flex-row items-center justify-between">
-          <div className="flex flex-col max-w-xl mb-12 lg:mb-0">
+    <main className="font-sans antialiased">
+      {/* Injecter le style de l'animation */}
+      <style dangerouslySetInnerHTML={{ __html: mascotBreathingStyle }} />
+
+      {/* Section principale - Hauteur ajustée pour garantir 100vh sans le footer visible */}
+      <section className="min-h-[100vh] flex items-center justify-center bg-gradient-to-br from-white to-gray-50">
+        <div className="container mx-auto px-6 py-16 mt-16 flex flex-col lg:flex-row items-center justify-center lg:justify-between">
+          {/* Contenu textuel - ajusté pour l'espacement */}
+          <div className="flex flex-col max-w-xl mb-12 lg:mb-0 z-10 lg:pr-12">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-tighter">
               <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">Share</span>
               <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent"> N </span>
@@ -41,17 +70,31 @@ const Home = () => {
             </div>
           </div>
           
-          <div className="relative">
+          {/* Conteneur de la mascotte - ajusté pour l'espacement */}
+          <div className="relative lg:flex-1 flex justify-center items-center lg:pl-8 lg:pr-16">
+            {/* Fond simplifié */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#00613a]/10 to-[#00a86b]/10 rounded-full blur-3xl transform scale-110 opacity-70"></div>
-            <div className="w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-[#00613a]/20 to-[#00a86b]/20 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-2xl"></div>
-            <img 
-              src={mascotImage} 
-              alt="Mascotte Share N Spare" 
-              className="relative z-10 max-w-xs md:max-w-md lg:max-w-lg filter drop-shadow-2xl" 
-            />
+            
+            {/* Mascotte avec animation d'entrée par la droite et respiration */}
+            <div className="relative z-10 flex justify-center items-center w-full h-full">
+              <img 
+                src={mascotImage} 
+                alt="Mascotte Share N Spare" 
+                className={`
+                  max-w-[80%] md:max-w-md lg:max-w-md xl:max-w-lg filter drop-shadow-2xl 
+                  transition-all duration-1000 ease-out
+                  ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}
+                `}
+                style={{
+                  animation: isLoaded ? 'mascotBreath 4s ease-in-out infinite' : 'none'
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Vous pouvez ajouter d'autres sections ici si nécessaire */}
     </main>
   );
 };

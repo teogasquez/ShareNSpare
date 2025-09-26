@@ -410,7 +410,7 @@ const B2B = () => {
       </section>
       
       {/* Section Contact/Demo - Fond vert */}
-      <section id="demo" className="min-h-screen flex items-center bg-[#00613a] py-20">
+      <section id='contact' className="min-h-screen flex items-center bg-[#00613a] py-20">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-xl">
             <div className="grid grid-cols-1 lg:grid-cols-2">
