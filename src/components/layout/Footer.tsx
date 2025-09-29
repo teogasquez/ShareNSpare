@@ -1,117 +1,251 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Logique pour gérer l'inscription à la newsletter
+    alert(`Merci de vous être inscrit à notre newsletter avec l'adresse ${email}`);
+    setEmail('');
+  };
+
   return (
-    <footer className="bg-gray-100 py-12">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
-        <div>
-          <h2 className="text-xl font-bold text-[#00613a] mb-4">Share N Spare</h2>
-          <p className="text-gray-600 mb-4">
-            Louez, prêtez, et partagez vos objets pour un avenir plus durable.
-          </p>
-          <div className="flex items-center space-x-2">
-            <img 
-              src="/img/swiss-made.png" 
-              alt="Swiss Made" 
-              className="h-6"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-            <span className="text-sm font-medium text-gray-700">Made in Switzerland</span>
-          </div>
-        </div>
-        
-        <div>
-          <h3 className="font-semibold text-gray-800 mb-4">Navigation</h3>
-          <ul className="space-y-2">
-            <li>
-              <Link to="/" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                Accueil
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                À propos
-              </Link>
-            </li>
-            <li>
-              <Link to="/faq" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                FAQ
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 className="font-semibold text-gray-800 mb-4">Nos services</h3>
-          <ul className="space-y-2">
-            <li>
-              <Link to="/c2c" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                Pour les particuliers
-              </Link>
-            </li>
-            <li>
-              <Link to="/b2b" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                Pour les entreprises
-              </Link>
-            </li>
-            <li>
-              <Link to="/download" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                Télécharger l'application
-              </Link>
-            </li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 className="font-semibold text-gray-800 mb-4">Contact</h3>
-          <p className="text-gray-600 mb-4">info@sharenspare.ch</p>
-          <div className="flex space-x-4">
-            <a 
-              href="#" 
-              aria-label="Facebook"
-              className="w-10 h-10 bg-[#00613a] text-white flex items-center justify-center rounded-full hover:bg-[#008c54] transition-colors"
-            >
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a 
-              href="#" 
-              aria-label="Instagram"
-              className="w-10 h-10 bg-[#00613a] text-white flex items-center justify-center rounded-full hover:bg-[#008c54] transition-colors"
-            >
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a 
-              href="#" 
-              aria-label="LinkedIn"
-              className="w-10 h-10 bg-[#00613a] text-white flex items-center justify-center rounded-full hover:bg-[#008c54] transition-colors"
-            >
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div className="border-t border-gray-200 mt-8 pt-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 text-sm">
-              &copy; {currentYear} Share N Spare. Tous droits réservés.
+    <footer className="bg-gray-50 pt-16 pb-8 border-t border-gray-200">
+      <div className="container mx-auto px-4">
+        {/* Section supérieure avec logo et inscription newsletter */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
+          <div>
+            <Link to="/" className="block mb-6">
+              <img 
+                src="/src/assets/images/logo.png" 
+                alt="Share N Spare Logo" 
+                className="h-10" 
+              />
+            </Link>
+            <p className="text-gray-600 mb-6 max-w-md">
+              Share N Spare révolutionne l'économie du partage en connectant particuliers et entreprises pour une utilisation optimale des ressources.
             </p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
+            <div className="flex space-x-4">
+              <Link 
+                to="/coming-soon" 
+                aria-label="Facebook"
+                className="w-10 h-10 bg-gray-200 hover:bg-[#00613a]/20 rounded-full flex items-center justify-center text-gray-600 hover:text-[#00613a] transition-colors"
+              >
+                <i className="fab fa-facebook-f"></i>
+              </Link>
+              <Link 
+                to="/coming-soon" 
+                aria-label="Twitter"
+                className="w-10 h-10 bg-gray-200 hover:bg-[#00613a]/20 rounded-full flex items-center justify-center text-gray-600 hover:text-[#00613a] transition-colors"
+              >
+                <i className="fab fa-twitter"></i>
+              </Link>
+              <Link 
+                to="/coming-soon" 
+                aria-label="Instagram"
+                className="w-10 h-10 bg-gray-200 hover:bg-[#00613a]/20 rounded-full flex items-center justify-center text-gray-600 hover:text-[#00613a] transition-colors"
+              >
+                <i className="fab fa-instagram"></i>
+              </Link>
+              <Link 
+                to="/coming-soon" 
+                aria-label="LinkedIn"
+                className="w-10 h-10 bg-gray-200 hover:bg-[#00613a]/20 rounded-full flex items-center justify-center text-gray-600 hover:text-[#00613a] transition-colors"
+              >
+                <i className="fab fa-linkedin-in"></i>
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-gray-800">Restez informé</h3>
+            <p className="text-gray-600 mb-4">
+              Abonnez-vous à notre newsletter pour recevoir les dernières nouvelles et mises à jour.
+            </p>
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Votre adresse e-mail"
+                required
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00613a]/20 focus:border-[#00613a]"
+              />
+              <button
+                type="submit"
+                className="bg-[#00613a] text-white px-6 py-2 rounded-lg hover:bg-[#005131] transition-colors whitespace-nowrap"
+              >
+                S'abonner
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Section principale - Plan du site structuré pour le SEO */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 border-t border-gray-200 pt-10">
+          {/* Colonne 1 - Principales pages */}
+          <div>
+            <h4 className="text-md font-semibold mb-4 text-gray-800">Navigation</h4>
+            <nav aria-label="Plan du site principal">
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Accueil
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    À propos
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/c2c" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Particuliers
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/b2b" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Entreprises
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }} className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          {/* Colonne 2 - Services */}
+          <div>
+            <h4 className="text-md font-semibold mb-4 text-gray-800">Nos services</h4>
+            <nav aria-label="Services">
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/location" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Location d'équipement
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/b2b" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Solutions professionnelles
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Application mobile
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/partenaires" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Programme partenaires
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Assistance
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          {/* Colonne 3 - Ressources */}
+          <div>
+            <h4 className="text-md font-semibold mb-4 text-gray-800">Ressources</h4>
+            <nav aria-label="Ressources">
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Témoignages
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Guides d'utilisation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Développement durable
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          {/* Colonne 4 - Informations légales */}
+          <div>
+            <h4 className="text-md font-semibold mb-4 text-gray-800">Informations légales</h4>
+            <nav aria-label="Informations légales">
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/terms" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Conditions d'utilisation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/privacy" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Politique de confidentialité
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/cookies" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Gestion des cookies
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/mentions-legales" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Mentions légales
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                    Politique de retours
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        {/* Section inférieure - Copyright et liens légaux importants */}
+        <div className="border-t border-gray-200 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+              <p className="text-gray-600 text-sm">
+                &copy; {currentYear} Share N Spare. Tous droits réservés.
+              </p>
+              <p className="text-gray-600 text-sm">
+                Siège social : Genève, Suisse
+              </p>
+            </div>
+            <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
-                Politique de confidentialité
+                Confidentialité
               </Link>
               <Link to="/terms" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
-                Conditions d'utilisation
+                Conditions
+              </Link>
+              <Link to="/accessibility" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
+                Accessibilité
               </Link>
             </div>
           </div>

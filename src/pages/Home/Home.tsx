@@ -39,7 +39,7 @@ const Home = () => {
           <div className="flex flex-col max-w-xl mb-12 lg:mb-0 z-10 lg:pr-12">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-tighter">
               <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">Share</span>
-              <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent"> N </span>
+              <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">N</span>
               <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">Spare</span>
             </h1>
             
