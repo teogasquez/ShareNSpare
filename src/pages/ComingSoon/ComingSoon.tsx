@@ -23,78 +23,79 @@ const ComingSoon = () => {
 
   return (
     <div className="pt-16">
-      <section className="min-h-screen flex items-center justify-center bg-white">
-        <div className="container mx-auto px-6 py-16 text-center">
-          <div className={`transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="max-w-3xl mx-auto">
-              {/* Indicateur de page en construction */}
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-[#00613a]/10 rounded-full mb-8">
-                <i className="fas fa-tools text-[#00613a] text-3xl"></i>
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl font-bold mb-8 text-gray-800">
-                Cette page est en <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">cours de création</span>
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-10">
-                Notre équipe travaille actuellement sur cette fonctionnalité pour vous offrir la meilleure expérience possible. 
-                Nous vous invitons à revenir bientôt pour découvrir les nouveautés de Share N Spare.
-              </p>
-              
-              {/* Formulaire de notification */}
-              <div className="max-w-md mx-auto bg-gray-50 rounded-xl shadow-sm p-6 mb-12">
-                <h3 className="text-lg font-semibold mb-4 text-gray-700">
-                  Soyez informé(e) du lancement
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Laissez-nous votre email et nous vous préviendrons dès que cette fonctionnalité sera disponible.
+      <section className="h-[calc(100vh-64px)] flex items-center justify-center bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div 
+            className={`transform transition-all duration-1000 ${
+              isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
+          >
+            <div className="max-w-4xl mx-auto flex flex-col-reverse md:flex-row items-center gap-8 md:gap-10">
+              {/* Partie gauche - Texte et formulaire */}
+              <div className="flex-1 text-left w-full">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#00613a]/10 text-[#00613a] text-sm font-medium mb-4 sm:mb-6">
+                  <span className="flex w-2 h-2 rounded-full bg-[#00613a] mr-2"></span>
+                  En construction
+                </div>
+                
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-800 leading-tight">
+                  Cette fonctionnalité sera <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">bientôt disponible</span>
+                </h1>
+                
+                <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+                  Notre équipe travaille actuellement sur cette fonctionnalité pour vous offrir une expérience optimale. 
+                  Laissez-nous votre email et soyez parmi les premiers à en bénéficier.
                 </p>
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+                
+                <form onSubmit={handleSubmit} className="relative mb-6 sm:mb-10">
                   <input 
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Votre adresse e-mail"
-                    className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
+                    className="w-full pl-4 sm:pl-5 pr-24 sm:pr-36 py-3 sm:py-4 rounded-full border border-gray-300 focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20 shadow-sm text-sm sm:text-base"
                     required
                   />
                   <button 
                     type="submit"
-                    className="bg-[#00613a] hover:bg-[#005131] text-white font-medium px-6 py-3 rounded-lg transition-colors"
+                    className="absolute right-1 top-1 bg-gradient-to-r from-[#00613a] to-[#00a86b] hover:from-[#005131] hover:to-[#008c59] text-white font-medium px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 text-sm sm:text-base"
                   >
                     M'avertir
                   </button>
                 </form>
+                
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                  <Link
+                    to="/"
+                    className="inline-flex items-center gap-2 text-[#00613a] font-medium hover:text-[#005131] transition-colors text-sm sm:text-base"
+                  >
+                    <i className="fas fa-arrow-left text-xs sm:text-sm"></i>
+                    <span>Accueil</span>
+                  </Link>
+                  
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-2 text-[#00613a] font-medium hover:text-[#005131] transition-colors text-sm sm:text-base"
+                  >
+                    <span>À propos</span>
+                    <i className="fas fa-arrow-right text-xs sm:text-sm"></i>
+                  </Link>
+                  
+                  <span className="text-gray-400 text-xs sm:text-sm hidden sm:inline">|</span>
+                  
+                  
+                </div>
               </div>
               
-              {/* Boutons de navigation */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  to="/"
-                  className="inline-flex items-center gap-2 text-[#00613a] font-medium hover:text-[#005131] transition-colors"
-                >
-                  <i className="fas fa-arrow-left"></i>
-                  <span>Retour à l'accueil</span>
-                </Link>
-                
-                <span className="hidden sm:inline text-gray-300">|</span>
-                
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-2 text-[#00613a] font-medium hover:text-[#005131] transition-colors"
-                >
-                  <span>En savoir plus sur Share N Spare</span>
-                  <i className="fas fa-arrow-right"></i>
-                </Link>
-              </div>
-              
-              {/* Illustration */}
-              <div className="mt-16">
-                <img 
-                  src="/src/assets/images/mascotte-removebg-preview.webp" 
-                  alt="Mascotte Share N Spare" 
-                  className="h-40 mx-auto opacity-70"
-                />
+              {/* Partie droite - Illustration */}
+              <div className="flex-1 flex justify-center mb-6 md:mb-0">
+                <div className="relative">
+                  <img 
+                    src="/src/assets/images/mascotte-removebg-preview.webp" 
+                    alt="Mascotte Share N Spare" 
+                    className="h-40 sm:h-56 md:h-64 lg:h-72 relative z-10 drop-shadow-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
