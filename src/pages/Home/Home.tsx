@@ -48,9 +48,9 @@ const Home = () => {
             </p>
             
             <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              Notre plateforme connecte les propriétaires d'objets peu utilisés
-              avec ceux qui en ont besoin ponctuellement, pour un impact positif
-              sur l'environnement et votre portefeuille.
+            Notre plateforme met en relation celles et ceux qui possèdent des biens ou des compétences inutilisés avec ceux qui en ont besoin.
+            Plutôt que d’acheter du neuf, partageons et louons ce qui existe déjà : c’est plus économique, plus durable et plus intelligent.
+            Ensemble, construisons une économie plus humaine, plus locale et vraiment circulaire.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5">

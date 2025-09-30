@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
+
+
 const B2B = () => {
   // État pour le formulaire de contact
   const [formData, setFormData] = useState({
@@ -27,7 +30,7 @@ const B2B = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div id='hero' className="pt-16">
       {/* Section 1: ShareNspare pour les entreprises - Fond blanc */}
       <section className="min-h-screen py-20 flex items-center bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
@@ -89,34 +92,34 @@ const B2B = () => {
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white shadow-md rounded-xl p-5 hover:shadow-lg transition-shadow">
                   <div className="w-12 h-12 bg-[#00613a]/10 rounded-lg flex items-center justify-center mb-4">
-                    <i className="fas fa-hammer text-[#00613a] text-xl"></i>
+                    <i className="fas fa-microphone text-[#00613a] text-xl"></i>
                   </div>
-                  <h3 className="font-bold text-lg mb-2">Échafaudages</h3>
-                  <p className="text-gray-600 text-sm">Matériel de construction spécialisé</p>
+                  <h3 className="font-bold text-lg mb-2">Systèmes son</h3>
+                  <p className="text-gray-600 text-sm">Équipements audio professionnels</p>
                 </div>
                 
                 <div className="bg-white shadow-md rounded-xl p-5 hover:shadow-lg transition-shadow">
                   <div className="w-12 h-12 bg-[#00613a]/10 rounded-lg flex items-center justify-center mb-4">
-                    <i className="fas fa-camera text-[#00613a] text-xl"></i>
+                    <i className="fas fa-lightbulb text-[#00613a] text-xl"></i>
                   </div>
-                  <h3 className="font-bold text-lg mb-2">Caméras thermiques</h3>
-                  <p className="text-gray-600 text-sm">Équipements d'inspection avancés</p>
+                  <h3 className="font-bold text-lg mb-2">Éclairages scéniques</h3>
+                  <p className="text-gray-600 text-sm">Projecteurs et effets lumineux</p>
                 </div>
                 
                 <div className="bg-white shadow-md rounded-xl p-5 hover:shadow-lg transition-shadow">
                   <div className="w-12 h-12 bg-[#00613a]/10 rounded-lg flex items-center justify-center mb-4">
-                    <i className="fas fa-ruler-combined text-[#00613a] text-xl"></i>
+                    <i className="fas fa-couch text-[#00613a] text-xl"></i>
                   </div>
-                  <h3 className="font-bold text-lg mb-2">Outils de mesure</h3>
-                  <p className="text-gray-600 text-sm">Instruments de précision spécialisés</p>
+                  <h3 className="font-bold text-lg mb-2">Mobilier design</h3>
+                  <p className="text-gray-600 text-sm">Pour salons et réceptions</p>
                 </div>
                 
                 <div className="bg-white shadow-md rounded-xl p-5 hover:shadow-lg transition-shadow">
                   <div className="w-12 h-12 bg-[#00613a]/10 rounded-lg flex items-center justify-center mb-4">
-                    <i className="fas fa-video text-[#00613a] text-xl"></i>
+                    <i className="fas fa-landmark text-[#00613a] text-xl"></i>
                   </div>
-                  <h3 className="font-bold text-lg mb-2">Matériel audiovisuel</h3>
-                  <p className="text-gray-600 text-sm">Équipements pour événements</p>
+                  <h3 className="font-bold text-lg mb-2">Structures scéniques</h3>
+                  <p className="text-gray-600 text-sm">Podiums et estrades modulaires</p>
                 </div>
               </div>
               

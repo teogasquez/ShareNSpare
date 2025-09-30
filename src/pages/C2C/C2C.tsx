@@ -152,10 +152,10 @@ const C2C = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
-                Partagez vos objets, réalisez des économies
+                Partagez vos objets, Partagez votre savoir, Réalisez des économies
               </h1>
               <p className="text-xl md:text-2xl text-[#00613a]/80">
-                Une nouvelle façon de consommer responsable et économique
+                Une nouvelle façon de consommer, plus responsable, plus économique
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
@@ -327,7 +327,7 @@ const C2C = () => {
                   <p className="text-gray-600">
                     {step === 1 && "Prenez une photo, décrivez l'objet et fixez un prix de location. C'est simple et rapide !"}
                     {step === 2 && "Les membres intéressés vous envoient des demandes de réservation pour les dates souhaitées."}
-                    {step === 3 && "Rencontrez le locataire pour lui remettre l'objet. Vous pouvez vérifier son identité via l'application."}
+                    {step === 3 && "Rencontrez le locataire, vérifiez son identité via l’application et procédez à l’échange en toute tranquillité."}
                     {step === 4 && "Recevez votre paiement directement sur votre compte une fois la location terminée."}
                   </p>
                 </div>
@@ -371,7 +371,7 @@ const C2C = () => {
         
         {activeTab === 'offer-service' && (
           <div className="space-y-8">
-            {[1, 2, 3].map((step, index) => (
+            {[1, 2, 3, 4].map((step, index) => (
               <motion.div 
                 key={`offer-service-step-${step}`}
                 initial={{ opacity: 0, x: -50 }}
@@ -385,14 +385,16 @@ const C2C = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 text-[#00613a]">
-                    {step === 1 && "Créez votre offre"}
-                    {step === 2 && "Recevez et confirmez"}
-                    {step === 3 && "Réalisez et encaissez"}
+                    {step === 1 && "Proposez votre service"}
+                    {step === 2 && "Recevez des demandes"}
+                    {step === 3 && "Réaslizez la prestation"}
+                    {step === 4 && "Encaissez"}
                   </h3>
                   <p className="text-gray-600">
-                    {step === 1 && "Compétences, zones d'intervention, créneaux, tarifs."}
-                    {step === 2 && "Gérez vos demandes depuis votre calendrier."}
-                    {step === 3 && "Mission validée, paiement libéré, avis qui boostent votre visibilité."}
+                    {step === 1 && "Décrivez vos compétences, fixez votre tarif et vos disponibilités. En quelques clics, votre service est en ligne !"}
+                    {step === 2 && "Les membres intéressés vous contactent directement via l’application et envoient leurs demandes de réservation selon leurs besoins."}
+                    {step === 3 && "Rencontrez votre client et effectuez la mission convenue."}
+                    {step === 4 && "Une fois le service terminé, recevez automatiquement votre paiement sur votre compte !"}
                   </p>
                 </div>
               </motion.div>
@@ -402,7 +404,7 @@ const C2C = () => {
         
         {activeTab === 'hire-service' && (
           <div className="space-y-8">
-            {[1, 2, 3].map((step, index) => (
+            {[1, 2, 3, 4].map((step, index) => (
               <motion.div 
                 key={`hire-service-step-${step}`}
                 initial={{ opacity: 0, x: -50 }}
@@ -416,14 +418,16 @@ const C2C = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 text-[#00613a]">
-                    {step === 1 && "Décrivez votre besoin"}
-                    {step === 2 && "Comparez et choisissez"}
-                    {step === 3 && "Réservez en toute confiance"}
+                    {step === 1 && "Trouvez le service qu’il vous faut"}
+                    {step === 2 && "Comparez"}
+                    {step === 3 && "Choisissez"}
+                    {step === 4 && "Réservez en toute confiance"}
                   </h3>
                   <p className="text-gray-600">
                     {step === 1 && "Type de service, date, durée, lieu, budget."}
                     {step === 2 && "Profils vérifiés, avis, dispos et tarifs clairs."}
-                    {step === 3 && "Messagerie intégrée, suivi de mission, paiement sécurisé."}
+                    {step === 3 && "Choisissez l'offre qui vous correspond le mieux."}
+                    {step === 4 && "Messagerie intégrée, suivi de mission, paiement sécurisé."}
                   </p>
                 </div>
               </motion.div>
@@ -435,8 +439,8 @@ const C2C = () => {
     
   </div>
 </section>      
-      {/* Section Témoignages - Fond blanc */}
-<section className="min-h-screen flex items-center bg-white py-20 overflow-hidden">
+      {/* Section Témoignages - Fond blanc 
+<section id='testimony' className="min-h-screen flex items-center bg-white py-20 overflow-hidden">
   <div className="container mx-auto px-4 max-w-7xl relative">
     <div className="text-center mb-16 text-[#00613a]">
       <h2 className="text-4xl font-bold mb-6">Ce que notre communauté en dit</h2>
@@ -505,8 +509,9 @@ const C2C = () => {
     </div>
   </div>
 </section>
+*/}
 
-   {/* Section Blog - Fond vert */}
+   {/* Section Blog - Fond vert 
 <section className="min-h-screen flex items-center bg-[#00613a] py-20">
   <div className="container mx-auto px-4 max-w-7xl">
     <div className="text-center mb-16">
@@ -545,6 +550,7 @@ const C2C = () => {
     </div>
   </div>
 </section>
+*/} 
       
 {/* Section Compteur - Fond blanc */}
 <section id='countdown' className="min-h-screen flex items-center bg-white py-20">
@@ -594,7 +600,7 @@ const C2C = () => {
 </section>
 
 {/* Section Devenir partenaire - Fond vert */}
-<section className="min-h-screen flex items-center bg-[#00613a] py-20">
+<section id='partner' className="min-h-screen flex items-center bg-[#00613a] py-20">
   <div className="container mx-auto px-4 max-w-7xl">
     <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-lg">
       <div className="text-center mb-10">
@@ -628,23 +634,23 @@ const C2C = () => {
         </div>
         
         <div className="bg-gray-50 rounded-xl p-6 shadow-sm">
-          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les collectivités</h3>
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les Prestataires indépendants</h3>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Proposez un nouveau service à vos citoyens</span>
+              <span>Soyez parmi les premiers à proposer vos services via ShareNSpare</span>
             </li>
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Réduisez l'impact environnemental de votre commune</span>
+              <span>Gagnez en visibilité et attirez de nouveaux clients</span>
             </li>
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Créez du lien social entre les habitants</span>
+              <span>Boostez votre activité</span>
             </li>
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Développez l'économie locale et solidaire</span>
+              <span>Rejoignez une communauté d’indépendants engagés</span>
             </li>
           </ul>
         </div>

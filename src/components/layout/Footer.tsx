@@ -139,17 +139,17 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/C2C#countdown" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Application mobile
                   </Link>
                 </li>
                 <li>
-                  <Link to="/partenaires" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="#partner" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Programme partenaires
                   </Link>
                 </li>
                 <li>
-                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="#contact" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Assistance
                   </Link>
                 </li>
@@ -167,26 +167,18 @@ const Footer = () => {
                     Blog
                   </Link>
                 </li>
+              
                 <li>
-                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="#testimony" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Témoignages
                   </Link>
                 </li>
                 <li>
                   <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                    Guides d'utilisation
+                    Guides d'utilisation de l'application
                   </Link>
                 </li>
-                <li>
-                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                    Développement durable
-                  </Link>
-                </li>
+              
               </ul>
             </nav>
           </div>
@@ -206,21 +198,13 @@ const Footer = () => {
                     Politique de confidentialité
                   </Link>
                 </li>
-                <li>
-                  <Link to="/cookies" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                    Gestion des cookies
-                  </Link>
-                </li>
+                
                 <li>
                   <Link to="/mentions-legales" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Mentions légales
                   </Link>
                 </li>
-                <li>
-                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                    Politique de retours
-                  </Link>
-                </li>
+                
               </ul>
             </nav>
           </div>
@@ -231,7 +215,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
               <p className="text-gray-600 text-sm">
-                &copy; {currentYear} Share N Spare. Tous droits réservés.
+                &copy; {currentYear} ShareNSpare. Tous droits réservés.
               </p>
               <p className="text-gray-600 text-sm">
                 Siège social : Genève, Suisse

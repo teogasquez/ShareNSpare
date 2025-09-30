@@ -5,9 +5,9 @@ import mascotImage from '../../assets/images/mascotte-removebg-preview.webp';
 // Navigation links simplifiés
 const navItems = [
   { path: '/', label: 'Accueil' },
-  { path: '/c2c', label: 'Particuliers' },
-  { path: '/b2b', label: 'Entreprises' },
-  { path: '/about', label: 'À propos' },  // Lien simple vers une page à propos
+  { path: '/c2c#hero', label: 'Particuliers' },
+  { path: '/b2b#hero', label: 'Entreprises' },
+  { path: '/about', label: 'À propos' },  
   { 
     label: 'Contact',
     hasSubmenu: true,
@@ -209,19 +209,55 @@ const Header = () => {
         isScrolled ? 'bg-white/90 shadow-lg py-2' : 'bg-white/80 py-3'
       }`}>
         <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center">
-            {/* Logo and brand name */}
-            <Link to="/" className="flex items-center gap-3">
-              {/* Mascotte à côté du texte ShareNSpare */}
+          <div className="flex justify-between items-center relative">
+            {/* Logo desktop */}
+            <Link to="/" className="hidden lg:flex items-center gap-3">
               <div className="flex items-center">
                 <img 
                   src={mascotImage} 
-                  alt="Share N Spare Mascotte" 
+                  alt="ShareNSpare Mascotte" 
                   className="h-10 w-auto mr-2" 
                 />
-                <span className="text-xl font-bold text-[#00613a] hidden sm:inline">ShareNSpare</span>
+                <span className="text-xl font-bold text-[#00613a]">ShareNSpare</span>
               </div>
             </Link>
+            
+            {/* Mobile/Tablet layout */}
+            <div className="lg:hidden flex w-full justify-between items-center">
+              {/* Mascotte à gauche */}
+              <Link to="/" className="flex items-center">
+                <img 
+                  src={mascotImage} 
+                  alt="Share N Spare Mascotte" 
+                  className="h-10 w-auto" 
+                />
+              </Link>
+  
+              {/* Logo au centre - position absolue pour centrage parfait */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-none">
+                <span className="text-xl font-bold text-[#00613a]">ShareNSpare</span>
+              </div>
+  
+              {/* Menu burger à droite */}
+              <button
+                type="button"
+                className="inline-flex items-center justify-center p-2 rounded-md text-[#00613a]"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                <span className="sr-only">Ouvrir le menu principal</span>
+                {mobileMenuOpen ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </button>
+            </div>
             
             {/* Desktop navigation */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -260,7 +296,7 @@ const Header = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
                         </span>
-
+  
                         {/* Sous-menu avec ses propres événements de survol */}
                         {activeSubmenu === item.label && item.submenu && (
                           <div 
@@ -309,23 +345,6 @@ const Header = () => {
                 </select>
               </div>
             </nav>
-            
-            {/* Mobile menu button */}
-            <button
-              className="lg:hidden text-gray-700 focus:outline-none"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
           </div>
         </div>
       </div>
@@ -372,7 +391,7 @@ const Header = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </div>
-
+  
                       {/* Sous-menu mobile */}
                       {activeSubmenu === item.label && item.submenu && (
                         <div className="pl-4 mt-2 border-l-2 border-gray-200">
