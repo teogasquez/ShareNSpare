@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import mascotImage from '../../assets/images/mascotte-removebg-preview.webp';
+
 
 const ComingSoon = () => {
   const [email, setEmail] = useState('');
@@ -91,7 +93,7 @@ const ComingSoon = () => {
               <div className="flex-1 flex justify-center mb-6 md:mb-0">
                 <div className="relative">
                   <img 
-                    src="/src/assets/images/mascotte-removebg-preview.webp" 
+                    src={mascotImage}
                     alt="Mascotte ShareNSpare" 
                     className="h-40 sm:h-56 md:h-64 lg:h-72 relative z-10 drop-shadow-lg"
                   />

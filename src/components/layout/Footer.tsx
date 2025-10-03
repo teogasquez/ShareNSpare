@@ -168,11 +168,7 @@ const Footer = () => {
                   </Link>
                 </li>
               
-                <li>
-                  <Link to="#testimony" className="text-gray-600 hover:text-[#00613a] transition-colors">
-                    Témoignages
-                  </Link>
-                </li>
+                
                 <li>
                   <Link to="/coming-soon#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Guides d'utilisation de l'application
