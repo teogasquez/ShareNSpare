@@ -50,7 +50,7 @@ const Home = () => {
             <p className="text-xl text-gray-600 mb-10 leading-relaxed">
             Notre plateforme met en relation celles et ceux qui possèdent des biens ou des compétences inutilisés avec ceux qui en ont besoin.
             Plutôt que d’acheter du neuf, partageons et louons ce qui existe déjà : c’est plus économique, plus durable et plus intelligent.
-            Ensemble, construisons une économie plus humaine, plus locale et vraiment circulaire.
+            
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5">
@@ -79,7 +79,7 @@ const Home = () => {
             <div className="relative z-10 flex justify-center items-center w-full h-full">
               <img 
                 src={mascotImage} 
-                alt="Mascotte Share N Spare" 
+                alt="Mascotte ShareNSpare" 
                 className={`
                   max-w-[80%] md:max-w-md lg:max-w-md xl:max-w-lg filter drop-shadow-2xl 
                   transition-all duration-1000 ease-out

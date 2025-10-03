@@ -20,13 +20,13 @@ const Footer = () => {
           <div>
             <Link to="/" className="block mb-6">
               <img 
-                src="/src/assets/images/logo.png" 
-                alt="Share N Spare Logo" 
+                src="/src/assets/images/mascotte-removebg-preview.webp" 
+                alt="ShareNSpare Logo" 
                 className="h-10" 
               />
             </Link>
             <p className="text-gray-600 mb-6 max-w-md">
-              Share N Spare révolutionne l'économie du partage en connectant particuliers et entreprises pour une utilisation optimale des ressources.
+              ShareNSpare révolutionne l'économie du partage en connectant particuliers et entreprises pour une utilisation optimale des ressources.
             </p>
             <div className="flex space-x-4">
               <Link 
@@ -129,12 +129,12 @@ const Footer = () => {
             <nav aria-label="Services">
               <ul className="space-y-3">
                 <li>
-                  <Link to="/location" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/C2C#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Location d'équipement
                   </Link>
                 </li>
                 <li>
-                  <Link to="/b2b" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/b2b#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Solutions professionnelles
                   </Link>
                 </li>
@@ -163,7 +163,7 @@ const Footer = () => {
             <nav aria-label="Ressources">
               <ul className="space-y-3">
                 <li>
-                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/coming-soon#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Blog
                   </Link>
                 </li>
@@ -174,7 +174,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/coming-soon" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/coming-soon#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Guides d'utilisation de l'application
                   </Link>
                 </li>

@@ -14,12 +14,13 @@ const C2C = () => {
   const testimonialsRef = useRef<HTMLDivElement>(null);
   
   // Définir des styles pour les lignes de témoignages
-  const testimonialRowStyle = {
+  {/* const testimonialRowStyle = {
     display: 'flex',
     gap: '20px',
     width: 'fit-content'
-  };
+  }; */}
   
+  {/* 
   // Témoignages fictifs
   const testimonials = [
     { id: 1, name: "Marie L.", text: "J'ai hâte de pouvoir me connecter avec mes voisins pour partager des objets du quotidien. Une super initiative !", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
@@ -32,7 +33,8 @@ const C2C = () => {
     { id: 8, name: "Nicolas P.", text: "Économiser de l'argent tout en aidant la planète, c'est exactement ce dont nous avons besoin.", avatar: "https://randomuser.me/api/portraits/men/67.jpg" },
     { id: 9, name: "Camille F.", text: "Je suis impatiente de pouvoir prêter ma machine à raclette qui ne sert que 2 fois par an !", avatar: "https://randomuser.me/api/portraits/women/22.jpg" },
   ];
-  
+  */}
+  {/* 
   // Articles de blog fictifs
   const blogPosts = [
     {
@@ -57,6 +59,7 @@ const C2C = () => {
       date: "28 juin 2023"
     }
   ];
+  */}
   
   // Effet pour le carousel de témoignages
   useEffect(() => {
@@ -235,7 +238,7 @@ const C2C = () => {
         viewport={{ once: true }}
         className="text-xl max-w-2xl mx-auto text-white/90"
       >
-        Share N Spare vous permet de louer vos objets, d'en emprunter ou d'échanger des services
+        ShareNSpare vous permet de louer vos objets, d'en emprunter ou d'échanger des services
         facilement et en toute sécurité.
       </motion.p>
     </div>
@@ -606,7 +609,7 @@ const C2C = () => {
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-[#00613a] mb-6">Devenir partenaire</h2>
         <p className="text-xl text-gray-600">
-          Le projet vous intéresse ? Rejoignez l'aventure Share N Spare et participez à la révolution de l'économie de partage.
+          Le projet vous intéresse ? Rejoignez l'aventure ShareNSpare et participez à la révolution de l'économie de partage.
         </p>
       </div>
       
@@ -706,7 +709,7 @@ const C2C = () => {
               <div>
                 <div className="font-medium text-lg">Adresse</div>
                 <address className="text-white/80 not-italic">
-                  Share N Spare<br />
+                  ShareNSpare<br />
                   1200 Genève<br />
                   Suisse
                 </address>

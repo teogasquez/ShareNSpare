@@ -22,7 +22,7 @@ const ComingSoon = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div id='hero' className="pt-16">
       <section className="h-[calc(100vh-64px)] flex items-center justify-center bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div 
@@ -92,7 +92,7 @@ const ComingSoon = () => {
                 <div className="relative">
                   <img 
                     src="/src/assets/images/mascotte-removebg-preview.webp" 
-                    alt="Mascotte Share N Spare" 
+                    alt="Mascotte ShareNSpare" 
                     className="h-40 sm:h-56 md:h-64 lg:h-72 relative z-10 drop-shadow-lg"
                   />
                 </div>
