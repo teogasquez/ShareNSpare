@@ -155,10 +155,10 @@ const C2C = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
-                Partagez vos objets, Partagez votre savoir, Réalisez des économies
+              Partagez vos objets ou services, et réalisez des économies !
               </h1>
               <p className="text-xl md:text-2xl text-[#00613a]/80">
-                Une nouvelle façon de consommer, plus responsable, plus économique
+                Une nouvelle façon de consommer, plus responsable, plus économique.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
@@ -238,8 +238,7 @@ const C2C = () => {
         viewport={{ once: true }}
         className="text-xl max-w-2xl mx-auto text-white/90"
       >
-        ShareNSpare vous permet de louer vos objets, d'en emprunter ou d'échanger des services
-        facilement et en toute sécurité.
+        ShareNSpare vous permet de louer, d’emprunter ou d’échanger des objets et des services simplement et en toute sécurité !
       </motion.p>
     </div>
     
@@ -390,7 +389,7 @@ const C2C = () => {
                   <h3 className="text-xl font-bold mb-2 text-[#00613a]">
                     {step === 1 && "Proposez votre service"}
                     {step === 2 && "Recevez des demandes"}
-                    {step === 3 && "Réaslizez la prestation"}
+                    {step === 3 && "Réalisez la prestation"}
                     {step === 4 && "Encaissez"}
                   </h3>
                   <p className="text-gray-600">
@@ -422,15 +421,15 @@ const C2C = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-2 text-[#00613a]">
                     {step === 1 && "Trouvez le service qu’il vous faut"}
-                    {step === 2 && "Comparez"}
-                    {step === 3 && "Choisissez"}
-                    {step === 4 && "Réservez en toute confiance"}
+                    {step === 2 && "Envoyez une demande via l’application"}
+                    {step === 3 && "Profitez du service"}
+                    {step === 4 && "Réglez et recommencez !"}
                   </h3>
                   <p className="text-gray-600">
-                    {step === 1 && "Type de service, date, durée, lieu, budget."}
-                    {step === 2 && "Profils vérifiés, avis, dispos et tarifs clairs."}
-                    {step === 3 && "Choisissez l'offre qui vous correspond le mieux."}
-                    {step === 4 && "Messagerie intégrée, suivi de mission, paiement sécurisé."}
+                    {step === 1 && "Parcourez les annonces disponibles et choisissez le service adapté à vos besoins."}
+                    {step === 2 && "Sélectionnez vos dates et envoyez directement votre demande de réservation au prestataire."}
+                    {step === 3 && "Rencontrez le prestataire ou bénéficiez de la prestation convenue, en toute simplicité."}
+                    {step === 4 && "Le paiement est géré via l’application et n’est prélevé qu’une fois le service réalisé."}
                   </p>
                 </div>
               </motion.div>
@@ -637,7 +636,7 @@ const C2C = () => {
         </div>
         
         <div className="bg-gray-50 rounded-xl p-6 shadow-sm">
-          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les Prestataires indépendants</h3>
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les prestataires indépendants</h3>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
