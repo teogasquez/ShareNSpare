@@ -185,18 +185,18 @@ const Footer = () => {
             <nav aria-label="Informations légales">
               <ul className="space-y-3">
                 <li>
-                  <Link to="/terms" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/legal#conditions" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Conditions d'utilisation
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/legal#confidentialite" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Politique de confidentialité
                   </Link>
                 </li>
                 
                 <li>
-                  <Link to="/mentions-legales" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/legal#mentions-legales" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Mentions légales
                   </Link>
                 </li>
