@@ -4,12 +4,18 @@ import { useState } from 'react';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Logique pour gérer l'inscription à la newsletter
-    alert(`Merci de vous être inscrit à notre newsletter avec l'adresse ${email}`);
+    // Netlify gère la soumission
+    setIsSubmitted(true);
     setEmail('');
+    
+    // Réinitialiser le message après 5 secondes
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 5000);
   };
 
   return (
@@ -60,29 +66,56 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Newsletter */}
           <div>
             <h3 className="text-lg font-semibold mb-6 text-gray-800">Restez informé</h3>
             <p className="text-gray-600 mb-4">
               Abonnez-vous à notre newsletter pour recevoir les dernières nouvelles et mises à jour.
             </p>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Votre adresse e-mail"
-                required
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00613a]/20 focus:border-[#00613a]"
-              />
-              <button
-                type="submit"
-                className="bg-[#00613a] text-white px-6 py-2 rounded-lg hover:bg-[#005131] transition-colors whitespace-nowrap"
+            
+            {isSubmitted ? (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+                <i className="fas fa-check-circle text-green-600 text-xl mb-2"></i>
+                <p className="text-green-700 font-medium">Merci pour votre inscription !</p>
+                <p className="text-green-600 text-sm">Vous recevrez bientôt nos actualités.</p>
+              </div>
+            ) : (
+              <form 
+                name="newsletter" 
+                method="POST" 
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit} 
+                className="flex flex-col sm:flex-row gap-4"
               >
-                S'abonner
-              </button>
-            </form>
-          </div>
+                {/* Champs cachés requis par Netlify */}
+                <input type="hidden" name="form-name" value="newsletter" />
+                <input type="hidden" name="subject" value="Nouvelle inscription à la newsletter" />
+                <div className="hidden">
+                  <label>
+                    Don't fill this out: <input name="bot-field" />
+                  </label>
+                </div>
+
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Votre adresse e-mail"
+                  required
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00613a]/20 focus:border-[#00613a]"
+                />
+                <button
+                  type="submit"
+                  className="bg-[#00613a] text-white px-6 py-2 rounded-lg hover:bg-[#005131] transition-colors whitespace-nowrap"
+                >
+                  S'abonner
+                </button>
+              </form>
+            )}
         </div>
+      </div>
 
         {/* Section principale - Plan du site structuré pour le SEO */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 border-t border-gray-200 pt-10">
@@ -214,19 +247,20 @@ const Footer = () => {
                 &copy; {currentYear} ShareNSpare. Tous droits réservés.
               </p>
               <p className="text-gray-600 text-sm">
+               {currentYear} By 404Production
+              </p>
+              <p className="text-gray-600 text-sm">
                 Siège social : Genève, Suisse
               </p>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
+              <Link to="/legal#confidentialite" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
                 Confidentialité
               </Link>
-              <Link to="/terms" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
+              <Link to="/legal#conditions" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
                 Conditions
               </Link>
-              <Link to="/accessibility" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
-                Accessibilité
-              </Link>
+            
             </div>
           </div>
         </div>

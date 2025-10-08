@@ -2,13 +2,26 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/webp" href="./src/assets/images/mascotte-removebg-preview.webp" />    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/webp" href="./src/assets/images/mascotte-removebg-preview.webp" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShareNSpare</title>
-
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Formulaire caché pour la détection Netlify Forms -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <!-- Formulaire newsletter caché pour Netlify -->
+    <form name="newsletter" netlify netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+    </form>
+    
   </body>
 </html>

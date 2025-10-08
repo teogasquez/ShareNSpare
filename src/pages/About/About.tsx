@@ -55,135 +55,154 @@ const About = () => {
 
 {/* Notre histoire - Fond blanc, texte vert */}
 <section className="py-16 sm:py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">Notre Histoire : ShareNspare</h2>
-          
-          <div className="max-w-6xl mx-auto">
-            {/* Timeline */}
-            <div className="relative">
-              {/* Ligne verticale de la timeline */}
-              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#00613a]/20"></div>
-              
-              {/* Première étape (Citation à droite / Contenu à gauche) - OK */}
-              <div className="mb-12 sm:mb-16 md:mb-24 relative">
-                <div className="flex flex-col md:flex-row items-center">
-                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-[#00613a]">L'Étincelle Circulaire</h3>
-                    <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                      En 2024, nous avons été frappés par l'énorme potentiel gâché de nos objets. La sous-utilisation massive des outils du quotidien était une aberration face aux défis durables.
-                    </p>
-                  </div>
-                  
-                  <div className="md:hidden mb-4 text-center">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-[#00613a]">L'Étincelle Circulaire</h3>
-                    <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                    En 2024, nous avons été frappés par l'énorme potentiel gâché de nos objets. La sous-utilisation massive des outils du quotidien était une aberration face aux défis durables.
-                    </p>
-                  </div>
-                  
-                  
-                  
-                  <div className="md:w-1/2 md:pl-12 md:text-left hidden md:block">
-                    <div className="bg-[rgba(0,97,58,0.05)] p-4 sm:p-6 rounded-xl shadow">
-                      <p className="text-[#00613a] italic text-sm sm:text-base">
-                        "Si l'on pouvait économiser de l'argent et de l'espace en partageant ce qui prend la poussière ?"
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="md:hidden">
-                    <div className="bg-[rgba(0,97,58,0.05)] p-4 sm:p-6 rounded-xl shadow">
-                      <p className="text-[#00613a] italic text-sm sm:text-base">
-                        "Si l'on pouvait économiser de l'argent et de l'espace en partageant ce qui prend la poussière ?"
-                      </p>
-                    </div>
-                  </div>
-                </div>
+  <div className="container mx-auto px-4 sm:px-6">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">
+      Notre Histoire : ShareNSpare
+    </h2>
+    
+    <div className="max-w-6xl mx-auto">
+      {/* Timeline */}
+      <div className="relative">
+        {/* Ligne verticale de la timeline */}
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#00613a]/20"></div>
+        
+        {/* Première étape - L'Étincelle Circulaire */}
+        <div className="mb-12 sm:mb-16 md:mb-24 relative">
+          <div className="flex flex-col md:flex-row items-center">
+            {/* Desktop - Contenu à gauche */}
+            <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">L'Étincelle Circulaire</h3>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
+                En novembre 2024, Simon emménage dans un nouvel appartement. Afin de monter ses meubles et d'accrocher ses tableaux, 
+                il se retrouve face à une triste réalité : il lui faut une boîte à outils et une perceuse.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left" >
+                Et voilà, 300 CHF de frais supplémentaires à ajouter à la longue liste d'achats pour s'installer. 
+                Deux semaines et quelques manuels IKEA plus tard, ces deux mêmes objets finissent dans un placard… à prendre la poussière.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-left">
+                Jusqu'au jour où, un matin, Simon sort de son ascenseur et voit son voisin revenant du magasin avec exactement la même boîte à outils. 
+                C'est là qu'il réalise l'absurdité de cet achat coûteux, utilisé à peine quelques jours.
+              </p>
+            </div>
+            
+            {/* Mobile - Contenu en haut */}
+            <div className="md:hidden mb-6 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">L'Étincelle Circulaire</h3>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
+                En novembre 2024, Simon emménage dans un nouvel appartement. Afin de monter ses meubles et d'accrocher ses tableaux, 
+                il se retrouve face à une triste réalité : il lui faut une boîte à outils et une perceuse.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
+                Et voilà, 300 CHF de frais supplémentaires à ajouter à la longue liste d'achats pour s'installer. 
+                Deux semaines et quelques manuels IKEA plus tard, ces deux mêmes objets finissent dans un placard… à prendre la poussière.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed">
+                Jusqu'au jour où, un matin, Simon sort de son ascenseur et voit son voisin revenant du magasin avec exactement la même boîte à outils. 
+                C'est là qu'il réalise l'absurdité de cet achat coûteux, utilisé à peine quelques jours.
+              </p>
+            </div>
+            
+            {/* Citation à droite */}
+            <div className="md:w-1/2 md:pl-12">
+              <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
+                <p className="text-[#00613a] italic text-base sm:text-lg font-medium">
+                  "Il devait bien y avoir une meilleure façon de faire !"
+                </p>
               </div>
-              
-              {/* Deuxième étape (MODIFIÉE : Citation à gauche / Contenu à droite) */}
-              <div className="mb-12 sm:mb-16 md:mb-24 relative">
-                <div className="flex flex-col md:flex-row items-center">
-                  
-                  {/* Colonne 1 (GAUCHE) : Contient la citation sur grand écran */}
-                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right">
-                    
-                    {/* Bloc Citation (Visible sur grand écran à GAUCHE, et sur mobile en haut) */}
-                    <div className="bg-[rgba(0,97,58,0.05)] p-4 sm:p-6 rounded-xl shadow">
-                      <p className="text-[#00613a] italic text-sm sm:text-base">
-                        "Après six mois d'étude et de conception, la plateforme ShareNspare prenait enfin forme."
-                      </p>
-                    </div>
-                    
-                    {/* Contenu principal (sur mobile uniquement, pour le flux) */}
-                    <div className="md:hidden mb-4 text-center mt-4">
-                      <h3 className="text-xl sm:text-2xl font-bold mb-3 text-[#00613a]">Du Concept au Prototype</h3>
-                      <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                        Fin 2024, nous avons lancé une phase intense de R&D, menant des enquêtes pour cibler les besoins et les freins de la communauté au partage.
-                      </p>
-                    </div>
-
-                  </div>
-                  
-                  {/* Colonne 2 (DROITE) : Contient le texte descriptif sur grand écran */}
-                  <div className="md:w-1/2 md:pl-12 md:text-left">
-                    
-                    {/* Contenu principal (Visible sur grand écran à DROITE) */}
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-[#00613a] hidden md:block">Du Concept au Prototype</h3>
-                    <p className="text-[#00613a] opacity-80 hidden md:block text-sm sm:text-base">
-                      Fin 2024, nous avons lancé une phase intense de R&D, menant des enquêtes pour cibler les besoins et les freins de la communauté au partage.
-                    </p>
-                    
-                  </div>
-                </div>
-              </div>
-              
-              {/* Troisième étape (Citation à droite / Contenu à gauche) - OK */}
-              <div className="relative">
-                <div className="flex flex-col md:flex-row items-center">
-                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-[#00613a]">Lancement et Vision</h3>
-                    <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                      En 2025, nous ouvrons officiellement ShareNspare. Notre mission est d'ancrer le réflexe du partage dans le quotidien de chacun.
-                    </p>
-                  </div>
-                  
-                  <div className="md:hidden mb-4 text-center">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-[#00613a]">Lancement et Vision</h3>
-                    <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                      En 2025, nous ouvrons officiellement ShareNspare. Notre mission est d'ancrer le réflexe du partage dans le quotidien de chacun.
-                    </p>
-                  </div>
-                  
-                  
-                  
-                  <div className="md:w-1/2 md:pl-12 md:text-left hidden md:block">
-                    <div className="bg-[rgba(0,97,58,0.05)] p-4 sm:p-6 rounded-xl shadow">
-                      <p className="text-[#00613a] italic text-sm sm:text-base">
-                        "Notre objectif est de créer une communauté solidaire qui utilise mieux ce qu'elle possède déjà."
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="md:hidden">
-                    <div className="bg-[rgba(0,97,58,0.05)] p-4 sm:p-6 rounded-xl shadow">
-                      <p className="text-[#00613a] italic text-sm sm:text-base">
-                        "Notre objectif est de créer une communauté solidaire qui utilise mieux ce qu'elle possède déjà."
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Deuxième étape - Du Concept au Prototype */}
+        <div className="mb-12 sm:mb-16 md:mb-24 relative">
+          <div className="flex flex-col md:flex-row items-center">
+            {/* Citation à gauche sur desktop */}
+            <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right order-2 md:order-1">
+              <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
+                <p className="text-[#00613a] italic text-base sm:text-lg font-medium">
+                  "Moins d'achats, plus de partage : voilà l'avenir."
+                </p>
               </div>
             </div>
             
-            <div className="text-center mt-12 sm:mt-16">
-              <p className="text-lg sm:text-xl font-bold text-[#00613a]">
-                Une seule devise guide notre projet : Do more with less.
+            {/* Contenu à droite sur desktop, en bas sur mobile */}
+            <div className="md:w-1/2 md:pl-12 order-1 md:order-2 mb-6 md:mb-0">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a] text-center md:text-left">
+                Du Concept au Prototype
+              </h3>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-center md:text-left">
+                Après plusieurs mois de réflexion, Simon décide de passer à l'action : développer une application simple et intuitive, 
+                capable de connecter ceux qui ont besoin d'objets ponctuellement avec ceux qui les possèdent déjà.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-center md:text-left">
+                L'objectif est clair : réduire la surconsommation et mettre en avant une économie de partage et circulaire. 
+                Il partage son idée avec Téo, un ami de longue date passionné de design web, qui rejoint immédiatement l'aventure.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-center md:text-left">
+                Ensemble, ils affinent le concept, identifient les besoins du marché et posent les premières bases de l'application. 
+                ShareNSpare est en train de naître !
               </p>
             </div>
           </div>
         </div>
-      </section>
+        
+        {/* Troisième étape - Lancement et Vision */}
+        <div className="relative">
+          <div className="flex flex-col md:flex-row items-center">
+            {/* Desktop - Contenu à gauche */}
+            <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">Lancement et Vision</h3>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
+                Août 2025 : le concept est prêt et nous créons officiellement ShareNSpare ! Ce n'est plus seulement une idée, 
+                mais un projet concret avec une mission claire : rendre la location simple, accessible et bénéfique pour tous.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
+                Chaque jour, nous travaillons avec passion pour transformer cette vision en réalité. Mais nous ne le faisons pas seuls : 
+                c'est aussi grâce à vos idées et vos retours que nous développons l'application de partage de demain.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-left">
+                Alors, si vous ne faites pas encore partie de l'aventure, rejoignez ShareNSpare et devenez acteur du changement !
+              </p>
+            </div>
+            
+            {/* Mobile - Contenu en haut */}
+            <div className="md:hidden mb-6 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">Lancement et Vision</h3>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
+                Août 2025 : le concept est prêt et nous créons officiellement ShareNSpare ! Ce n'est plus seulement une idée, 
+                mais un projet concret avec une mission claire : rendre la location simple, accessible et bénéfique pour tous.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
+                Chaque jour, nous travaillons avec passion pour transformer cette vision en réalité. Mais nous ne le faisons pas seuls : 
+                c'est aussi grâce à vos idées et vos retours que nous développons l'application de partage de demain.
+              </p>
+              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed">
+                Alors, si vous ne faites pas encore partie de l'aventure, rejoignez ShareNSpare et devenez acteur du changement !
+              </p>
+            </div>
+            
+            {/* Citation à droite */}
+            <div className="md:w-1/2 md:pl-12">
+              <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
+                <p className="text-[#00613a] italic text-base sm:text-lg font-medium">
+                  "Seul on va plus vite, ensemble on va plus loin."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Devise finale */}
+      <div className="text-center mt-12 sm:mt-16">
+        <p className="text-lg sm:text-xl font-bold text-[#00613a]">
+          Une seule devise guide notre projet : Do more with less.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Comment ça marche - Fond vert, texte blanc */}
       <section className="py-16 sm:py-20 md:py-24 bg-[#00613a] text-white">

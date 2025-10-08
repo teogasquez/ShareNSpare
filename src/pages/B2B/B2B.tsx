@@ -1,33 +1,12 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Contact from '../../components/layout/Contact';
+
 
 
 
 
 const B2B = () => {
-  // État pour le formulaire de contact
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
 
-  // Gestion des changements du formulaire
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  // Gestion de la soumission du formulaire
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Formulaire soumis:', formData);
-    // Ajoutez ici votre logique d'envoi du formulaire (API, etc.)
-    alert('Merci pour votre message! Nous vous contacterons prochainement.');
-    setFormData({ name: '', company: '', email: '', phone: '', message: '' });
-  };
 
   return (
     <div id='hero' className="pt-16">
@@ -183,120 +162,114 @@ const B2B = () => {
           </div>
         </div>
       </section>
+
+
+      {/* Section Devenir partenaire - Fond blanc */}
+<section id='partner' className="min-h-screen flex items-center bg-white py-20">
+  <div className="container mx-auto px-4 max-w-7xl">
+    <div className="max-w-3xl mx-auto bg-gray-50 rounded-2xl p-8 md:p-12 shadow-lg">
+      <div className="text-center mb-10">
+        <h2 className="text-4xl font-bold text-[#00613a] mb-6">Devenir partenaire</h2>
+        <p className="text-xl text-gray-600">
+          Le projet vous intéresse ? Rejoignez l'aventure ShareNSpare et participez à la révolution de l'économie de partage.
+        </p>
+      </div>
       
-      {/* Section 3: Contactez-nous - Fond blanc */}
-      <section className="min-h-screen py-20 flex items-center bg-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6 text-[#00613a]">Contactez-nous</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Vous souhaitez en savoir plus sur ShareNSpare et découvrir comment votre entreprise peut 
-              bénéficier de cette nouvelle façon de collaborer ?
-            </p>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-4">
-              Remplissez le formulaire ci-dessous et nous vous recontacterons rapidement pour discuter de vos besoins.
-            </p>
-          </div>
-          
-          <div id="contact-form" className="max-w-3xl mx-auto bg-gray-50 rounded-2xl shadow-lg p-8 md:p-12">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Nom et prénom</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
-                    placeholder="Votre nom"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="company" className="block text-gray-700 font-medium mb-2">Entreprise</label>
-                  <input 
-                    type="text" 
-                    id="company" 
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
-                    placeholder="Nom de votre entreprise"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email professionnel</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
-                    placeholder="votre.email@entreprise.com"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">Téléphone</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
-                    placeholder="Votre numéro de téléphone"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Votre message</label>
-                <textarea 
-                  id="message" 
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20 resize-none"
-                  placeholder="Décrivez votre besoin ou votre question"
-                  required
-                ></textarea>
-              </div>
-              
-              <div className="flex items-center">
-                <input 
-                  type="checkbox" 
-                  id="consent" 
-                  className="w-5 h-5 text-[#00613a]" 
-                  required
-                />
-                <label htmlFor="consent" className="ml-3 text-gray-700">
-                  J'accepte que mes données soient utilisées pour être recontacté(e)
-                </label>
-              </div>
-              
-              <div className="text-center pt-4">
-                <button 
-                  type="submit" 
-                  className="bg-[#00613a] text-white font-medium px-8 py-3 rounded-lg hover:bg-[#005131] transition-colors"
-                >
-                  Envoyer ma demande
-                </button>
-              </div>
-            </form>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les entreprises</h3>
+          <ul className="space-y-3 text-gray-700">
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Intégrez votre inventaire à notre plateforme</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Atteignez de nouveaux clients</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Optimisez l'utilisation de vos équipements</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Rejoignez un réseau d'entreprises engagées</span>
+            </li>
+          </ul>
         </div>
-      </section>
+        
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les prestataires indépendants</h3>
+          <ul className="space-y-3 text-gray-700">
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Soyez parmi les premiers à proposer vos services via ShareNSpare</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Gagnez en visibilité et attirez de nouveaux clients</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Boostez votre activité</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Rejoignez une communauté d'indépendants engagés</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div className="text-center">
+        <Link to="#contact" className="bg-[#00613a] text-white hover:bg-[#005131] transition-colors font-semibold py-3 px-8 rounded-full inline-flex items-center gap-2">
+          <span>En savoir plus</span>
+          <i className="fas fa-arrow-right"></i>
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+    
+
+{/* Section Contact B2B - Fond vert */}
+<section id="contact" className="min-h-screen py-20 flex items-center bg-[#00613a]">
+  <div className="container mx-auto px-4 max-w-7xl">
+    <div className="max-w-4xl mx-auto">
+      {/* En-tête */}
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold mb-6 text-white">Contactez-nous</h2>
+        <p className="text-xl text-white/90 max-w-2xl mx-auto">
+          Vous souhaitez en savoir plus sur ShareNSpare et découvrir comment votre entreprise peut 
+          bénéficier de cette nouvelle façon de collaborer ?
+        </p>
+        <p className="text-xl text-white/90 max-w-2xl mx-auto mt-4">
+          Remplissez le formulaire ci-dessous et nous vous recontacterons rapidement pour discuter de vos besoins.
+        </p>
+      </div>
+      
+      {/* Formulaire dans un conteneur blanc */}
+      <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+        <Contact />
+      </div>
+
+      {/* Informations supplémentaires */}
+      <div className="mt-8 text-center">
+        <p className="text-white/80">
+          Vous pouvez également nous contacter directement à{' '}
+          <a 
+            href="mailto:contact@sharenspare.ch" 
+            className="text-white font-semibold hover:underline"
+          >
+            contact@sharenspare.ch
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   );
 };

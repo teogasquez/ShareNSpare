@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Contact from '../../components/layout/Contact';
+
 
 
 const C2C = () => {
@@ -13,53 +15,7 @@ const C2C = () => {
   
   const testimonialsRef = useRef<HTMLDivElement>(null);
   
-  // Définir des styles pour les lignes de témoignages
-  {/* const testimonialRowStyle = {
-    display: 'flex',
-    gap: '20px',
-    width: 'fit-content'
-  }; */}
   
-  {/* 
-  // Témoignages fictifs
-  const testimonials = [
-    { id: 1, name: "Marie L.", text: "J'ai hâte de pouvoir me connecter avec mes voisins pour partager des objets du quotidien. Une super initiative !", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
-    { id: 2, name: "Thomas R.", text: "Fini les outils qui prennent la poussière dans mon garage. Je vais enfin pouvoir les rentabiliser !", avatar: "https://randomuser.me/api/portraits/men/32.jpg" },
-    { id: 3, name: "Julie M.", text: "L'économie de partage est l'avenir. Je suis ravie de voir une app suisse qui facilite ces échanges.", avatar: "https://randomuser.me/api/portraits/women/68.jpg" },
-    { id: 4, name: "Antoine D.", text: "Pouvoir louer du matériel de qualité sans avoir à l'acheter est une révolution pour moi.", avatar: "https://randomuser.me/api/portraits/men/12.jpg" },
-    { id: 5, name: "Sophie B.", text: "J'adore l'idée de réduire notre empreinte écologique tout en créant du lien social dans mon quartier.", avatar: "https://randomuser.me/api/portraits/women/65.jpg" },
-    { id: 6, name: "Luc V.", text: "Je possède tellement d'objets que j'utilise rarement, c'est génial de pouvoir les partager.", avatar: "https://randomuser.me/api/portraits/men/42.jpg" },
-    { id: 7, name: "Émilie G.", text: "Cette application va vraiment changer notre façon de consommer. J'ai hâte de l'utiliser !", avatar: "https://randomuser.me/api/portraits/women/33.jpg" },
-    { id: 8, name: "Nicolas P.", text: "Économiser de l'argent tout en aidant la planète, c'est exactement ce dont nous avons besoin.", avatar: "https://randomuser.me/api/portraits/men/67.jpg" },
-    { id: 9, name: "Camille F.", text: "Je suis impatiente de pouvoir prêter ma machine à raclette qui ne sert que 2 fois par an !", avatar: "https://randomuser.me/api/portraits/women/22.jpg" },
-  ];
-  */}
-  {/* 
-  // Articles de blog fictifs
-  const blogPosts = [
-    {
-      id: 1,
-      title: "L'économie de partage : un modèle d'avenir",
-      excerpt: "Découvrez comment l'économie collaborative transforme notre façon de consommer et d'échanger.",
-      image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      date: "12 mai 2023"
-    },
-    {
-      id: 2,
-      title: "Réduire son impact écologique au quotidien",
-      excerpt: "Astuces et conseils pour diminuer votre empreinte carbone grâce au partage d'objets.",
-      image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      date: "3 juin 2023"
-    },
-    {
-      id: 3,
-      title: "Comment optimiser l'usage de vos objets",
-      excerpt: "Maximisez l'utilisation de vos biens en les partageant avec votre communauté locale.",
-      image: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      date: "28 juin 2023"
-    }
-  ];
-  */}
   
   // Effet pour le carousel de témoignages
   useEffect(() => {
@@ -441,118 +397,7 @@ const C2C = () => {
     
   </div>
 </section>      
-      {/* Section Témoignages - Fond blanc 
-<section id='testimony' className="min-h-screen flex items-center bg-white py-20 overflow-hidden">
-  <div className="container mx-auto px-4 max-w-7xl relative">
-    <div className="text-center mb-16 text-[#00613a]">
-      <h2 className="text-4xl font-bold mb-6">Ce que notre communauté en dit</h2>
-      <p className="text-xl max-w-2xl mx-auto text-[#00613a]/80">
-        Découvrez les témoignages de nos premiers utilisateurs enthousiastes.
-      </p>
-    </div>
-    
-    <div className="testimonials-container" ref={testimonialsRef}>
-      <div className="testimonial-row mb-6 py-2" style={testimonialRowStyle}>
-        {testimonials.slice(0, 3).map(testimonial => (
-          <div 
-            key={`row1-${testimonial.id}`}
-            className="bg-[#00613a] rounded-xl p-6 shadow-md w-80 shrink-0"
-          >
-            <p className="text-white/90 mb-4">"{testimonial.text}"</p>
-            <div className="flex items-center gap-3">
-              <img 
-                src={testimonial.avatar} 
-                alt={testimonial.name} 
-                className="w-12 h-12 rounded-full border-2 border-white/30"
-              />
-              <span className="font-medium text-white">{testimonial.name}</span>
-            </div>
-          </div>
-        ))}
-      </div>
       
-      <div className="testimonial-row mb-6 py-2" style={testimonialRowStyle}>
-        {testimonials.slice(3, 6).map(testimonial => (
-          <div 
-            key={`row2-${testimonial.id}`}
-            className="bg-[#00613a] rounded-xl p-6 shadow-md w-80 shrink-0"
-          >
-            <p className="text-white/90 mb-4">"{testimonial.text}"</p>
-            <div className="flex items-center gap-3">
-              <img 
-                src={testimonial.avatar} 
-                alt={testimonial.name} 
-                className="w-12 h-12 rounded-full border-2 border-white/30"
-              />
-              <span className="font-medium text-white">{testimonial.name}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-      
-      <div className="testimonial-row py-2" style={testimonialRowStyle}>
-        {testimonials.slice(6, 9).map(testimonial => (
-          <div 
-            key={`row3-${testimonial.id}`}
-            className="bg-[#00613a] rounded-xl p-6 shadow-md w-80 shrink-0"
-          >
-            <p className="text-white/90 mb-4">"{testimonial.text}"</p>
-            <div className="flex items-center gap-3">
-              <img 
-                src={testimonial.avatar} 
-                alt={testimonial.name} 
-                className="w-12 h-12 rounded-full border-2 border-white/30"
-              />
-              <span className="font-medium text-white">{testimonial.name}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-*/}
-
-   {/* Section Blog - Fond vert 
-<section className="min-h-screen flex items-center bg-[#00613a] py-20">
-  <div className="container mx-auto px-4 max-w-7xl">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-white mb-6">Notre blog</h2>
-      <p className="text-xl text-white/90 max-w-2xl mx-auto">
-        Découvrez nos articles sur l'économie de partage et l'écologie.
-      </p>
-    </div>
-    
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {blogPosts.map(post => (
-        <div key={post.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
-          <img 
-            src={post.image} 
-            alt={post.title} 
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-6">
-            <div className="text-sm text-gray-500 mb-2">{post.date}</div>
-            <h3 className="text-xl font-bold mb-3">{post.title}</h3>
-            <p className="text-gray-600 mb-4">{post.excerpt}</p>
-            <Link to="#" className="text-[#00613a] font-semibold hover:underline inline-flex items-center">
-              <span>Lire l'article</span>
-              <i className="fas fa-arrow-right ml-2"></i>
-            </Link>
-          </div>
-        </div>
-      ))}
-    </div>
-    
-    <div className="text-center mt-12">
-      <Link to="/blog" className="bg-white text-[#00613a] hover:bg-white/90 transition-colors font-semibold py-3 px-8 rounded-full inline-flex items-center gap-2">
-        <span>Voir tous les articles</span>
-        <i className="fas fa-arrow-right"></i>
-      </Link>
-    </div>
-  </div>
-</section>
-*/} 
       
 {/* Section Compteur - Fond blanc */}
 <section id='countdown' className="min-h-screen flex items-center bg-white py-20">
@@ -668,11 +513,13 @@ const C2C = () => {
   </div>
 </section>
 
+
 {/* Section Contact - Fond blanc */}
 <section id='contact' className="min-h-screen flex items-center bg-white py-20">
   <div className="container mx-auto px-4 max-w-7xl">
     <div className="max-w-5xl mx-auto bg-gray-50 rounded-2xl overflow-hidden shadow-xl">
       <div className="grid grid-cols-1 lg:grid-cols-2">
+        {/* Colonne gauche - Informations de contact */}
         <div className="p-8 md:p-12 bg-[#00613a] text-white">
           <h2 className="text-3xl font-bold mb-6">Contactez-nous</h2>
           <p className="mb-8">
@@ -680,24 +527,16 @@ const C2C = () => {
             Remplissez ce formulaire et nous vous répondrons dans les meilleurs délais.
           </p>
           
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0">
                 <i className="fas fa-envelope"></i>
               </div>
               <div>
                 <div className="font-medium text-lg">Email</div>
-                <a href="mailto:contact@sharenspare.ch" className="text-white/80 hover:text-white">contact@sharenspare.ch</a>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                <i className="fas fa-phone-alt"></i>
-              </div>
-              <div>
-                <div className="font-medium text-lg">Téléphone</div>
-                <a href="tel:+41XXXXXXXXX" className="text-white/80 hover:text-white">+41 XX XXX XX XX</a>
+                <a href="mailto:contact@sharenspare.ch" className="text-white/80 hover:text-white transition-colors">
+                  contact@sharenspare.ch
+                </a>
               </div>
             </div>
             
@@ -706,70 +545,25 @@ const C2C = () => {
                 <i className="fas fa-map-marker-alt"></i>
               </div>
               <div>
-                <div className="font-medium text-lg">Adresse</div>
+                <div className="font-medium text-lg">Localisation</div>
                 <address className="text-white/80 not-italic">
-                  ShareNSpare<br />
-                  1200 Genève<br />
                   Suisse
                 </address>
               </div>
             </div>
+
+            <div className="mt-8 pt-8 border-t border-white/20">
+              <p className="text-sm text-white/80">
+                <i className="fas fa-clock mr-2"></i>
+                Nous répondons généralement sous 24-48 heures
+              </p>
+            </div>
           </div>
         </div>
         
+        {/* Colonne droite - Formulaire de contact */}
         <div className="p-8 md:p-12">
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Nom</label>
-                <input 
-                  type="text" 
-                  id="name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
-                  placeholder="Votre nom"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
-                <input 
-                  type="email" 
-                  id="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
-                  placeholder="Votre email"
-                />
-              </div>
-            </div>
-            
-            <div>
-              <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">Sujet</label>
-              <input 
-                type="text" 
-                id="subject"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
-                placeholder="Sujet de votre message"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
-              <textarea 
-                id="message"
-                rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20 resize-none"
-                placeholder="Votre message"
-              ></textarea>
-            </div>
-            
-            <div>
-              <button 
-                type="submit" 
-                className="bg-[#00613a] text-white px-8 py-3 rounded-lg hover:bg-[#007a49] transition-colors font-medium w-full md:w-auto"
-              >
-                Envoyer le message
-              </button>
-            </div>
-          </form>
+          <Contact />
         </div>
       </div>
     </div>
