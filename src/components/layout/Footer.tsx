@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import mascotteLogo from '../../assets/images/mascotte-removebg-preview.webp';
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,7 +28,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="block mb-6">
               <img 
-                src="/src/assets/images/mascotte-removebg-preview.webp" 
+                src={mascotteLogo} 
                 alt="ShareNSpare Logo" 
                 className="h-10" 
               />
