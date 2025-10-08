@@ -1,0 +1,26 @@
+# Robots.txt pour ShareNSpare
+# Contrôle l'accès des moteurs de recherche
+
+User-agent: *
+Allow: /
+
+# Bloquer les pages temporaires et privées
+Disallow: /coming-soon
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /api/
+
+# Autoriser explicitement les pages importantes
+Allow: /
+
+
+# Sitemap
+Sitemap: https://sharenspare.ch/sitemap.xml
+
+# Délai entre les requêtes (optionnel)
+Crawl-delay: 1
+
+# Googlebot spécifique (optionnel)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0

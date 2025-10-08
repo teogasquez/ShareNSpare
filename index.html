@@ -1,27 +1,141 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-CH">
   <head>
     <meta charset="UTF-8" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/webp" href="./src/assets/images/mascotte-removebg-preview.webp" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" href="./src/assets/images/mascotte-removebg-preview.webp" />
+    
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShareNSpare</title>
+    
+    <!-- SEO Principal -->
+    <meta name="description" content="ShareNSpare - Plateforme suisse de location et partage d'objets et de services entre particuliers et entreprises. Économie circulaire à Genève, Lausanne, Zurich. Louez outils, matériel, équipements." />
+    <meta name="keywords" content="location, partage, économie circulaire, Suisse, Genève, Lausanne, Zurich, outils, matériel, bricolage, jardinage, sport, électroménager, entreprise, C2C, B2B, services" />
+    <meta name="author" content="ShareNSpare Team" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="language" content="French" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sharenspare.ch/" />
+    
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sharenspare.ch/" />
+    <meta property="og:title" content="ShareNSpare - Location et partage d'objets et de services en Suisse" />
+    <meta property="og:description" content="Louez ou partagez des objets et des services entre particuliers et entreprises. Réduisez vos coûts et votre impact environnemental en Suisse." />
+    <meta property="og:image" content="https://sharenspare.ch/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="ShareNSpare" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://sharenspare.ch/" />
+    <meta name="twitter:title" content="ShareNSpare - Location et partage d'objets et de services en Suisse" />
+    <meta name="twitter:description" content="Plateforme suisse de location et partage entre particuliers et entreprises. Économie circulaire." />
+    <meta name="twitter:image" content="https://sharenspare.ch/og-image.jpg" />
+    
+    <!-- Preconnect pour performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+    
+    <!-- Structured Data (JSON-LD) pour Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ShareNSpare",
+      "alternateName": "Share N Spare",
+      "url": "https://sharenspare.ch",
+      "logo": "https://sharenspare.ch/assets/mascotte-removebg-preview.webp",
+      "description": "Plateforme suisse de location et partage d'objets et de services entre particuliers et entreprises. Économie circulaire et collaborative.",
+      "foundingDate": "2025",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CH",
+        "addressRegion": "Genève",
+        "addressLocality": "Genève",
+        "postalCode": "1200"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "contact@sharenspare.ch",
+        "availableLanguage": ["French"]
+      },
+      "sameAs": [
+        "https://www.facebook.com/sharenspare",
+        "https://www.linkedin.com/company/sharenspare",
+        "https://www.instagram.com/sharenspare"
+      ]
+    }
+    </script>
+    
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "ShareNSpare - Location d'objets",
+      "description": "Service de location et partage d'objets et de services entre particuliers et entreprises en Suisse",
+      "provider": {
+        "@type": "Organization",
+        "name": "ShareNSpare"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Switzerland"
+      },
+      "serviceType": "Location et partage d'objets et de services",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    
+    <!-- Title -->
+    <title>ShareNSpare - Location et partage d'objets et de services en Suisse | Économie circulaire</title>
   </head>
+  
   <body>
+    <!-- Main App -->
     <div id="root"></div>
+    
+    <!-- React App -->
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Formulaire caché pour la détection Netlify Forms -->
+    <!-- Formulaire de contact caché pour Netlify Forms -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
     </form>
 
-    <!-- Formulaire newsletter caché pour Netlify -->
+    <!-- Formulaire newsletter caché pour Netlify Forms -->
     <form name="newsletter" netlify netlify-honeypot="bot-field" hidden>
       <input type="email" name="email" />
     </form>
     
+    <!-- Google Analytics (à activer quand vous aurez un compte) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
   </body>
 </html>

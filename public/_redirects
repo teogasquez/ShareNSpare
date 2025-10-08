@@ -1,0 +1,19 @@
+# Redirections Netlify pour ShareNSpare
+
+# Redirection HTTP vers HTTPS (automatique sur Netlify)
+
+# Redirection des anciennes URLs (si vous en avez)
+# /old-page  /new-page  301
+
+# SPA fallback - Important pour React Router
+/*  /index.html  200
+
+# Redirections des ancres vers la page légale
+/confidentialite  /legal#confidentialite  301
+/conditions  /legal#conditions  301
+/mentions  /legal#mentions-legales  301
+
+# Protection contre les scans de sécurité
+/admin/*  /  404
+/wp-admin/*  /  404
+/.env  /  404
