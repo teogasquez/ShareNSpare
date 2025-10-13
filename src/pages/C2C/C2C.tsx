@@ -3,21 +3,34 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Contact from '../../components/layout/Contact';
 
-
-
 const C2C = () => {
+  
+  // Gère l'onglet actif dans la section "Comment ça marche" (rent/offer/hire-service)
   const [activeTab, setActiveTab] = useState('rent');
+  
+  // États pour le compte à rebours (countdown) du lancement de l'app
   const [days, setDays] = useState(90);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  
+  // États pour le drag scroll du carousel d'exemples
+  const [isDragging, setIsDragging] = useState(false); // Indique si l'utilisateur est en train de faire glisser
+  const [startX, setStartX] = useState(0); // Position X de départ du drag
+  const [scrollLeft, setScrollLeft] = useState(0); // Position de scroll de départ
+  
+
+  // Référence pour scroller automatiquement vers la section "Comment ça marche"
   const howItWorksRef = useRef(null);
   
+  // Référence pour le container des témoignages (carousel de témoignages)
   const testimonialsRef = useRef<HTMLDivElement>(null);
   
+  // Référence pour le container scrollable du carousel d'exemples (pour le drag)
+  const scrollRef = useRef<HTMLDivElement>(null);
   
-  
-  // Effet pour le carousel de témoignages
+
+  // Effet pour initialiser et animer le carousel de témoignages
   useEffect(() => {
     const container = testimonialsRef.current;
     if (!container) return;
@@ -37,6 +50,7 @@ const C2C = () => {
     `;
     document.head.appendChild(styleElement);
     
+    // Clone les éléments de témoignages pour créer un effet de loop infini
     const cloneItems = () => {
       const rows = container.querySelectorAll('.testimonial-row');
       rows.forEach(row => {
@@ -50,15 +64,16 @@ const C2C = () => {
     
     cloneItems();
     
-    // Animation pour chaque ligne
+    // Applique l'animation à chaque ligne de témoignages
+    // Les lignes paires vont vers la gauche, les impaires vers la droite
     const rows = container.querySelectorAll('.testimonial-row');
     rows.forEach((row, index) => {
       const direction = index % 2 === 0 ? 'scrollLeft' : 'scrollRight';
-      const duration = 40 + (index * 5);
+      const duration = 40 + (index * 5); // Durée variable pour chaque ligne
       (row as HTMLElement).style.animation = `${direction} ${duration}s linear infinite`;
     });
     
-    // Nettoyage
+    // Nettoyage à la destruction du composant
     return () => {
       if (styleElement.parentNode) {
         styleElement.parentNode.removeChild(styleElement);
@@ -70,25 +85,29 @@ const C2C = () => {
     };
   }, []);
   
-  // Timer pour le lancement de l'application
+
+  // Timer pour le lancement de l'application (compte à rebours de 90 jours)
   useEffect(() => {
     const countdownDate = new Date();
-    countdownDate.setDate(countdownDate.getDate() + 90); // 3 mois
+    countdownDate.setDate(countdownDate.getDate() + 90); // Date cible : dans 90 jours
     
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = countdownDate.getTime() - now;
       
+      // Calcule les jours, heures, minutes et secondes restantes
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
+      // Met à jour les états
       setDays(days);
       setHours(hours);
       setMinutes(minutes);
       setSeconds(seconds);
       
+      // Si le compte à rebours est terminé, arrête le timer et remet tout à 0
       if (distance < 0) {
         clearInterval(timer);
         setDays(0);
@@ -96,12 +115,51 @@ const C2C = () => {
         setMinutes(0);
         setSeconds(0);
       }
-    }, 1000);
+    }, 1000); // Met à jour toutes les secondes
     
+    // Nettoyage : arrête le timer quand le composant est détruit
     return () => {
       clearInterval(timer);
     };
   }, []);
+
+  /**
+   * Gère le début du drag (quand l'utilisateur clique et commence à glisser)
+   * Enregistre la position de départ pour calculer le déplacement
+   */
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true); // Active le mode "dragging"
+    setStartX(e.pageX - scrollRef.current.offsetLeft); // Position X de départ du curseur
+    setScrollLeft(scrollRef.current.scrollLeft); // Position de scroll actuelle
+  };
+
+  /**
+   * Gère le mouvement de la souris pendant le drag
+   * Calcule le déplacement et met à jour la position de scroll
+   */
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return; // Ne fait rien si pas en mode drag
+    e.preventDefault(); // Empêche le comportement par défaut (sélection de texte)
+    const x = e.pageX - scrollRef.current.offsetLeft; // Position actuelle du curseur
+    const walk = (x - startX) * 2; // Calcule le déplacement (x2 pour un scroll plus rapide)
+    scrollRef.current.scrollLeft = scrollLeft - walk; // Met à jour la position de scroll
+  };
+
+  /**
+   * Gère la fin du drag (quand l'utilisateur relâche le clic)
+   */
+  const handleMouseUp = () => {
+    setIsDragging(false); // Désactive le mode "dragging"
+  };
+
+  /**
+   * Gère le cas où la souris quitte le container pendant le drag
+   */
+  const handleMouseLeave = () => {
+    setIsDragging(false); // Désactive le mode "dragging"
+  };
+
 
   return (
     <div className="pt-16">
@@ -397,37 +455,223 @@ const C2C = () => {
     
   </div>
 </section>      
+
+
+{/* Section Exemples - Carousel 2 lignes - 100vh */}
+<section className="min-h-screen flex items-center py-12 sm:py-16 md:py-20 bg-white">
+  <div className="container mx-auto px-4 max-w-7xl w-full">
+    {/* Titre et description */}
+    <div className="text-center mb-8 sm:mb-12">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-[#00613a]">
+        Exemples de services et objets disponibles
+      </h2>
+      <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+        De l'outillage aux services personnalisés, découvrez ce que vous pourrez louer ou proposer sur ShareNSpare
+      </p>
+    </div>
+
+    {/* Container global avec scroll horizontal */}
+    <div className="relative">
+      {/* Gradient edges */}
+      <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
       
+      {/* Zone scrollable avec drag */}
+      <div 
+        ref={scrollRef}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        className={`overflow-x-auto overflow-y-hidden scrollbar-hide pb-2 select-none ${
+          isDragging ? 'cursor-grabbing' : 'cursor-grab'
+        }`}
+      >
+        <div className="flex flex-col gap-4 sm:gap-6">
+          
+          {/* LIGNE 1 - Défilement vers la droite */}
+          <div className="flex animate-scroll-right gap-4 sm:gap-6">
+            {/* Premier set ligne 1 */}
+            {[
+              { icon: "fa-bicycle", title: "Vélo", category: "Sport & Loisirs", price: "5 CHF/jour" },
+              { icon: "fa-campground", title: "Tente de camping", category: "Camping & Nature", price: "8 CHF/jour" },
+              { icon: "fa-water", title: "Paddle", category: "Sport Nautique", price: "12 CHF/jour" },
+              { icon: "fa-screwdriver-wrench", title: "Montage meuble IKEA", category: "Services", price: "25 CHF/h" },
+              { icon: "fa-music", title: "Cours de musique", category: "Services", price: "20 CHF/h" },
+              { icon: "fa-map-location-dot", title: "Visite de la ville", category: "Services", price: "15 CHF/h" },
+              { icon: "fa-hammer", title: "Perceuse", category: "Bricolage", price: "3 CHF/jour" },
+              { icon: "fa-camera", title: "Appareil photo", category: "Photo & Vidéo", price: "18 CHF/jour" }
+            ].map((item, index) => (
+              <div
+                key={`line1-set1-${index}`}
+                className="flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white border-2 border-gray-200 rounded-xl p-4 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00613a] pointer-events-none"
+              >
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <div className="bg-[#00613a]/5 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center border-2 border-[#00613a]">
+                    <i className={`fas ${item.icon} text-xl sm:text-2xl text-[#00613a]`}></i>
+                  </div>
+                  <span className="bg-[#00613a] text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full shadow">
+                    {item.price}
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-[#00613a]">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm font-medium">
+                  {item.category}
+                </p>
+              </div>
+            ))}
+            
+            {/* Duplicate ligne 1 */}
+            {[
+              { icon: "fa-bicycle", title: "Vélo", category: "Sport & Loisirs", price: "5 CHF/jour" },
+              { icon: "fa-campground", title: "Tente de camping", category: "Camping & Nature", price: "8 CHF/jour" },
+              { icon: "fa-water", title: "Paddle", category: "Sport Nautique", price: "12 CHF/jour" },
+              { icon: "fa-screwdriver-wrench", title: "Montage meuble IKEA", category: "Services", price: "25 CHF/h" },
+              { icon: "fa-music", title: "Cours de musique", category: "Services", price: "20 CHF/h" },
+              { icon: "fa-map-location-dot", title: "Visite de la ville", category: "Services", price: "15 CHF/h" },
+              { icon: "fa-hammer", title: "Perceuse", category: "Bricolage", price: "3 CHF/jour" },
+              { icon: "fa-camera", title: "Appareil photo", category: "Photo & Vidéo", price: "18 CHF/jour" }
+            ].map((item, index) => (
+              <div
+                key={`line1-set2-${index}`}
+                className="flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white border-2 border-gray-200 rounded-xl p-4 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00613a] pointer-events-none"
+              >
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <div className="bg-[#00613a]/5 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center border-2 border-[#00613a]">
+                    <i className={`fas ${item.icon} text-xl sm:text-2xl text-[#00613a]`}></i>
+                  </div>
+                  <span className="bg-[#00613a] text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full shadow">
+                    {item.price}
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-[#00613a]">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm font-medium">
+                  {item.category}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* LIGNE 2 - Défilement vers la gauche */}
+          <div className="flex animate-scroll-left gap-4 sm:gap-6">
+            {/* Premier set ligne 2 */}
+            {[
+              { icon: "fa-paintbrush", title: "Cours de peinture", category: "Services", price: "22 CHF/h" },
+              { icon: "fa-skiing", title: "Équipement de ski", category: "Sport d'Hiver", price: "25 CHF/jour" },
+              { icon: "fa-guitar", title: "Guitare", category: "Musique", price: "8 CHF/jour" },
+              { icon: "fa-seedling", title: "Cours de jardinage", category: "Services", price: "20 CHF/h" },
+              { icon: "fa-laptop", title: "Ordinateur portable", category: "Informatique", price: "15 CHF/jour" },
+              { icon: "fa-tent", title: "Sac de couchage", category: "Camping", price: "4 CHF/jour" },
+              { icon: "fa-car", title: "Remorque", category: "Transport", price: "20 CHF/jour" },
+              { icon: "fa-wrench", title: "Boîte à outils", category: "Bricolage", price: "5 CHF/jour" }
+            ].map((item, index) => (
+              <div
+                key={`line2-set1-${index}`}
+                className="flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white border-2 border-gray-200 rounded-xl p-4 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00613a] pointer-events-none"
+              >
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <div className="bg-[#00613a]/5 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center border-2 border-[#00613a]">
+                    <i className={`fas ${item.icon} text-xl sm:text-2xl text-[#00613a]`}></i>
+                  </div>
+                  <span className="bg-[#00613a] text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full shadow">
+                    {item.price}
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-[#00613a]">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm font-medium">
+                  {item.category}
+                </p>
+              </div>
+            ))}
+            
+            {/* Duplicate ligne 2 */}
+            {[
+              { icon: "fa-paintbrush", title: "Cours de peinture", category: "Services", price: "22 CHF/h" },
+              { icon: "fa-skiing", title: "Équipement de ski", category: "Sport d'Hiver", price: "25 CHF/jour" },
+              { icon: "fa-guitar", title: "Guitare", category: "Musique", price: "8 CHF/jour" },
+              { icon: "fa-seedling", title: "Cours de jardinage", category: "Services", price: "20 CHF/h" },
+              { icon: "fa-laptop", title: "Ordinateur portable", category: "Informatique", price: "15 CHF/jour" },
+              { icon: "fa-tent", title: "Sac de couchage", category: "Camping", price: "4 CHF/jour" },
+              { icon: "fa-car", title: "Remorque", category: "Transport", price: "20 CHF/jour" },
+              { icon: "fa-wrench", title: "Boîte à outils", category: "Bricolage", price: "5 CHF/jour" }
+            ].map((item, index) => (
+              <div
+                key={`line2-set2-${index}`}
+                className="flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white border-2 border-gray-200 rounded-xl p-4 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00613a] pointer-events-none"
+              >
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <div className="bg-[#00613a]/5 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center border-2 border-[#00613a]">
+                    <i className={`fas ${item.icon} text-xl sm:text-2xl text-[#00613a]`}></i>
+                  </div>
+                  <span className="bg-[#00613a] text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full shadow">
+                    {item.price}
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-[#00613a]">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm font-medium">
+                  {item.category}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    {/* CTA */}
+    <div className="text-center mt-8 sm:mt-12 px-4">
+      <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 sm:mb-6">
+        Et bien plus encore ! Des milliers d'objets et services vous attendent.
+      </p>
+      <Link 
+        to="#countdown" 
+        className="inline-flex items-center bg-[#00613a] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-[#005131] transition-colors shadow-lg hover:shadow-xl"
+      >
+        <span>Découvrir l'application</span>
+        <i className="fas fa-arrow-right ml-2"></i>
+      </Link>
+    </div>
+  </div>
+</section>
       
-{/* Section Compteur - Fond blanc */}
-<section id='countdown' className="min-h-screen flex items-center bg-white py-20">
+{/* Section Compteur - Fond vert */}
+<section id='countdown' className="min-h-screen flex items-center bg-[#00613a] py-20">
   <div className="container mx-auto px-4 max-w-7xl">
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold mb-6 text-[#00613a]">L'application sera bientôt disponible</h2>
-      <p className="text-xl max-w-2xl mx-auto text-gray-600">
+      <h2 className="text-4xl font-bold mb-6 text-white">L'application sera bientôt disponible</h2>
+      <p className="text-xl max-w-2xl mx-auto text-white/90">
         Notre application mobile arrive dans très peu de temps. Inscrivez-vous pour être informé de son lancement !
       </p>
     </div>
     
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12">
-      <div className="bg-[#00613a]/10 backdrop-blur rounded-xl p-6 text-center shadow-md">
-        <div className="text-5xl font-bold mb-2 text-[#00613a]">{days}</div>
-        <div className="text-sm uppercase tracking-wider text-gray-600">Jours</div>
+      <div className="bg-white/10 backdrop-blur rounded-xl p-6 text-center shadow-md border border-white/20">
+        <div className="text-5xl font-bold mb-2 text-white">{days}</div>
+        <div className="text-sm uppercase tracking-wider text-white/80">Jours</div>
       </div>
       
-      <div className="bg-[#00613a]/10 backdrop-blur rounded-xl p-6 text-center shadow-md">
-        <div className="text-5xl font-bold mb-2 text-[#00613a]">{hours}</div>
-        <div className="text-sm uppercase tracking-wider text-gray-600">Heures</div>
+      <div className="bg-white/10 backdrop-blur rounded-xl p-6 text-center shadow-md border border-white/20">
+        <div className="text-5xl font-bold mb-2 text-white">{hours}</div>
+        <div className="text-sm uppercase tracking-wider text-white/80">Heures</div>
       </div>
       
-      <div className="bg-[#00613a]/10 backdrop-blur rounded-xl p-6 text-center shadow-md">
-        <div className="text-5xl font-bold mb-2 text-[#00613a]">{minutes}</div>
-        <div className="text-sm uppercase tracking-wider text-gray-600">Minutes</div>
+      <div className="bg-white/10 backdrop-blur rounded-xl p-6 text-center shadow-md border border-white/20">
+        <div className="text-5xl font-bold mb-2 text-white">{minutes}</div>
+        <div className="text-sm uppercase tracking-wider text-white/80">Minutes</div>
       </div>
       
-      <div className="bg-[#00613a]/10 backdrop-blur rounded-xl p-6 text-center shadow-md">
-        <div className="text-5xl font-bold mb-2 text-[#00613a]">{seconds}</div>
-        <div className="text-sm uppercase tracking-wider text-gray-600">Secondes</div>
+      <div className="bg-white/10 backdrop-blur rounded-xl p-6 text-center shadow-md border border-white/20">
+        <div className="text-5xl font-bold mb-2 text-white">{seconds}</div>
+        <div className="text-sm uppercase tracking-wider text-white/80">Secondes</div>
       </div>
     </div>
     
@@ -436,9 +680,9 @@ const C2C = () => {
         <input 
           type="email" 
           placeholder="Votre adresse e-mail" 
-          className="flex-1 px-4 py-3 rounded-full border border-gray-300 outline-none text-gray-800 focus:border-[#00613a] focus:ring-2 focus:ring-[#00613a]/20"
+          className="flex-1 px-4 py-3 rounded-full border-2 border-white/30 outline-none bg-white/10 text-white placeholder:text-white/60 focus:border-white focus:ring-2 focus:ring-white/20 backdrop-blur"
         />
-        <button type="submit" className="bg-[#00613a] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#005131] transition-colors">
+        <button type="submit" className="bg-white text-[#00613a] font-semibold px-6 py-3 rounded-full hover:bg-white/90 transition-colors shadow-lg">
           M'avertir
         </button>
       </form>
@@ -446,67 +690,80 @@ const C2C = () => {
   </div>
 </section>
 
-{/* Section Devenir partenaire - Fond vert */}
-<section id='partner' className="min-h-screen flex items-center bg-[#00613a] py-20">
-  <div className="container mx-auto px-4 max-w-7xl">
-    <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-lg">
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold text-[#00613a] mb-6">Devenir partenaire</h2>
-        <p className="text-xl text-gray-600">
-          Le projet vous intéresse ? Rejoignez l'aventure ShareNSpare et participez à la révolution de l'économie de partage.
+{/* Section Devenir partenaire - Design épuré et responsive */}
+<section id='partner' className="min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16 md:py-20">
+  <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+    <div className="max-w-4xl mx-auto">
+      {/* En-tête */}
+      <div className="text-center mb-10 sm:mb-12 md:mb-16">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00613a] mb-4 sm:mb-6 px-4">
+          Le projet vous intéresse ?
+        </h2>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+          Rejoignez l'aventure ShareNSpare et participez à la révolution de l'économie de partage.
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-        <div className="bg-gray-50 rounded-xl p-6 shadow-sm">
-          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les entreprises</h3>
-          <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start gap-2">
-              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Intégrez votre inventaire à notre plateforme</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Atteignez de nouveaux clients</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Optimisez l'utilisation de vos équipements</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Rejoignez un réseau d'entreprises engagées</span>
-            </li>
-          </ul>
+      {/* Carte principale - Design minimaliste */}
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-14 shadow-lg">
+        {/* Titre avec icône */}
+        <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12 pb-6 sm:pb-8 border-b border-gray-100">
+          <div className="bg-[#00613a]/10 w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
+            <i className="fas fa-users text-[#00613a] text-xl sm:text-2xl"></i>
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#00613a]">
+            Pour les particuliers
+          </h3>
         </div>
         
-        <div className="bg-gray-50 rounded-xl p-6 shadow-sm">
-          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les prestataires indépendants</h3>
-          <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start gap-2">
-              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Soyez parmi les premiers à proposer vos services via ShareNSpare</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Gagnez en visibilité et attirez de nouveaux clients</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Boostez votre activité</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
-              <span>Rejoignez une communauté d’indépendants engagés</span>
-            </li>
-          </ul>
+        {/* Grille des actions - Sans puces - Responsive */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+          <div className="space-y-2 sm:space-y-3">
+            <h4 className="text-xl sm:text-2xl font-bold text-[#00613a]">
+              Soyez les premiers informés
+            </h4>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+              Envoyez-nous votre e-mail pour être parmi les premiers à découvrir l'application dès son lancement
+            </p>
+          </div>
+          
+          <div className="space-y-2 sm:space-y-3">
+            <h4 className="text-xl sm:text-2xl font-bold text-[#00613a]">
+              Exprimez vos besoins
+            </h4>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+              Indiquez-nous les objets et services que vous aimeriez retrouver sur la plateforme
+            </p>
+          </div>
+          
+          <div className="space-y-2 sm:space-y-3">
+            <h4 className="text-xl sm:text-2xl font-bold text-[#00613a]">
+              Créez avec nous
+            </h4>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+              Partagez vos idées pour construire une application qui répond vraiment à vos besoins
+            </p>
+          </div>
+          
+          <div className="space-y-2 sm:space-y-3">
+            <h4 className="text-xl sm:text-2xl font-bold text-[#00613a]">
+              Devenez ambassadeur
+            </h4>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+              Partagez avec vos proches et contribuez à construire l'économie de partage de demain
+            </p>
+          </div>
         </div>
       </div>
       
-      <div className="text-center">
-        <Link to="#contact" className="bg-[#00613a] text-white hover:bg-[#005131] transition-colors font-semibold py-3 px-8 rounded-full inline-flex items-center gap-2">
-          <span>En savoir plus</span>
-          <i className="fas fa-arrow-right"></i>
+      {/* CTA - Responsive */}
+      <div className="text-center mt-8 sm:mt-10 md:mt-12 px-4">
+        <Link 
+          to="#contact" 
+          className="inline-flex items-center gap-2 sm:gap-3 bg-[#00613a] text-white hover:bg-[#005131] transition-all duration-300 font-semibold py-3 sm:py-4 px-8 sm:px-10 rounded-full shadow-lg hover:shadow-xl hover:scale-105 text-base sm:text-lg"
+        >
+          <span>Rejoindre l'aventure</span>
+          <i className="fas fa-arrow-right text-sm sm:text-base"></i>
         </Link>
       </div>
     </div>
@@ -514,15 +771,15 @@ const C2C = () => {
 </section>
 
 
-{/* Section Contact - Fond blanc */}
-<section id='contact' className="min-h-screen flex items-center bg-white py-20">
+{/* Section Contact - Fond vert */}
+<section id='contact' className="min-h-screen flex items-center bg-[#00613a] py-20">
   <div className="container mx-auto px-4 max-w-7xl">
-    <div className="max-w-5xl mx-auto bg-gray-50 rounded-2xl overflow-hidden shadow-xl">
+    <div className="max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Colonne gauche - Informations de contact */}
-        <div className="p-8 md:p-12 bg-[#00613a] text-white">
+        <div className="p-8 md:p-12 bg-gradient-to-br from-[#00613a] to-[#004d2e] text-white">
           <h2 className="text-3xl font-bold mb-6">Contactez-nous</h2>
-          <p className="mb-8">
+          <p className="mb-8 text-white/90">
             Vous avez des questions ou des suggestions ? Nous sommes à votre écoute ! 
             Remplissez ce formulaire et nous vous répondrons dans les meilleurs délais.
           </p>
@@ -562,14 +819,14 @@ const C2C = () => {
         </div>
         
         {/* Colonne droite - Formulaire de contact */}
-        <div className="p-8 md:p-12">
+        <div className="p-8 md:p-12 bg-white">
           <Contact />
         </div>
       </div>
     </div>
   </div>
 </section>
-    </div>
+</div>
   );
 };
 

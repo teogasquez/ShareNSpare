@@ -71,7 +71,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center">
             {/* Desktop - Contenu à gauche */}
             <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">L'Étincelle Circulaire</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a] text-left">L'Étincelle Circulaire</h3>
               <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
                 En novembre 2024, Simon emménage dans un nouvel appartement. Afin de monter ses meubles et d'accrocher ses tableaux, 
                 il se retrouve face à une triste réalité : il lui faut une boîte à outils et une perceuse.
@@ -106,7 +106,7 @@ const About = () => {
             {/* Citation à droite */}
             <div className="md:w-1/2 md:pl-12">
               <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
-                <p className="text-[#00613a] italic text-base sm:text-lg font-medium">
+                <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
                   "Il devait bien y avoir une meilleure façon de faire !"
                 </p>
               </div>
@@ -120,7 +120,7 @@ const About = () => {
             {/* Citation à gauche sur desktop */}
             <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right order-2 md:order-1">
               <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
-                <p className="text-[#00613a] italic text-base sm:text-lg font-medium">
+                <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
                   "Moins d'achats, plus de partage : voilà l'avenir."
                 </p>
               </div>
@@ -152,7 +152,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center">
             {/* Desktop - Contenu à gauche */}
             <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">Lancement et Vision</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a] text-left">Lancement et Vision</h3>
               <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
                 Août 2025 : le concept est prêt et nous créons officiellement ShareNSpare ! Ce n'est plus seulement une idée, 
                 mais un projet concret avec une mission claire : rendre la location simple, accessible et bénéfique pour tous.
@@ -185,7 +185,7 @@ const About = () => {
             {/* Citation à droite */}
             <div className="md:w-1/2 md:pl-12">
               <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
-                <p className="text-[#00613a] italic text-base sm:text-lg font-medium">
+                <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
                   "Seul on va plus vite, ensemble on va plus loin."
                 </p>
               </div>
@@ -205,7 +205,7 @@ const About = () => {
 </section>
 
       {/* Comment ça marche - Fond vert, texte blanc */}
-      <section className="py-16 sm:py-20 md:py-24 bg-[#00613a] text-white">
+      <section className="min-h-screen py-16 sm:py-20 md:py-24 bg-[#00613a] text-white flex items-center">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center">Comment ça marche ?</h2>
           
@@ -255,12 +255,6 @@ const About = () => {
                 </Link>
               </div>
             </div>
-          </div>
-          
-          <div className="max-w-4xl mx-auto text-center mt-10 sm:mt-12">
-            <p className="text-lg sm:text-xl font-bold">
-              C'est ça, faire plus avec moins – Do more with less.
-            </p>
           </div>
         </div>
       </section>
@@ -329,7 +323,7 @@ const About = () => {
                 </div>
               </div>
               <div className="p-5 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Simon</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Simon Chappatte</h3>
                 <p className="text-[#00613a]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Stratégie</p>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Simon dirige la vision stratégique de ShareNSpare et développe les partenariats clés. 
@@ -350,7 +344,7 @@ const About = () => {
                 </div>
               </div>
               <div className="p-5 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Teo</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Teo Gasquez</h3>
                 <p className="text-[#00613a]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Développement</p>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Teo conçoit et développe toute la plateforme ShareNSpare. Il pilote l'architecture technique, 

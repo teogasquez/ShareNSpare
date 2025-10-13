@@ -1,4 +1,3 @@
-// filepath: /Users/juliettegasquez/Desktop/sns_vite/tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [

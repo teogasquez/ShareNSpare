@@ -1,1 +1,70 @@
 @import "tailwindcss";
+
+/* Animation carousel ligne 1 - vers la droite */
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Animation carousel ligne 2 - vers la gauche */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Ligne 1 - Défile vers la droite */
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+.animate-scroll-right:hover {
+  animation-play-state: paused;
+}
+
+/* Ligne 2 - Défile vers la gauche */
+.animate-scroll-left {
+  animation: scroll-left 45s linear infinite;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
+}
+
+/* Masquer la scrollbar mais garder la fonctionnalité */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Curseur grab pour indiquer le drag */
+.cursor-grab {
+  cursor: grab;
+}
+
+.active\:cursor-grabbing:active {
+  cursor: grabbing;
+}
+/* Désactiver la sélection de texte pendant le drag */
+.select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Empêcher les interactions sur les cartes pendant le drag */
+  .pointer-events-none {
+    pointer-events: none;
+  }
