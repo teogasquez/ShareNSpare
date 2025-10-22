@@ -43,8 +43,8 @@ const Home = () => {
               <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">Spare</span>
             </h1>
             
-            <p className="text-2xl font-semibold text-gray-700 mb-6 leading-relaxed">
-              Partagez, économisez, préservez
+            <p className="text-2xl font-semibold text-[#00613a] mb-6 leading-relaxed">
+              Do more with less.
             </p>
             
             <p className="text-xl text-gray-600 mb-10 leading-relaxed">

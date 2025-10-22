@@ -16,7 +16,7 @@ const B2B = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#00613a]">
-                ShareNspare pour les entreprises
+                ShareNSpare pour les entreprises
               </h1>
               
               <div className="text-lg text-gray-700 mb-8">
@@ -54,7 +54,7 @@ const B2B = () => {
               
               <div className="mt-8">
               <Link 
-                to="#" 
+                to="/c2c#hero" 
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });

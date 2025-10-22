@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import simon from '../../assets/images/castor_bleu.webp';
-import teo from '../../assets/images/castor_vert.webp';
+import simon from '../../assets/images/beaver_chapi.webp';
+import teo from '../../assets/images/beaver_gasqo.webp';
 
 const About = () => {
   return (

@@ -9,7 +9,7 @@ const C2C = () => {
   const [activeTab, setActiveTab] = useState('rent');
   
   // États pour le compte à rebours (countdown) du lancement de l'app
-  const [days, setDays] = useState(90);
+  const [days, setDays] = useState(180);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -89,7 +89,7 @@ const C2C = () => {
   // Timer pour le lancement de l'application (compte à rebours de 90 jours)
   useEffect(() => {
     const countdownDate = new Date();
-    countdownDate.setDate(countdownDate.getDate() + 90); // Date cible : dans 90 jours
+    countdownDate.setDate(countdownDate.getDate() + 180); // Date cible : dans 90 jours
     
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -162,16 +162,18 @@ const C2C = () => {
 
 
   return (
-    <div className="pt-16">
+    <div className="pt-24 md:pt-16">
       {/* Section Hero - Introduction */}
-      <section id="hero" className="h-screen flex items-center justify-center">
+      <section id="hero" className="min-h-screen flex items-center justify-center overflow-hidden py-12 md:py-0">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            
+            {/* Colonne gauche - Texte */}
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
-              Partagez vos objets ou services, et réalisez des économies !
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
+                Partagez vos objets ou services, et réalisez des économies !
               </h1>
-              <p className="text-xl md:text-2xl text-[#00613a]/80">
+              <p className="text-lg sm:text-xl md:text-2xl text-[#00613a]/80">
                 Une nouvelle façon de consommer, plus responsable, plus économique.
               </p>
               
@@ -203,8 +205,8 @@ const C2C = () => {
                   <i className="fas fa-arrow-down"></i>
                 </Link>
                 
-                <div className="flex items-center gap-4">
-                  <span className="text-[#00613a] font-medium">Rejoindre la communauté:</span>
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <span className="text-[#00613a] font-medium text-sm sm:text-base">Rejoindre la communauté:</span>
                   <div className="flex gap-3">
                     <a href="#" className="w-10 h-10 rounded-full bg-[#00613a] flex items-center justify-center text-white hover:bg-opacity-90 transition-all">
                       <i className="fab fa-facebook-f"></i>
@@ -219,7 +221,12 @@ const C2C = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center lg:justify-end">
+            
+            {/* ========================================
+                Colonne droite - Image
+                ✅ CACHÉE SUR MOBILE avec "hidden lg:flex"
+                ======================================== */}
+            <div className="hidden lg:flex justify-center lg:justify-end">
               <img 
                 src="https://images.unsplash.com/photo-1591035897819-f4bdf739f446?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                 alt="Partage d'objets entre particuliers"
@@ -495,12 +502,12 @@ const C2C = () => {
             {[
               { icon: "fa-bicycle", title: "Vélo", category: "Sport & Loisirs", price: "5 CHF/jour" },
               { icon: "fa-campground", title: "Tente de camping", category: "Camping & Nature", price: "8 CHF/jour" },
-              { icon: "fa-water", title: "Paddle", category: "Sport Nautique", price: "12 CHF/jour" },
-              { icon: "fa-screwdriver-wrench", title: "Montage meuble IKEA", category: "Services", price: "25 CHF/h" },
-              { icon: "fa-music", title: "Cours de musique", category: "Services", price: "20 CHF/h" },
-              { icon: "fa-map-location-dot", title: "Visite de la ville", category: "Services", price: "15 CHF/h" },
+              { icon: "fa-water", title: "Paddle", category: "Sport Nautique", price: "10 CHF/jour" },
+              { icon: "fa-screwdriver-wrench", title: "Montage meuble IKEA", category: "Services", price: "15 CHF/h" },
+              { icon: "fa-music", title: "Cours de musique", category: "Services", price: "16 CHF/h" },
+              { icon: "fa-map-location-dot", title: "Visite de la ville", category: "Services", price: "8 CHF/h" },
               { icon: "fa-hammer", title: "Perceuse", category: "Bricolage", price: "3 CHF/jour" },
-              { icon: "fa-camera", title: "Appareil photo", category: "Photo & Vidéo", price: "18 CHF/jour" }
+              { icon: "fa-camera", title: "Appareil photo", category: "Photo & Vidéo", price: "7 CHF/jour" }
             ].map((item, index) => (
               <div
                 key={`line1-set1-${index}`}
@@ -690,80 +697,67 @@ const C2C = () => {
   </div>
 </section>
 
-{/* Section Devenir partenaire - Design épuré et responsive */}
-<section id='partner' className="min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16 md:py-20">
-  <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-    <div className="max-w-4xl mx-auto">
-      {/* En-tête */}
-      <div className="text-center mb-10 sm:mb-12 md:mb-16">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00613a] mb-4 sm:mb-6 px-4">
-          Le projet vous intéresse ?
-        </h2>
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
-          Rejoignez l'aventure ShareNSpare et participez à la révolution de l'économie de partage.
+{/* Section Devenir partenaire - Fond blanc */}
+<section id='partner' className="min-h-screen flex items-center bg-white py-20">
+  <div className="container mx-auto px-4 max-w-7xl">
+    <div className="max-w-3xl mx-auto bg-gray-50 rounded-2xl p-8 md:p-12 shadow-lg">
+      <div className="text-center mb-10">
+        <h2 className="text-4xl font-bold text-[#00613a] mb-6">Devenir partenaire</h2>
+        <p className="text-xl text-gray-600">
+          Le projet vous intéresse ? Rejoignez l'aventure ShareNSpare et participez à la révolution de l'économie de partage.
         </p>
       </div>
       
-      {/* Carte principale - Design minimaliste */}
-      <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-14 shadow-lg">
-        {/* Titre avec icône */}
-        <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12 pb-6 sm:pb-8 border-b border-gray-100">
-          <div className="bg-[#00613a]/10 w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
-            <i className="fas fa-users text-[#00613a] text-xl sm:text-2xl"></i>
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#00613a]">
-            Pour les particuliers
-          </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les particuliers</h3>
+          <ul className="space-y-3 text-gray-700">
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Partagez vos objets et savoir-faire sur la plateforme</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Générez un revenu complémentaire tout en aidant les autres</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Valorisez ce que vous possédez au lieu de le laisser dormir</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Faites partie d’une communauté qui partage vos valeurs</span>
+            </li>
+          </ul>
         </div>
         
-        {/* Grille des actions - Sans puces - Responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
-          <div className="space-y-2 sm:space-y-3">
-            <h4 className="text-xl sm:text-2xl font-bold text-[#00613a]">
-              Soyez les premiers informés
-            </h4>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-              Envoyez-nous votre e-mail pour être parmi les premiers à découvrir l'application dès son lancement
-            </p>
-          </div>
-          
-          <div className="space-y-2 sm:space-y-3">
-            <h4 className="text-xl sm:text-2xl font-bold text-[#00613a]">
-              Exprimez vos besoins
-            </h4>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-              Indiquez-nous les objets et services que vous aimeriez retrouver sur la plateforme
-            </p>
-          </div>
-          
-          <div className="space-y-2 sm:space-y-3">
-            <h4 className="text-xl sm:text-2xl font-bold text-[#00613a]">
-              Créez avec nous
-            </h4>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-              Partagez vos idées pour construire une application qui répond vraiment à vos besoins
-            </p>
-          </div>
-          
-          <div className="space-y-2 sm:space-y-3">
-            <h4 className="text-xl sm:text-2xl font-bold text-[#00613a]">
-              Devenez ambassadeur
-            </h4>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-              Partagez avec vos proches et contribuez à construire l'économie de partage de demain
-            </p>
-          </div>
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les prestataires indépendants</h3>
+          <ul className="space-y-3 text-gray-700">
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Soyez parmi les premiers à proposer vos services via ShareNSpare</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Gagnez en visibilité et attirez de nouveaux clients</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Boostez votre activité</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
+              <span>Rejoignez une communauté d'indépendants engagés</span>
+            </li>
+          </ul>
         </div>
       </div>
       
-      {/* CTA - Responsive */}
-      <div className="text-center mt-8 sm:mt-10 md:mt-12 px-4">
-        <Link 
-          to="#contact" 
-          className="inline-flex items-center gap-2 sm:gap-3 bg-[#00613a] text-white hover:bg-[#005131] transition-all duration-300 font-semibold py-3 sm:py-4 px-8 sm:px-10 rounded-full shadow-lg hover:shadow-xl hover:scale-105 text-base sm:text-lg"
-        >
-          <span>Rejoindre l'aventure</span>
-          <i className="fas fa-arrow-right text-sm sm:text-base"></i>
+      <div className="text-center">
+        <Link to="#contact" className="bg-[#00613a] text-white hover:bg-[#005131] transition-colors font-semibold py-3 px-8 rounded-full inline-flex items-center gap-2">
+          <span>En savoir plus</span>
+          <i className="fas fa-arrow-right"></i>
         </Link>
       </div>
     </div>
