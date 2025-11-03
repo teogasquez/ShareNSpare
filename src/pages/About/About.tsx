@@ -11,9 +11,9 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                À propos de <span className="text-white">ShareNSpare</span>
+                À propos de <span className="text-white">Share<span className='text-[#D17034]'>N</span>Spare</span>
               </h1>
-              <p className="text-xl sm:text-2xl leading-relaxed font-medium mb-6">
+              <p className="text-xl text-[#D17034] sm:text-2xl leading-relaxed font-medium mb-6">
                 Do more with less.
               </p>
               <p className="text-base sm:text-lg opacity-80">

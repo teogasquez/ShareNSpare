@@ -29,7 +29,7 @@ const B2B = () => {
                     <i className="fas fa-sync-alt text-[#00613a]"></i>
                   </div>
                   <p>
-                    <strong className="text-[#D17034]">Transformez</strong> votre matériel inactif en opportunité en le proposant à d'autres entreprises locales.
+                    <strong className="text-[#00613a]">Transformez</strong> votre matériel inactif en opportunité en le proposant à d'autres entreprises locales.
                   </p>
                 </div>
                 
@@ -38,7 +38,7 @@ const B2B = () => {
                     <i className="fas fa-search-dollar text-[#00613a]"></i>
                   </div>
                   <p>
-                    <strong className="text-[#D17034]">Accédez</strong> aux équipements dont vous avez besoin ponctuellement, sans investir dans du matériel neuf.
+                    <strong className="text-[#00613a]">Accédez</strong> aux équipements dont vous avez besoin ponctuellement, sans investir dans du matériel neuf.
                   </p>
                 </div>
                 
@@ -47,7 +47,7 @@ const B2B = () => {
                     <i className="fas fa-leaf text-[#00613a]"></i>
                   </div>
                   <p>
-                    <strong className="text-[#D17034]">Réduisez</strong> vos coûts, améliorez votre rentabilité et participez à une démarche durable.
+                    <strong className="text-[#00613a]">Réduisez</strong> vos coûts, améliorez votre rentabilité et participez à une démarche durable.
                   </p>
                 </div>
               </div>

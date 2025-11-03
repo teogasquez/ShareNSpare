@@ -10,14 +10,49 @@ const Footer = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Netlify gère la soumission
-    setIsSubmitted(true);
-    setEmail('');
     
-    // Réinitialiser le message après 5 secondes
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+    if (!email.trim()) {
+      alert('Veuillez entrer une adresse email valide.');
+      return;
+    }
+  
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    
+    // ✅ S'assurer que form-name est présent
+    if (!data.has('form-name')) {
+      data.append('form-name', 'newsletter');
+    }
+  
+    // Encoder pour Netlify
+    const body = new URLSearchParams();
+    data.forEach((value, key) => {
+      body.append(key, value.toString());
+    });
+  
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    })
+    .then((response) => {
+      console.log('✅ Newsletter - Réponse serveur:', response.status);
+      if (response.ok || response.status === 200) {
+        setIsSubmitted(true);
+        setEmail('');
+        
+        // Réinitialiser après 5 secondes
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        throw new Error(`HTTP ${response.status}`);
+      }
+    })
+    .catch((error) => {
+      console.error('❌ Newsletter - Erreur:', error);
+      alert('Une erreur est survenue. Veuillez réessayer.');
+    });
   };
 
   return (

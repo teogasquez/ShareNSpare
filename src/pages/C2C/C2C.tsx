@@ -171,7 +171,7 @@ const C2C = () => {
             {/* Colonne gauche - Texte */}
             <div className="space-y-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
-              Partagez vos <span className="text-[#D17034] font-extrabold">objets</span> ou <span className="text-[#D17034] font-extrabold">services</span>, et réalisez des <span className="text-[#D17034] font-extrabold">économies</span> !
+              Partagez vos <span className="text-[#D17034] font-extrabold">objets</span> ou <span className="text-[#D17034] font-extrabold">services</span>, et réalisez des économies !
             </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-[#00613a]/80">
                 Une nouvelle façon de consommer, plus responsable, plus économique.
@@ -470,9 +470,9 @@ const C2C = () => {
     {/* Titre et description */}
     <div className="text-center mb-8 sm:mb-12">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-[#00613a]">
-        Exemples de services et objets disponibles
+        Exemples de services et objets <span className='text-[#D17034]'>disponibles</span>
       </h2>
-      <p className="text-base sm:text-lg md:text-xl text-[#D17034] max-w-3xl mx-auto px-4">
+      <p className="text-base sm:text-lg md:text-xl text-[#00613a] max-w-3xl mx-auto px-4">
         De l'outillage aux services personnalisés, découvrez ce que vous pourrez louer ou proposer sur ShareNSpare
       </p>
     </div>
