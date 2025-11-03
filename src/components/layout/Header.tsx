@@ -365,16 +365,16 @@ const Header = () => {
     }`}>
       
       {/* ========================================
-          CONTAINER DU HEADER
-          - Fond blanc translucide avec backdrop-blur
-          - Forme arrondie (rounded-full)
-          - Change d'apparence après scroll (isScrolled)
-          ======================================== */}
-      <div className={`mx-auto max-w-7xl rounded-full transition-all duration-300 backdrop-blur-sm ${
-        isScrolled ? 'bg-white/90 shadow-lg py-2' : 'bg-white/80 py-3'
-      }`}>
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center relative">
+    CONTAINER DU HEADER
+    - Fond blanc translucide avec backdrop-blur
+    - Forme arrondie (rounded-full)
+    - ✅ MODIFIÉ: Shadow permanent (sorti de la condition)
+    ======================================== */}
+<div className={`mx-auto max-w-7xl rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg ${
+  isScrolled ? 'bg-white/90 py-2' : 'bg-white/80 py-3'
+}`}>
+  <div className="container mx-auto px-6">
+    <div className="flex justify-between items-center relative">
             
             {/* ========================================
                 LOGO DESKTOP
@@ -388,9 +388,13 @@ const Header = () => {
                   alt="ShareNSpare Mascotte" 
                   className="h-10 w-auto mr-2" 
                 />
-                <div className="flex flex-col">
-                  <span className="text-xl font-bold text-[#00613a]">ShareNSpare</span>
-                  <span className="text-[10px] text-[#00613a]/70 -mt-1 ">Do more with less</span>
+                <div className="flex flex-col ">
+                  <div className="flex ">
+                      <span className="text-xl font-bold text-[#00613a]">Share</span>
+                      <span className="text-xl font-bold text-[#D17034]">N</span>
+                      <span className="text-xl font-bold text-[#00613a]">Spare</span>
+                  </div>
+                  <span className="text-[10px] text-[#D17034]/70 -mt-1 ">Do more with less</span>
                 </div>
               </div>
             </Link>
@@ -468,7 +472,7 @@ const Header = () => {
                         to={item.path}
                         className={`transition-all duration-300 font-medium ${
                           isActiveNavItem(item)
-                            ? 'text-[#00613a] font-bold text-xl transform scale-110' // Style actif
+                            ? 'text-[#D17034] font-bold text-xl transform scale-110' // Style actif
                             : 'text-gray-700 hover:text-[#00613a] text-base' // Style normal
                         }`}
                       >

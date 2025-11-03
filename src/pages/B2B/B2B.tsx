@@ -16,7 +16,7 @@ const B2B = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#00613a]">
-                ShareNSpare pour les entreprises
+                Share<span className='text-[#D17034]'>N</span>Spare pour les <span className='text-[#D17034]'>entreprises</span>
               </h1>
               
               <div className="text-lg text-gray-700 mb-8">
@@ -29,7 +29,7 @@ const B2B = () => {
                     <i className="fas fa-sync-alt text-[#00613a]"></i>
                   </div>
                   <p>
-                    <strong className="text-[#00613a]">Transformez</strong> votre matériel inactif en opportunité en le proposant à d'autres entreprises locales.
+                    <strong className="text-[#D17034]">Transformez</strong> votre matériel inactif en opportunité en le proposant à d'autres entreprises locales.
                   </p>
                 </div>
                 
@@ -38,7 +38,7 @@ const B2B = () => {
                     <i className="fas fa-search-dollar text-[#00613a]"></i>
                   </div>
                   <p>
-                    <strong className="text-[#00613a]">Accédez</strong> aux équipements dont vous avez besoin ponctuellement, sans investir dans du matériel neuf.
+                    <strong className="text-[#D17034]">Accédez</strong> aux équipements dont vous avez besoin ponctuellement, sans investir dans du matériel neuf.
                   </p>
                 </div>
                 
@@ -47,7 +47,7 @@ const B2B = () => {
                     <i className="fas fa-leaf text-[#00613a]"></i>
                   </div>
                   <p>
-                    <strong className="text-[#00613a]">Réduisez</strong> vos coûts, améliorez votre rentabilité et participez à une démarche durable.
+                    <strong className="text-[#D17034]">Réduisez</strong> vos coûts, améliorez votre rentabilité et participez à une démarche durable.
                   </p>
                 </div>
               </div>
@@ -59,7 +59,7 @@ const B2B = () => {
                   e.preventDefault();
                   document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-[#00613a] text-white py-3 px-8 rounded-full hover:bg-[#005131] transition-colors font-medium flex items-center gap-2"
+                className="bg-[#00613a] text-white py-3 px-8 rounded-full hover:bg-[#D17034] transition-colors font-medium flex items-center gap-2"
               >
                 <span>Rejoindre le réseau</span>
                 <i className="fas fa-arrow-right"></i>
@@ -104,7 +104,7 @@ const B2B = () => {
               
               <Link 
                 to="/about" 
-                className="mt-6 text-center p-4 bg-[#00613a] text-white rounded-xl block hover:bg-[#005131] transition-colors cursor-pointer"
+                className="mt-6 text-center p-4 bg-[#D17034] text-white rounded-xl block hover:bg-[#D17034] transition-colors cursor-pointer"
               >
                 <p className="font-bold text-lg">Do more with less</p>
               </Link>
@@ -177,7 +177,7 @@ const B2B = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les entreprises</h3>
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les <span className='text-[#D17034]'>entreprises</span></h3>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
@@ -199,7 +199,7 @@ const B2B = () => {
         </div>
         
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les prestataires indépendants</h3>
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les <span className='text-[#D17034]'>prestataires indépendants</span></h3>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
@@ -222,7 +222,7 @@ const B2B = () => {
       </div>
       
       <div className="text-center">
-        <Link to="#contact" className="bg-[#00613a] text-white hover:bg-[#005131] transition-colors font-semibold py-3 px-8 rounded-full inline-flex items-center gap-2">
+        <Link to="#contact" className="bg-[#00613a] text-white hover:bg-[#D17034] transition-colors font-semibold py-3 px-8 rounded-full inline-flex items-center gap-2">
           <span>En savoir plus</span>
           <i className="fas fa-arrow-right"></i>
         </Link>

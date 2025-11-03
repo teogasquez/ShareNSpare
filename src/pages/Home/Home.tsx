@@ -39,11 +39,11 @@ const Home = () => {
           <div className="flex flex-col max-w-xl mb-12 lg:mb-0 z-10 lg:pr-12">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-tighter">
               <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">Share</span>
-              <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">N</span>
-              <span className="bg-gradient-to-r from-[#00613a] to-[#00a86b] bg-clip-text text-transparent">Spare</span>
+              <span className="bg-gradient-to-r from-[#A8632D] to-[#D17034] bg-clip-text text-transparent">N</span>
+              <span className="bg-gradient-to-r from-[#009559] to-[#00BE72] bg-clip-text text-transparent">Spare</span>
             </h1>
             
-            <p className="text-2xl font-semibold text-[#00613a] mb-6 leading-relaxed">
+            <p className="text-2xl font-semibold text-[#D17034] mb-6 leading-relaxed">
               Do more with less.
             </p>
             
@@ -63,7 +63,7 @@ const Home = () => {
               
               <Link 
                 to="/b2b" 
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#00613a] text-[#00613a] font-semibold rounded-full hover:bg-[#00613a] hover:text-white transform hover:-translate-y-1 transition-all duration-300 text-lg"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#00613a] text-[#00613a] font-semibold rounded-full hover:bg-gradient-to-r from-[#A8632D] to-[#D17034] hover:border-[#dddddd00] hover:text-white transform hover:-translate-y-1 transition-all duration-300 text-lg"
               >
                 Pour les entreprises
               </Link>

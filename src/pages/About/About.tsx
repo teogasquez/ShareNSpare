@@ -57,7 +57,7 @@ const About = () => {
 <section className="py-16 sm:py-20 md:py-24 bg-white">
   <div className="container mx-auto px-4 sm:px-6">
     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">
-      Notre Histoire : ShareNSpare
+      Notre Histoire : Share<span className='text-[#D17034]'>N</span>Spare
     </h2>
     
     <div className="max-w-6xl mx-auto">
@@ -71,7 +71,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center">
             {/* Desktop - Contenu à gauche */}
             <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a] text-left">L'Étincelle Circulaire</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-left">L'Étincelle Circulaire</h3>
               <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
                 En novembre 2024, Simon emménage dans un nouvel appartement. Afin de monter ses meubles et d'accrocher ses tableaux, 
                 il se retrouve face à une triste réalité : il lui faut une boîte à outils et une perceuse.
@@ -128,7 +128,7 @@ const About = () => {
             
             {/* Contenu à droite sur desktop, en bas sur mobile */}
             <div className="md:w-1/2 md:pl-12 order-1 md:order-2 mb-6 md:mb-0">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a] text-center md:text-left">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-center md:text-left">
                 Du Concept au Prototype
               </h3>
               <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-center md:text-left">
@@ -152,7 +152,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center">
             {/* Desktop - Contenu à gauche */}
             <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a] text-left">Lancement et Vision</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-left">Lancement et Vision</h3>
               <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
                 Août 2025 : le concept est prêt et nous créons officiellement ShareNSpare ! Ce n'est plus seulement une idée, 
                 mais un projet concret avec une mission claire : rendre la location simple, accessible et bénéfique pour tous.
@@ -197,7 +197,7 @@ const About = () => {
       {/* Devise finale */}
       <div className="text-center mt-12 sm:mt-16">
         <p className="text-lg sm:text-xl font-bold text-[#00613a]">
-          Une seule devise guide notre projet : Do more with less.
+          Une seule devise guide notre projet : <span className='text-[#D17034]'>Do more with less.</span>
         </p>
       </div>
     </div>
@@ -223,7 +223,7 @@ const About = () => {
                 <span className="text-xs sm:text-sm opacity-75">Paddle, perceuse, appareil à raclette...</span>
                 <Link 
                   to="/c2c" 
-                  className="inline-flex items-center text-white font-semibold border-b-2 border-white pb-1 hover:opacity-80 transition-opacity"
+                  className="inline-flex items-center text-white font-semibold border-b-2 border-white pb-1 hover:border-[#D17034] hover:text-[#D17034] transition-opacity"
                 >
                   En savoir plus
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -246,7 +246,7 @@ const About = () => {
                 <span className="text-xs sm:text-sm opacity-75">Échafaudages, caméras thermiques, outils spécialisés...</span>
                 <Link 
                   to="/b2b" 
-                  className="inline-flex items-center text-white font-semibold border-b-2 border-white pb-1 hover:opacity-80 transition-opacity"
+                  className="inline-flex items-center text-white font-semibold border-b-2 border-white pb-1 hover:border-[#D17034] hover:text-[#D17034] transition-opacity"
                 >
                   En savoir plus
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -263,7 +263,7 @@ const About = () => {
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">Pourquoi ShareNspare ?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">Pourquoi Share<span className='text-[#D17034]'>N</span>spare ?</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
               <div className="bg-[rgba(0,97,58,0.05)] p-5 sm:p-6 rounded-xl text-center">
@@ -299,7 +299,7 @@ const About = () => {
             
             <p className="text-lg sm:text-xl font-bold text-center mt-10 sm:mt-12 text-[#00613a]">
               Moins d'achats, moins de déchets, plus de partage. <br/>
-              <span className="inline-block mt-2">Do more with less.</span>
+              <span className="inline-block mt-2 text-[#D17034]">Do more with less.</span>
             </p>
           </div>
         </div>
@@ -324,7 +324,7 @@ const About = () => {
               </div>
               <div className="p-5 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Simon Chappatte</h3>
-                <p className="text-[#00613a]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Stratégie</p>
+                <p className="text-[#D17034]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Stratégie</p>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Simon dirige la vision stratégique de ShareNSpare et développe les partenariats clés. 
                   Il s'occupe du business model, de la croissance et des relations avec les entreprises partenaires.
@@ -345,7 +345,7 @@ const About = () => {
               </div>
               <div className="p-5 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Teo Gasquez</h3>
-                <p className="text-[#00613a]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Développement</p>
+                <p className="text-[#D17034]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Développement</p>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Teo conçoit et développe toute la plateforme ShareNSpare. Il pilote l'architecture technique, 
                   l'expérience utilisateur et assure le bon fonctionnement de l'application et du site web.
@@ -367,7 +367,7 @@ const About = () => {
               
               <div className="ml-6 sm:ml-8 mb-6 sm:mb-8 relative">
                 <div className="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#00613a]"></div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">L'aventure commence</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#D17034]">L'aventure commence</h3>
                 <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
                   L'application ShareNspare est en développement et sera bientôt disponible.
                   Nous travaillons chaque jour pour créer la plateforme de partage la plus intuitive et efficace.
@@ -376,7 +376,7 @@ const About = () => {
               
               <div className="ml-6 sm:ml-8 relative">
                 <div className="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#00613a]"></div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">Rejoignez la communauté</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#D17034]">Rejoignez la communauté</h3>
                 <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
                   Nous avons besoin de vous pour faire grandir ce projet. Inscrivez-vous pour être
                   parmi les premiers à profiter de notre plateforme et aider à construire un modèle plus durable.
@@ -385,7 +385,7 @@ const About = () => {
             </div>
             
             <p className="text-xl sm:text-2xl font-bold text-[#00613a]">
-              ShareNspare – Do more with less.
+              Share<span className='text-[#D17034]'>N</span>spare – Do more with less.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12">
@@ -397,7 +397,7 @@ const About = () => {
               </Link>
               <Link 
                 to="/c2c#contact" 
-                className="border-2 border-[#00613a] text-[#00613a] font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-full hover:bg-[#00613a]/10 transition-colors"
+                className="border-2 border-[#00613a] text-[#00613a] font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-full hover:bg-[#D17034] hover:border-[#D17034] hover:text-white transition-colors"
               >
                 Nous contacter
               </Link>

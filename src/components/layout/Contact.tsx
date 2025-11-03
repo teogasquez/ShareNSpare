@@ -8,6 +8,7 @@ const Contact = () => {
   });
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -17,13 +18,48 @@ const Contact = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
     if (!acceptTerms) {
-      e.preventDefault();
       alert('Veuillez accepter les conditions d\'utilisation pour envoyer le formulaire.');
       return;
     }
-    // Netlify gère automatiquement la soumission
-    setIsSubmitted(true);
+
+    setIsSubmitting(true);
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    
+    // ✅ IMPORTANT: S'assurer que form-name est présent
+    if (!data.has('form-name')) {
+      data.append('form-name', 'contact');
+    }
+
+    // Encoder pour Netlify
+    const body = new URLSearchParams();
+    data.forEach((value, key) => {
+      body.append(key, value.toString());
+    });
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    })
+    .then((response) => {
+      console.log('✅ Réponse serveur:', response.status);
+      if (response.ok || response.status === 200) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      setIsSubmitting(false);
+    })
+    .catch((error) => {
+      console.error('❌ Erreur lors de l\'envoi:', error);
+      alert('Une erreur est survenue. Veuillez réessayer.');
+      setIsSubmitting(false);
+    });
   };
 
   if (isSubmitted) {
@@ -36,7 +72,7 @@ const Contact = () => {
         </div>
         <h3 className="text-2xl font-bold text-[#00613a] mb-2">Message envoyé !</h3>
         <p className="text-gray-600">
-          Merci pour votre message. Nous vous répondrons dans les plus brefs délais à l'adresse email fournie.
+          Merci pour votre message. Nous vous répondrons dans les plus brefs délais.
         </p>
       </div>
     );
@@ -154,15 +190,24 @@ const Contact = () => {
       {/* Bouton d'envoi */}
       <button
         type="submit"
-        disabled={!acceptTerms}
+        disabled={!acceptTerms || isSubmitting}
         className={`w-full font-semibold py-4 px-6 rounded-lg transition-all duration-300 shadow-md flex items-center justify-center gap-2 ${
-          acceptTerms 
-            ? 'bg-[#00613a] text-white hover:bg-[#005131] hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer' 
+          acceptTerms && !isSubmitting
+            ? 'bg-[#D17034] text-white hover:bg-[#D17034] hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer' 
             : 'bg-gray-300 text-gray-500 cursor-not-allowed'
         }`}
       >
-        <span>Envoyer le message</span>
-        <i className="fas fa-paper-plane"></i>
+        {isSubmitting ? (
+          <>
+            <i className="fas fa-spinner fa-spin"></i>
+            <span>Envoi en cours...</span>
+          </>
+        ) : (
+          <>
+            <span>Envoyer le message</span>
+            <i className="fas fa-paper-plane"></i>
+          </>
+        )}
       </button>
     </form>
   );

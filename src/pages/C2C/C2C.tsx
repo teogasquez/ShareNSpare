@@ -170,9 +170,9 @@ const C2C = () => {
             
             {/* Colonne gauche - Texte */}
             <div className="space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
-                Partagez vos objets ou services, et réalisez des économies !
-              </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
+              Partagez vos <span className="text-[#D17034] font-extrabold">objets</span> ou <span className="text-[#D17034] font-extrabold">services</span>, et réalisez des <span className="text-[#D17034] font-extrabold">économies</span> !
+            </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-[#00613a]/80">
                 Une nouvelle façon de consommer, plus responsable, plus économique.
               </p>
@@ -188,7 +188,7 @@ const C2C = () => {
                 </Link>
                 <Link 
                   to="#how-it-works" 
-                  className="border-2 border-[#00613a] text-[#00613a] hover:bg-[rgba(0,97,58,0.08)] transition-colors font-semibold py-3 px-8 rounded-full flex items-center justify-center"
+                  className="border-2 border-[#00613a] text-[#00613a] hover:bg-[#D17034] hover:border-[#D17034] hover:text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center"
                   onClick={() => setActiveTab('offer-service')}
                 >
                   <i className="fas fa-hands-helping mr-3"></i>
@@ -275,7 +275,7 @@ const C2C = () => {
           className={`py-3 px-2 rounded-xl text-center transition-all font-medium text-sm sm:text-base ${
             activeTab === 'rent' 
               ? 'bg-[#00613a] text-white shadow-lg' 
-              : 'text-gray-600 hover:bg-gray-200'
+              : 'text-gray-600 hover:bg-[#B8714F]/30'
           }`}
           onClick={() => setActiveTab('rent')}
         >
@@ -288,7 +288,7 @@ const C2C = () => {
           className={`py-3 px-2 rounded-xl text-center transition-all font-medium text-sm sm:text-base ${
             activeTab === 'borrow' 
               ? 'bg-[#00613a] text-white shadow-lg' 
-              : 'text-gray-600 hover:bg-gray-200'
+              : 'text-gray-600 hover:bg-[#B8714F]/30'
           }`}
           onClick={() => setActiveTab('borrow')}
         >
@@ -301,7 +301,7 @@ const C2C = () => {
           className={`py-3 px-2 rounded-xl text-center transition-all font-medium text-sm sm:text-base ${
             activeTab === 'offer-service' 
               ? 'bg-[#00613a] text-white shadow-lg' 
-              : 'text-gray-600 hover:bg-gray-200'
+              : 'text-gray-600 hover:bg-[#B8714F]/30'
           }`}
           onClick={() => setActiveTab('offer-service')}
         >
@@ -314,7 +314,7 @@ const C2C = () => {
           className={`py-3 px-2 rounded-xl text-center transition-all font-medium text-sm sm:text-base ${
             activeTab === 'hire-service' 
               ? 'bg-[#00613a] text-white shadow-lg' 
-              : 'text-gray-600 hover:bg-gray-200'
+              : 'text-gray-600 hover:bg-[#B8714F]/30'
           }`}
           onClick={() => setActiveTab('hire-service')}
         >
@@ -472,7 +472,7 @@ const C2C = () => {
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-[#00613a]">
         Exemples de services et objets disponibles
       </h2>
-      <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+      <p className="text-base sm:text-lg md:text-xl text-[#D17034] max-w-3xl mx-auto px-4">
         De l'outillage aux services personnalisés, découvrez ce que vous pourrez louer ou proposer sur ShareNSpare
       </p>
     </div>
@@ -641,7 +641,7 @@ const C2C = () => {
       </p>
       <Link 
         to="#countdown" 
-        className="inline-flex items-center bg-[#00613a] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-[#005131] transition-colors shadow-lg hover:shadow-xl"
+        className="inline-flex items-center bg-[#00613a] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-[#D17034] transition-colors shadow-lg hover:shadow-xl"
       >
         <span>Découvrir l'application</span>
         <i className="fas fa-arrow-right ml-2"></i>
@@ -654,7 +654,7 @@ const C2C = () => {
 <section id='countdown' className="min-h-screen flex items-center bg-[#00613a] py-20">
   <div className="container mx-auto px-4 max-w-7xl">
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold mb-6 text-white">L'application sera bientôt disponible</h2>
+      <h2 className="text-4xl font-bold mb-6 text-white">L'application sera <span className="text-[#D17034]">bientôt disponible</span></h2>
       <p className="text-xl max-w-2xl mx-auto text-white/90">
         Notre application mobile arrive dans très peu de temps. Inscrivez-vous pour être informé de son lancement !
       </p>
@@ -689,7 +689,7 @@ const C2C = () => {
           placeholder="Votre adresse e-mail" 
           className="flex-1 px-4 py-3 rounded-full border-2 border-white/30 outline-none bg-white/10 text-white placeholder:text-white/60 focus:border-white focus:ring-2 focus:ring-white/20 backdrop-blur"
         />
-        <button type="submit" className="bg-white text-[#00613a] font-semibold px-6 py-3 rounded-full hover:bg-white/90 transition-colors shadow-lg">
+        <button type="submit" className="bg-white text-[#00613a] font-semibold px-6 py-3 rounded-full hover:bg-[#D17034] hover:text-white transition-colors shadow-lg">
           M'avertir
         </button>
       </form>
@@ -710,7 +710,7 @@ const C2C = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les particuliers</h3>
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les <span className='text-[#D17034]'>particuliers</span> </h3>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
@@ -732,7 +732,7 @@ const C2C = () => {
         </div>
         
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les prestataires indépendants</h3>
+          <h3 className="text-2xl font-bold mb-4 text-[#00613a]">Pour les <span className='text-[#D17034]'>prestataires indépendants</span></h3>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-2">
               <i className="fas fa-check-circle text-[#00613a] mt-1"></i>
@@ -755,7 +755,7 @@ const C2C = () => {
       </div>
       
       <div className="text-center">
-        <Link to="#contact" className="bg-[#00613a] text-white hover:bg-[#005131] transition-colors font-semibold py-3 px-8 rounded-full inline-flex items-center gap-2">
+        <Link to="#contact" className="bg-[#00613a] text-white hover:bg-[#D17034] transition-colors font-semibold py-3 px-8 rounded-full inline-flex items-center gap-2">
           <span>En savoir plus</span>
           <i className="fas fa-arrow-right"></i>
         </Link>

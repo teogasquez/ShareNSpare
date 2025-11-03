@@ -127,22 +127,22 @@ const Footer = () => {
             <nav aria-label="Plan du site principal">
               <ul className="space-y-3">
                 <li>
-                  <Link to="/" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Accueil
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/about" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     À propos
                   </Link>
                 </li>
                 <li>
-                  <Link to="/c2c" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/c2c" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Particuliers
                   </Link>
                 </li>
                 <li>
-                  <Link to="/b2b" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/b2b" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Entreprises
                   </Link>
                 </li>
@@ -164,27 +164,27 @@ const Footer = () => {
             <nav aria-label="Services">
               <ul className="space-y-3">
                 <li>
-                  <Link to="/C2C#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/C2C#hero" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Location d'équipement
                   </Link>
                 </li>
                 <li>
-                  <Link to="/b2b#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/b2b#hero" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Solutions professionnelles
                   </Link>
                 </li>
                 <li>
-                  <Link to="/C2C#countdown" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/C2C#countdown" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Application mobile
                   </Link>
                 </li>
                 <li>
-                  <Link to="#partner" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="#partner" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Programme partenaires
                   </Link>
                 </li>
                 <li>
-                  <Link to="#contact" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="#contact" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Assistance
                   </Link>
                 </li>
@@ -198,14 +198,14 @@ const Footer = () => {
             <nav aria-label="Ressources">
               <ul className="space-y-3">
                 <li>
-                  <Link to="/coming-soon#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/coming-soon#hero" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Blog
                   </Link>
                 </li>
               
                 
                 <li>
-                  <Link to="/coming-soon#hero" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/coming-soon#hero" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Guides d'utilisation de l'application
                   </Link>
                 </li>
@@ -220,18 +220,18 @@ const Footer = () => {
             <nav aria-label="Informations légales">
               <ul className="space-y-3">
                 <li>
-                  <Link to="/legal#conditions" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/legal#conditions" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Conditions d'utilisation
                   </Link>
                 </li>
                 <li>
-                  <Link to="/legal#confidentialite" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/legal#confidentialite" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Politique de confidentialité
                   </Link>
                 </li>
                 
                 <li>
-                  <Link to="/legal#mentions-legales" className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/legal#mentions-legales" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Mentions légales
                   </Link>
                 </li>
@@ -256,10 +256,10 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/legal#confidentialite" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
+              <Link to="/legal#confidentialite" className="text-sm text-gray-600 hover:text-[#D17034] transition-colors">
                 Confidentialité
               </Link>
-              <Link to="/legal#conditions" className="text-sm text-gray-600 hover:text-[#00613a] transition-colors">
+              <Link to="/legal#conditions" className="text-sm text-gray-600 hover:text-[#D17034] transition-colors">
                 Conditions
               </Link>
             
