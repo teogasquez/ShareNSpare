@@ -86,14 +86,17 @@ const C2C = () => {
   }, []);
   
 
-  // Timer pour le lancement de l'application (compte à rebours de 90 jours)
+
+  // COMPTE À REBOURS - DATE FIXE
+
+
   useEffect(() => {
-    const countdownDate = new Date();
-    countdownDate.setDate(countdownDate.getDate() + 180); // Date cible : dans 90 jours
+    // ✅ DATE FIXE - Ne change jamais, même après F5
+    const LAUNCH_DATE = new Date('2026-06-01T00:00:00'); // 1er juin 2026 à minuit
     
     const timer = setInterval(() => {
       const now = new Date().getTime();
-      const distance = countdownDate.getTime() - now;
+      const distance = LAUNCH_DATE.getTime() - now;
       
       // Calcule les jours, heures, minutes et secondes restantes
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -121,7 +124,7 @@ const C2C = () => {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, []); // ✅ Dépendances vides = s'exécute une seule fois au montage
 
   /**
    * Gère le début du drag (quand l'utilisateur clique et commence à glisser)
@@ -228,8 +231,8 @@ const C2C = () => {
                 ======================================== */}
             <div className="hidden lg:flex justify-center lg:justify-end">
               <img 
-                src="https://images.unsplash.com/photo-1591035897819-f4bdf739f446?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="Partage d'objets entre particuliers"
+                src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=2073" 
+      alt="Échange entre particuliers"
                 className="rounded-xl shadow-xl max-h-[500px] object-cover"
               />
             </div>
