@@ -62,10 +62,10 @@ const Home = () => {
               </Link>
               
               <Link 
-                to="/b2b" 
+                to="/festival" 
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#00613a] text-[#00613a] font-semibold rounded-full hover:bg-gradient-to-r from-[#A8632D] to-[#D17034] hover:border-[#dddddd00] hover:text-white transform hover:-translate-y-1 transition-all duration-300 text-lg"
               >
-                Pour les entreprises
+                Pour les festivals
               </Link>
             </div>
           </div>
