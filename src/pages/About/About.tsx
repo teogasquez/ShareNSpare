@@ -207,7 +207,10 @@ const About = () => {
       {/* Comment ça marche - Fond vert, texte blanc */}
       <section className="min-h-screen py-16 sm:py-20 md:py-24 bg-[#00613a] text-white flex items-center">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center">Comment ça marche ?</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center">
+  <span>Comment</span>{" "}
+  <span className="text-[#D17034]">ça marche ?</span>
+</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
             {/* Pour les particuliers */}
@@ -233,28 +236,46 @@ const About = () => {
               </div>
             </div>
             
-            {/* Pour les entreprises */}
-            <div className="bg-white/10 backdrop-blur p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Pour les entreprises</h3>
-              <p className="mb-4 opacity-80 text-sm sm:text-base">
-                Optimisez vos actifs : transformez vos équipements sous-utilisés en sources de revenus.
-              </p>
-              <p className="mb-4 opacity-80 text-sm sm:text-base">
-                Accédez à du matériel professionnel dans votre région sans investissement lourd.
-              </p>
-              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
-                <span className="text-xs sm:text-sm opacity-75">Échafaudages, caméras thermiques, outils spécialisés...</span>
-                <Link 
-                  to="/b2b" 
-                  className="inline-flex items-center text-white font-semibold border-b-2 border-white pb-1 hover:border-[#D17034] hover:text-[#D17034] transition-opacity"
-                >
-                  En savoir plus
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
-                </Link>
-              </div>
-            </div>
+            {/* Pour les festivals */}
+<div className="bg-white/10 backdrop-blur p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+  <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+    Pour les festivals
+  </h3>
+
+  <p className="mb-4 opacity-80 text-sm sm:text-base">
+    Mutualisez votre matériel événementiel avec d'autres festivals et transformez vos équipements inutilisés en sources de revenus.
+  </p>
+
+  <p className="mb-4 opacity-80 text-sm sm:text-base">
+    Accédez à du matériel professionnel près de chez vous sans investissement lourd et réduisez vos coûts d’organisation.
+  </p>
+
+  <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
+    <span className="text-xs sm:text-sm opacity-75">
+      Scènes, barrières, éclairages, groupes électrogènes...
+    </span>
+
+    <Link 
+      to="/festival" 
+      className="inline-flex items-center text-white font-semibold border-b-2 border-white pb-1 hover:border-[#D17034] hover:text-[#D17034] transition-opacity"
+    >
+      En savoir plus
+      <svg 
+        className="w-4 h-4 sm:w-5 sm:h-5 ml-2" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth="2" 
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+        />
+      </svg>
+    </Link>
+  </div>
+</div>
           </div>
         </div>
       </section>
@@ -263,7 +284,7 @@ const About = () => {
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">Pourquoi Share<span className='text-[#D17034]'>N</span>spare ?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">Pourquoi Share<span className='text-[#D17034]'>N</span>Spare ?</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
               <div className="bg-[rgba(0,97,58,0.05)] p-5 sm:p-6 rounded-xl text-center">
@@ -347,7 +368,7 @@ const About = () => {
                 <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Teo Gasquez</h3>
                 <p className="text-[#D17034]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Développement</p>
                 <p className="text-gray-600 text-sm sm:text-base">
-                  Teo conçoit et développe toute la plateforme ShareNSpare. Il pilote l'architecture technique, 
+                  Teo conçoit et développe la plateforme ShareNSpare. Il pilote l'architecture technique, 
                   l'expérience utilisateur et assure le bon fonctionnement de l'application et du site web.
                 </p>
               </div>
@@ -385,7 +406,7 @@ const About = () => {
             </div>
             
             <p className="text-xl sm:text-2xl font-bold text-[#00613a]">
-              Share<span className='text-[#D17034]'>N</span>spare – Do more with less.
+              Share<span className='text-[#D17034]'>N</span>Spare – Do more with less.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12">

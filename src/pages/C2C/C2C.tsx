@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Contact from '../../components/layout/Contact';
+import heroImage from '../../assets/images/123456.webp';
 
 const C2C = () => {
   
@@ -177,7 +178,7 @@ const C2C = () => {
               Partagez vos <span className="text-[#D17034] font-extrabold">objets</span> ou <span className="text-[#D17034] font-extrabold">services</span>, et réalisez des économies !
             </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-[#00613a]/80">
-                Une nouvelle façon de consommer, plus responsable, plus économique.
+                Une nouvelle façon de consommer : plus responsable, plus économique.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
@@ -231,7 +232,7 @@ const C2C = () => {
                 ======================================== */}
             <div className="hidden lg:flex justify-center lg:justify-end">
               <img 
-                src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=2073" 
+                src={heroImage} 
       alt="Échange entre particuliers"
                 className="rounded-xl shadow-xl max-h-[500px] object-cover"
               />
@@ -253,8 +254,8 @@ const C2C = () => {
         viewport={{ once: true }}
         className="text-4xl md:text-5xl font-bold mb-6"
       >
-        Comment ça marche
-      </motion.h2>
+          Comment ça <span className="text-[#D17034]">marche </span>
+          </motion.h2>
       <motion.p 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -277,7 +278,7 @@ const C2C = () => {
         <button 
           className={`py-3 px-2 rounded-xl text-center transition-all font-medium text-sm sm:text-base ${
             activeTab === 'rent' 
-              ? 'bg-[#00613a] text-white shadow-lg' 
+            ? 'bg-[#D17034] text-white shadow-lg' 
               : 'text-gray-600 hover:bg-[#B8714F]/30'
           }`}
           onClick={() => setActiveTab('rent')}
@@ -290,7 +291,7 @@ const C2C = () => {
         <button 
           className={`py-3 px-2 rounded-xl text-center transition-all font-medium text-sm sm:text-base ${
             activeTab === 'borrow' 
-              ? 'bg-[#00613a] text-white shadow-lg' 
+            ? 'bg-[#D17034] text-white shadow-lg' 
               : 'text-gray-600 hover:bg-[#B8714F]/30'
           }`}
           onClick={() => setActiveTab('borrow')}
@@ -303,7 +304,7 @@ const C2C = () => {
         <button 
           className={`py-3 px-2 rounded-xl text-center transition-all font-medium text-sm sm:text-base ${
             activeTab === 'offer-service' 
-              ? 'bg-[#00613a] text-white shadow-lg' 
+            ? 'bg-[#D17034] text-white shadow-lg' 
               : 'text-gray-600 hover:bg-[#B8714F]/30'
           }`}
           onClick={() => setActiveTab('offer-service')}
@@ -316,7 +317,7 @@ const C2C = () => {
         <button 
           className={`py-3 px-2 rounded-xl text-center transition-all font-medium text-sm sm:text-base ${
             activeTab === 'hire-service' 
-              ? 'bg-[#00613a] text-white shadow-lg' 
+              ? 'bg-[#D17034] text-white shadow-lg'
               : 'text-gray-600 hover:bg-[#B8714F]/30'
           }`}
           onClick={() => setActiveTab('hire-service')}
@@ -387,7 +388,7 @@ const C2C = () => {
                     {step === 1 && "Recherchez par catégorie ou mot-clé, et filtrez les résultats par distance et disponibilité."}
                     {step === 2 && "Sélectionnez les dates et envoyez une demande de réservation au propriétaire."}
                     {step === 3 && "Rencontrez le propriétaire pour récupérer l'objet loué à l'endroit convenu."}
-                    {step === 4 && "Utilisez l'objet pendant la durée convenue, puis restituez-le en bon état au propriétaire."}
+                    {step === 4 && "Utilisez l'objet pendant la durée convenue, puis restituez-le en l'état au propriétaire."}
                   </p>
                 </div>
               </motion.div>

@@ -19,14 +19,15 @@ import mascotImage from '../../assets/images/mascotte-removebg-preview.webp';
 const navItems = [
   { path: '/', label: 'Accueil' },
   { path: '/c2c#hero', label: 'Particuliers' },
-  { path: '/b2b#hero', label: 'Entreprises' },
+  //{ path: '/b2b#hero', label: 'Entreprises' },
+  { path: '/festival', label: 'Festivals' }, // Au calme nouvelle petite page
   { path: '/about', label: 'À propos' },  
   { 
     label: 'Contact',
     hasSubmenu: true,
     submenu: [
       { path: '/c2c#contact', label: 'Particuliers' },
-      { path: '/b2b#contact', label: 'Entreprises' }
+      { path: '/festival#contact', label: 'Festivals' }
     ]
   }
 ];
