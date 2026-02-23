@@ -167,79 +167,147 @@ const C2C = () => {
 
   return (
     <div className="pt-24 md:pt-16">
-      {/* Section Hero - Introduction */}
-      <section id="hero" className="min-h-screen flex items-center justify-center overflow-hidden py-12 md:py-0">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            
-            {/* Colonne gauche - Texte */}
-            <div className="space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
-              Partagez vos <span className="text-[#D17034] font-extrabold">objets</span> ou <span className="text-[#D17034] font-extrabold">services</span>, et réalisez des économies !
-            </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-[#00613a]/80">
-                Une nouvelle façon de consommer : plus responsable, plus économique.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <Link 
-                  to="#how-it-works" 
-                  className="bg-[#00613a] text-white hover:bg-[#005131] transition-colors font-semibold py-3 px-8 rounded-full flex items-center justify-center shadow-lg"
-                  onClick={() => setActiveTab('rent')}
-                >
-                  <i className="fas fa-box mr-3"></i>
-                  <span>Partager des objets</span>
-                </Link>
-                <Link 
-                  to="#how-it-works" 
-                  className="border-2 border-[#00613a] text-[#00613a] hover:bg-[#D17034] hover:border-[#D17034] hover:text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center"
-                  onClick={() => setActiveTab('offer-service')}
-                >
-                  <i className="fas fa-hands-helping mr-3"></i>
-                  <span>Échanger des services</span>
-                </Link>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                <Link 
-                  to="#how-it-works" 
-                  className="bg-[rgba(0,97,58,0.08)] text-[#00613a] hover:bg-[rgba(0,97,58,0.15)] transition-colors cursor-pointer font-semibold py-2 px-6 rounded-full flex items-center justify-center"
-                >
-                  <span className="mr-2">En savoir plus</span>
-                  <i className="fas fa-arrow-down"></i>
-                </Link>
-                
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <span className="text-[#00613a] font-medium text-sm sm:text-base">Rejoindre la communauté:</span>
-                  <div className="flex gap-3">
-                    <a href="#" className="w-10 h-10 rounded-full bg-[#00613a] flex items-center justify-center text-white hover:bg-opacity-90 transition-all">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-[#00613a] flex items-center justify-center text-white hover:bg-opacity-90 transition-all">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-[#00613a] flex items-center justify-center text-white hover:bg-opacity-90 transition-all">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* ========================================
-                Colonne droite - Image
-                ✅ CACHÉE SUR MOBILE avec "hidden lg:flex"
-                ======================================== */}
-            <div className="hidden lg:flex justify-center lg:justify-end">
-              <img 
-                src={heroImage} 
-      alt="Échange entre particuliers"
-                className="rounded-xl shadow-xl max-h-[500px] object-cover"
-              />
+      {/* Section Hero - C2C */}
+<section id="hero" className="py-20 lg:min-h-screen flex items-center">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      
+      {/* ========================= */}
+      {/* COLONNE TEXTE */}
+      {/* ========================= */}
+      <div className="space-y-6">
+
+        {/* TITRE */}
+        <h1 className="text-4xl sm:text-4xl md:text-5xl 
+                       font-bold 
+                       text-[#00613a] 
+                       leading-tight
+                       text-center lg:text-left">
+          Partagez vos{" "}
+          <span className="text-[#D17034] font-extrabold">objets</span>{" "}
+          ou{" "}
+          <span className="text-[#D17034] font-extrabold">services</span>,{" "}
+          et réalisez des économies !
+        </h1>
+
+        {/* INTRO */}
+        <p className="text-xl sm:text-xl md:text-2xl
+                      text-[#00613a]/80
+                      text-center lg:text-left
+                      px-4 lg:px-0">
+          Une nouvelle façon de consommer : plus responsable, plus économique.
+        </p>
+
+        {/* IMAGE MOBILE */}
+        <div className="block lg:hidden mt-6 flex justify-center">
+          <img 
+            src={heroImage}
+            alt="Échange entre particuliers"
+            className="rounded-xl shadow-xl w-5/6 max-h-[260px] object-cover"
+          />
+        </div>
+
+        {/* BOUTONS PRINCIPAUX */}
+        <div className="flex flex-col sm:flex-row gap-4 pt-6 items-center">
+
+          <Link 
+            to="#how-it-works" 
+            onClick={() => setActiveTab('rent')}
+            className="w-11/12 sm:w-auto
+                       bg-[#00613a] 
+                       text-white 
+                       hover:bg-[#005131] 
+                       transition-all duration-300 
+                       font-semibold 
+                       py-3 
+                       px-6 sm:px-8 
+                       rounded-full 
+                       flex items-center justify-center 
+                       shadow-md hover:shadow-lg"
+          >
+            <i className="fas fa-box mr-3"></i>
+            <span>Partager des objets</span>
+          </Link>
+
+          <Link 
+            to="#how-it-works" 
+            onClick={() => setActiveTab('offer-service')}
+            className="w-11/12 sm:w-auto
+                       border-2 border-[#00613a] 
+                       text-[#00613a] 
+                       hover:bg-[#D17034] 
+                       hover:border-[#D17034] 
+                       hover:text-white 
+                       transition-all duration-300 
+                       font-semibold 
+                       py-3 
+                       px-6 sm:px-8 
+                       rounded-full 
+                       flex items-center justify-center"
+          >
+            <i className="fas fa-hands-helping mr-3"></i>
+            <span>Échanger des services</span>
+          </Link>
+
+        </div>
+
+        {/* BOUTONS SECONDAIRES */}
+        <div className="flex flex-col sm:flex-row gap-4 pt-1 items-center">
+
+          <Link 
+            to="#how-it-works"
+            className="w-11/12 sm:w-auto
+                       bg-[rgba(0,97,58,0.08)] 
+                       text-[#00613a] 
+                       hover:bg-[rgba(0,97,58,0.15)] 
+                       transition-all duration-300
+                       font-semibold 
+                       py-2.5 
+                       px-6 
+                       rounded-full 
+                       flex items-center justify-center"
+          >
+            <span className="mr-2">En savoir plus</span>
+            <i className="fas fa-arrow-down"></i>
+          </Link>
+
+          {/* Réseaux sociaux conservés mais adaptés mobile */}
+          <div className="w-11/12 sm:w-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <span className="text-[#00613a] font-medium text-sm sm:text-base">
+              Rejoindre la communauté:
+            </span>
+
+            <div className="flex gap-3 justify-center">
+              <a href="#" className="w-10 h-10 rounded-full bg-[#00613a] flex items-center justify-center text-white hover:bg-opacity-90 transition-all">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-[#00613a] flex items-center justify-center text-white hover:bg-opacity-90 transition-all">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-[#00613a] flex items-center justify-center text-white hover:bg-opacity-90 transition-all">
+                <i className="fab fa-twitter"></i>
+              </a>
             </div>
           </div>
+
         </div>
-      </section>
+
+      </div>
+
+      {/* ========================= */}
+      {/* IMAGE DESKTOP */}
+      {/* ========================= */}
+      <div className="hidden lg:flex justify-end">
+        <img 
+          src={heroImage} 
+          alt="Échange entre particuliers"
+          className="rounded-xl shadow-xl max-h-[500px] object-cover"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
       
   
 

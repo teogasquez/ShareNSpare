@@ -24,91 +24,139 @@ const Festival = () => {
     <div className="pt-16">
 
 {/* Section Hero - Festivals */}
-<section id="hero" className="min-h-screen flex items-center justify-center overflow-hidden py-12 md:py-0">
+<section id="hero" className="py-20 lg:min-h-screen flex items-center">
   <div className="container mx-auto px-4">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       
-      {/* Colonne gauche - Texte */}
+      {/* ========================= */}
+      {/* COLONNE TEXTE */}
+      {/* ========================= */}
       <div className="space-y-6">
-        
-        {/* TITRE (changé uniquement ici) */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00613a] leading-tight">
+
+        {/* TITRE */}
+        <h1 className="text-4xl sm:text-4xl md:text-5xl 
+               font-bold 
+               text-[#00613a] 
+               leading-tight
+               text-center lg:text-left">
           Et si les festivals suisses devenaient{" "}
-          <span className="text-[#D17034] font-extrabold">partenaires </span>{" "}
+          <span className="text-[#D17034] font-extrabold">partenaires </span>
           plutôt que{" "}
           <span className="text-[#D17034] font-extrabold">concurrents ?</span>
         </h1>
 
-        {/* INTRO (changée uniquement ici) */}
-        <p className="text-lg sm:text-xl md:text-2xl text-[#00613a]/80">
-          La première plateforme suisse de location de matériel entre festivals.
-        </p>
+        {/* INTRO */}
+        <p className="text-xl sm:text-xl md:text-2xl
+              text-[#00613a]/80
+              text-center lg:text-left
+              px-4 lg:px-0">
+  La première plateforme suisse de location de matériel entre festivals.
+</p>
 
-        {/* BOUTONS MODIFIÉS */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-6">
-  
-        <Link 
-  to="?mode=rent#how-it-works"
-  className="bg-[#00613a] text-white hover:bg-[#005131] transition-colors font-semibold py-3 px-8 rounded-full flex items-center justify-center shadow-lg"
->
-  <i className="fas fa-box-open mr-3"></i>
-  <span>Proposer du matériel</span>
-</Link>
+        {/* IMAGE MOBILE */}
+        <div className="block lg:hidden mt-6 flex justify-center">
+  <img 
+    src={heroImage}
+    alt="Festival suisse"
+    className="rounded-xl shadow-xl w-5/6 max-h-[260px] object-cover"
+  />
+</div>
 
-<Link 
-  to="?mode=borrow#how-it-works"
-  className="border-2 border-[#00613a] text-[#00613a] hover:bg-[#D17034] hover:border-[#D17034] hover:text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center"
->
-  <i className="fas fa-handshake mr-3"></i>
-  <span>Louer du matériel</span>
-</Link>
+        {/* BOUTONS PRINCIPAUX */}
+        {/* BOUTONS PRINCIPAUX */}
+        <div className="flex flex-col sm:flex-row gap-4 pt-6 items-center">
+
+  <Link 
+    to="?mode=rent#how-it-works"
+    className="w-11/12 sm:w-auto
+               bg-[#00613a] 
+               text-white 
+               hover:bg-[#005131] 
+               transition-all duration-300 
+               font-semibold 
+               py-3 
+               px-6 sm:px-8 
+               rounded-full 
+               flex items-center justify-center 
+               shadow-md hover:shadow-lg"
+  >
+    <i className="fas fa-box-open mr-3"></i>
+    <span>Proposer du matériel</span>
+  </Link>
+
+  <Link 
+    to="?mode=borrow#how-it-works"
+    className="w-11/12 sm:w-auto
+               border-2 border-[#00613a] 
+               text-[#00613a] 
+               hover:bg-[#D17034] 
+               hover:border-[#D17034] 
+               hover:text-white 
+               transition-all duration-300 
+               font-semibold 
+               py-3 
+               px-6 sm:px-8 
+               rounded-full 
+               flex items-center justify-center"
+  >
+    <i className="fas fa-handshake mr-3"></i>
+    <span>Louer du matériel</span>
+  </Link>
 
 </div>
 
-        {/* Ligne En savoir plus + Réseaux (STRICTEMENT IDENTIQUE C2C) */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-4">
-        <Link 
-  to="#defis-partages"
-  className="bg-[rgba(0,97,58,0.08)] text-[#00613a] hover:bg-[rgba(0,97,58,0.15)] transition-colors cursor-pointer font-semibold py-2 px-6 rounded-full flex items-center justify-center"
->
-  <span className="mr-2">En savoir plus</span>
-  <i className="fas fa-arrow-down"></i>
-</Link>
-          
-<Link 
-  to="#contact"
-  className="bg-[rgba(0,97,58,0.08)] 
-             text-[#00613a] 
-             hover:bg-[#D17034] 
-             hover:text-white
-             transition-all duration-300
-             font-semibold 
-             py-2 px-6 
-             rounded-full 
-             flex items-center 
-             justify-center"
->
-  <i className="fas fa-user-plus mr-2 transition-colors duration-300"></i>
-  <span>Rejoindre le réseau</span>
-</Link>
-        </div>
+        {/* BOUTONS SECONDAIRES */}
+        <div className="flex flex-col sm:flex-row gap-4 pt-1 items-center">
+
+  <Link 
+    to="#defis-partages"
+    className="w-11/12 sm:w-auto
+               bg-[rgba(0,97,58,0.08)] 
+               text-[#00613a] 
+               hover:bg-[rgba(0,97,58,0.15)] 
+               transition-all duration-300
+               font-semibold 
+               py-2.5 
+               px-6 sm:px-6 
+               rounded-full 
+               flex items-center justify-center"
+  >
+    <span className="mr-2">En savoir plus</span>
+    <i className="fas fa-arrow-down"></i>
+  </Link>
+
+  <Link 
+    to="#contact"
+    className="w-11/12 sm:w-auto
+               bg-[rgba(0,97,58,0.08)] 
+               text-[#00613a] 
+               hover:bg-[#D17034] 
+               hover:text-white
+               transition-all duration-300
+               font-semibold 
+               py-2.5 
+               px-6 
+               rounded-full 
+               flex items-center justify-center"
+  >
+    <i className="fas fa-user-plus mr-2"></i>
+    <span>Rejoindre le réseau</span>
+  </Link>
+
+</div>
 
       </div>
-      
-{/* Colonne droite - Image */}
-<div className="hidden lg:flex justify-center lg:justify-end">
-  <div className="relative">
 
-    <img 
-      src={heroImage}
-      alt="Festival suisse"
-      className="rounded-xl shadow-xl max-h-[500px] object-cover"
-    />
-
- 
-
-  </div>
-</div>
+      {/* ========================= */}
+      {/* IMAGE DESKTOP */}
+      {/* ========================= */}
+      <div className="hidden lg:flex justify-end">
+        <img 
+          src={heroImage}
+          alt="Festival suisse"
+          className="rounded-xl shadow-xl max-h-[500px] object-cover"
+        />
+      </div>
 
     </div>
   </div>
@@ -244,7 +292,9 @@ const Festival = () => {
       : "blur(8px) brightness(0.8)"
   }}
   transition={{ duration: 0.35, ease: "easeInOut" }}
-  className={`${mode !== "rent" ? "cursor-pointer" : ""}`}
+  className={`
+    ${mode !== "rent" ? "hidden lg:block cursor-pointer" : "block"}
+  `}
 >
         <div className="flex gap-6">
           <div className="flex flex-col items-center">
@@ -293,7 +343,9 @@ const Festival = () => {
       : "blur(8px) brightness(0.8)"
   }}
   transition={{ duration: 0.35, ease: "easeInOut" }}
-  className={`${mode !== "borrow" ? "cursor-pointer" : ""}`}
+  className={`
+    ${mode !== "borrow" ? "hidden lg:block cursor-pointer" : "block"}
+  `}
 >
         <div className="flex gap-6">
           <div className="flex flex-col items-center">
