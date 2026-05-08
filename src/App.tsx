@@ -35,7 +35,8 @@ function App() {
       <Header />
       
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Festival />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/c2c" element={<C2C />} />
         <Route path="/festival" element={<Festival />} />
         <Route path="/about" element={<About />} />

@@ -17,17 +17,17 @@ import mascotImage from '../../assets/images/mascotte-removebg-preview.webp';
  * - submenu: tableau des éléments du sous-menu
  */
 const navItems = [
-  { path: '/', label: 'Accueil' },
+  { path: '/home', label: 'Accueil' },
   { path: '/c2c#hero', label: 'Particuliers' },
   //{ path: '/b2b#hero', label: 'Entreprises' },
-  { path: '/festival', label: 'Festivals' }, // Au calme nouvelle petite page
-  { path: '/about', label: 'À propos' },  
-  { 
+  { path: '/', label: 'Festivals' },
+  { path: '/about', label: 'À propos' },
+  {
     label: 'Contact',
     hasSubmenu: true,
     submenu: [
       { path: '/c2c#contact', label: 'Particuliers' },
-      { path: '/festival#contact', label: 'Festivals' }
+      { path: '/#contact', label: 'Festivals' }
     ]
   }
 ];
