@@ -9,15 +9,44 @@ const About = () => {
       {/* Hero section */}
       <section className="min-h-[calc(100vh-96px)] py-16 md:py-24 mt-24 flex items-center bg-[#00613a] text-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="max-w-5xl mx-auto text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               À propos de <span className="text-white">Share<span className='text-[#D17034]'>N</span>Spare</span>
             </h1>
-            <p className="text-xl text-[#D17034] sm:text-2xl leading-relaxed font-medium mb-6">
+            <p className="text-xl text-[#D17034] sm:text-2xl leading-relaxed font-medium mb-4">
               Do more with less.
             </p>
-            <p className="text-base sm:text-lg opacity-80">
+            <p className="text-base sm:text-lg opacity-80 mb-14">
               La Suisse regorge de festivals — mais chacun se débrouille dans son coin. On a voulu changer ça.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+              <div className="bg-white/10 backdrop-blur p-6 rounded-xl text-left">
+                <div className="text-3xl mb-4"><i className="fas fa-globe text-[#D17034]"></i></div>
+                <h3 className="text-lg font-bold mb-2">Impact écologique</h3>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Mutualiser le matériel existant, c'est réduire les achats inutiles, limiter les transports et diminuer l'empreinte carbone du secteur événementiel.
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur p-6 rounded-xl text-left">
+                <div className="text-3xl mb-4"><i className="fas fa-coins text-[#D17034]"></i></div>
+                <h3 className="text-lg font-bold mb-2">Économie locale</h3>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Créer de la valeur entre festivals d'une même région, en transformant la concurrence en collaboration.
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur p-6 rounded-xl text-left">
+                <div className="text-3xl mb-4"><i className="fas fa-users text-[#D17034]"></i></div>
+                <h3 className="text-lg font-bold mb-2">Solidarité festivalière</h3>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Favoriser l'entraide entre organisateurs pour que chaque festival, petit ou grand, puisse exister et grandir.
+                </p>
+              </div>
+            </div>
+
+            <p className="text-base sm:text-lg font-semibold opacity-90">
+              Moins de gaspillage, plus de collaboration, un secteur plus durable.{' '}
+              <span className="text-[#D17034]">Do more with less.</span>
             </p>
           </div>
         </div>
@@ -149,51 +178,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Pourquoi ShareNSpare */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">Pourquoi Share<span className='text-[#D17034]'>N</span>Spare ?</h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
-              <div className="bg-[rgba(0,97,58,0.05)] p-5 sm:p-6 rounded-xl text-center">
-                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-[#00613a]">
-                  <i className="fas fa-globe"></i>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">Impact écologique</h3>
-                <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                  Mutualiser le matériel existant, c'est réduire les achats inutiles, limiter les transports et diminuer l'empreinte carbone du secteur événementiel.
-                </p>
-              </div>
-
-              <div className="bg-[rgba(0,97,58,0.05)] p-5 sm:p-6 rounded-xl text-center">
-                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-[#00613a]">
-                  <i className="fas fa-coins"></i>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">Économie locale</h3>
-                <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                  Créer de la valeur entre festivals d'une même région, en transformant la concurrence en collaboration.
-                </p>
-              </div>
-
-              <div className="bg-[rgba(0,97,58,0.05)] p-5 sm:p-6 rounded-xl text-center sm:col-span-2 md:col-span-1 sm:max-w-md sm:mx-auto md:max-w-none md:mx-0">
-                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-[#00613a]">
-                  <i className="fas fa-users"></i>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">Solidarité festivalière</h3>
-                <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                  Favoriser l'entraide entre organisateurs pour que chaque festival, petit ou grand, puisse exister et grandir.
-                </p>
-              </div>
-            </div>
-
-            <p className="text-lg sm:text-xl font-bold text-center mt-10 sm:mt-12 text-[#00613a]">
-              Moins de gaspillage, plus de collaboration, un secteur plus durable.<br/>
-              <span className="inline-block mt-2 text-[#D17034]">Do more with less.</span>
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Qui sommes-nous */}
       <section className="py-16 sm:py-20 md:py-24 bg-[#00613a] text-white">
