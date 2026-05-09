@@ -62,7 +62,22 @@ const Festival = () => {
   />
 </div>
 
-        {/* BOUTONS PRINCIPAUX */}
+        {/* PILLS BÉNÉFICES */}
+        <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-2">
+          <span className="flex items-center gap-2 bg-[#00613a]/08 border border-[#00613a]/20 text-[#00613a] text-sm font-medium px-4 py-2 rounded-full">
+            <i className="fas fa-piggy-bank text-[#D17034]"></i>
+            Réduisez vos coûts de location
+          </span>
+          <span className="flex items-center gap-2 bg-[#00613a]/08 border border-[#00613a]/20 text-[#00613a] text-sm font-medium px-4 py-2 rounded-full">
+            <i className="fas fa-coins text-[#D17034]"></i>
+            Rentabilisez votre matériel
+          </span>
+          <span className="flex items-center gap-2 bg-[#00613a]/08 border border-[#00613a]/20 text-[#00613a] text-sm font-medium px-4 py-2 rounded-full">
+            <i className="fas fa-handshake text-[#D17034]"></i>
+            Rejoignez un réseau de festivals
+          </span>
+        </div>
+
         {/* BOUTONS PRINCIPAUX */}
         <div className="flex flex-col sm:flex-row gap-4 pt-6 items-center">
 
