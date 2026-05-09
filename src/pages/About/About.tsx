@@ -9,47 +9,16 @@ const About = () => {
       {/* Hero section */}
       <section className="min-h-[calc(100vh-96px)] py-16 md:py-24 mt-24 flex items-center bg-[#00613a] text-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
-            <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                À propos de <span className="text-white">Share<span className='text-[#D17034]'>N</span>Spare</span>
-              </h1>
-              <p className="text-xl text-[#D17034] sm:text-2xl leading-relaxed font-medium mb-6">
-                Do more with less.
-              </p>
-              <p className="text-base sm:text-lg opacity-80">
-                La Suisse regorge de festivals — mais chacun se débrouille dans son coin. On a voulu changer ça.
-              </p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur p-6 sm:p-8 rounded-xl shadow-lg">
-              <div className="flex items-start mb-6">
-                <div className="text-4xl sm:text-5xl font-bold mr-4 opacity-30">01</div>
-                <div>
-                  <p className="font-medium text-sm sm:text-base">
-                    La Suisse est l'un des pays avec la <span className="font-bold">plus forte densité de festivals par habitant</span>. Et pourtant, aucune structure ne les relie vraiment.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start mb-6">
-                <div className="text-4xl sm:text-5xl font-bold mr-4 opacity-30">02</div>
-                <div>
-                  <p className="font-medium text-sm sm:text-base">
-                    Les équipements événementiels sont utilisés en moyenne <span className="font-bold">moins de 30 jours par an</span>, puis stockés le reste du temps.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="text-4xl sm:text-5xl font-bold mr-4 opacity-30">03</div>
-                <div>
-                  <p className="font-medium text-sm sm:text-base">
-                    La location de matériel représente souvent <span className="font-bold">20 à 40% du budget</span> d'un festival — un coût que la mutualisation pourrait drastiquement réduire.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              À propos de <span className="text-white">Share<span className='text-[#D17034]'>N</span>Spare</span>
+            </h1>
+            <p className="text-xl text-[#D17034] sm:text-2xl leading-relaxed font-medium mb-6">
+              Do more with less.
+            </p>
+            <p className="text-base sm:text-lg opacity-80">
+              La Suisse regorge de festivals — mais chacun se débrouille dans son coin. On a voulu changer ça.
+            </p>
           </div>
         </div>
       </section>
