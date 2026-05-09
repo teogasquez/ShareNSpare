@@ -69,7 +69,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-gray-600 mb-6 max-w-md">
-              ShareNSpare révolutionne l'économie du partage en connectant particuliers et entreprises pour une utilisation optimale des ressources.
+              ShareNSpare connecte les festivals suisses pour mutualiser leur matériel événementiel — moins de coûts, plus de collaboration.
             </p>
             <div className="flex space-x-4">
               <Link 
@@ -163,7 +163,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 <li>
                   <Link to="/" className="text-gray-600 hover:text-[#D17034] transition-colors">
-                    Accueil
+                    Festivals
                   </Link>
                 </li>
                 <li>
@@ -172,20 +172,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/c2c" className="text-gray-600 hover:text-[#D17034] transition-colors">
-                    Particuliers
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/b2b" className="text-gray-600 hover:text-[#D17034] transition-colors">
-                    Entreprises
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }} className="text-gray-600 hover:text-[#00613a] transition-colors">
+                  <Link to="/#contact" className="text-gray-600 hover:text-[#00613a] transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -199,27 +186,17 @@ const Footer = () => {
             <nav aria-label="Services">
               <ul className="space-y-3">
                 <li>
-                  <Link to="/C2C#hero" className="text-gray-600 hover:text-[#D17034] transition-colors">
-                    Location d'équipement
+                  <Link to="/#how" className="text-gray-600 hover:text-[#D17034] transition-colors">
+                    Mutualisation de matériel
                   </Link>
                 </li>
                 <li>
-                  <Link to="/b2b#hero" className="text-gray-600 hover:text-[#D17034] transition-colors">
-                    Solutions professionnelles
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/C2C#countdown" className="text-gray-600 hover:text-[#D17034] transition-colors">
+                  <Link to="/#countdown" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Application mobile
                   </Link>
                 </li>
                 <li>
-                  <Link to="#partner" className="text-gray-600 hover:text-[#D17034] transition-colors">
-                    Programme partenaires
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#contact" className="text-gray-600 hover:text-[#D17034] transition-colors">
+                  <Link to="/#contact" className="text-gray-600 hover:text-[#D17034] transition-colors">
                     Assistance
                   </Link>
                 </li>

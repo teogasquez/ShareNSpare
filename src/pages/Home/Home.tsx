@@ -48,24 +48,16 @@ const Home = () => {
             </p>
             
             <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-            Notre plateforme met en relation celles et ceux qui possèdent des biens ou des compétences inutilisés avec ceux qui en ont besoin.
-            Plutôt que d’acheter du neuf, partageons et louons ce qui existe déjà : c’est plus économique, plus durable et plus intelligent.
-            
+              La première plateforme de mutualisation de matériel événementiel entre festivals suisses.
+              Louez, partagez, collaborez — et réduisez vos coûts d’organisation.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-5">
-              <Link 
-                to="/c2c" 
+              <Link
+                to="/"
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#00613a] to-[#00a86b] text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-lg shadow-md"
               >
-                Pour les particuliers
-              </Link>
-              
-              <Link 
-                to="/festival" 
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#00613a] text-[#00613a] font-semibold rounded-full hover:bg-gradient-to-r from-[#A8632D] to-[#D17034] hover:border-[#dddddd00] hover:text-white transform hover:-translate-y-1 transition-all duration-300 text-lg"
-              >
-                Pour les festivals
+                Découvrir ShareNSpare
               </Link>
             </div>
           </div>
