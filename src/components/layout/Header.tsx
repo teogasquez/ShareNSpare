@@ -18,18 +18,11 @@ import mascotImage from '../../assets/images/mascotte-removebg-preview.webp';
  */
 const navItems = [
   { path: '/home', label: 'Accueil' },
-  { path: '/c2c#hero', label: 'Particuliers' },
+  //{ path: '/c2c#hero', label: 'Particuliers' },
   //{ path: '/b2b#hero', label: 'Entreprises' },
   { path: '/', label: 'Festivals' },
   { path: '/about', label: 'À propos' },
-  {
-    label: 'Contact',
-    hasSubmenu: true,
-    submenu: [
-      { path: '/c2c#contact', label: 'Particuliers' },
-      { path: '/#contact', label: 'Festivals' }
-    ]
-  }
+  { path: '/#contact', label: 'Contact' }
 ];
 
 /**

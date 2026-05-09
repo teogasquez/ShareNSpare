@@ -5,7 +5,8 @@ import teo from '../../assets/images/beaver_gasqo.webp';
 const About = () => {
   return (
     <main className="font-sans antialiased">
-      {/* Hero section - Fond vert, texte blanc */}
+
+      {/* Hero section */}
       <section className="min-h-[calc(100vh-96px)] py-16 md:py-24 mt-24 flex items-center bg-[#00613a] text-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
@@ -17,34 +18,34 @@ const About = () => {
                 Do more with less.
               </p>
               <p className="text-base sm:text-lg opacity-80">
-                Face au gaspillage et à la surconsommation, nous avons créé une solution qui transforme la manière dont nous utilisons les objets au quotidien.
+                La Suisse regorge de festivals — mais chacun se débrouille dans son coin. On a voulu changer ça.
               </p>
             </div>
-            
+
             <div className="bg-white/10 backdrop-blur p-6 sm:p-8 rounded-xl shadow-lg">
               <div className="flex items-start mb-6">
                 <div className="text-4xl sm:text-5xl font-bold mr-4 opacity-30">01</div>
                 <div>
                   <p className="font-medium text-sm sm:text-base">
-                    En Suisse, chaque habitant produit <span className="font-bold">13 tonnes de CO₂e par an</span>, soit deux fois plus que la moyenne mondiale.
+                    La Suisse est l'un des pays avec la <span className="font-bold">plus forte densité de festivals par habitant</span>. Et pourtant, aucune structure ne les relie vraiment.
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start mb-6">
                 <div className="text-4xl sm:text-5xl font-bold mr-4 opacity-30">02</div>
                 <div>
                   <p className="font-medium text-sm sm:text-base">
-                    Nous générons <span className="font-bold">677 kilos de déchets par personne</span>, soit 32% de plus que la moyenne européenne.
+                    Les équipements événementiels sont utilisés en moyenne <span className="font-bold">moins de 30 jours par an</span>, puis stockés le reste du temps.
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="text-4xl sm:text-5xl font-bold mr-4 opacity-30">03</div>
                 <div>
                   <p className="font-medium text-sm sm:text-base">
-                    Et pourtant, <span className="font-bold">30% des objets</span> que nous possédons ne sont jamais utilisés.
+                    La location de matériel représente souvent <span className="font-bold">20 à 40% du budget</span> d'un festival — un coût que la mutualisation pourrait drastiquement réduire.
                   </p>
                 </div>
               </div>
@@ -53,239 +54,138 @@ const About = () => {
         </div>
       </section>
 
-{/* Notre histoire - Fond blanc, texte vert */}
-<section className="py-16 sm:py-20 md:py-24 bg-white">
-  <div className="container mx-auto px-4 sm:px-6">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">
-      Notre Histoire : Share<span className='text-[#D17034]'>N</span>Spare
-    </h2>
-    
-    <div className="max-w-6xl mx-auto">
-      {/* Timeline */}
-      <div className="relative">
-        {/* Ligne verticale de la timeline */}
-        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#00613a]/20"></div>
-        
-        {/* Première étape - L'Étincelle Circulaire */}
-        <div className="mb-12 sm:mb-16 md:mb-24 relative">
-          <div className="flex flex-col md:flex-row items-center">
-            {/* Desktop - Contenu à gauche */}
-            <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-left">L'Étincelle Circulaire</h3>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
-                En novembre 2024, Simon emménage dans un nouvel appartement. Afin de monter ses meubles et d'accrocher ses tableaux, 
-                il se retrouve face à une triste réalité : il lui faut une boîte à outils et une perceuse.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left" >
-                Et voilà, 300 CHF de frais supplémentaires à ajouter à la longue liste d'achats pour s'installer. 
-                Deux semaines et quelques manuels IKEA plus tard, ces deux mêmes objets finissent dans un placard… à prendre la poussière.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-left">
-                Jusqu'au jour où, un matin, Simon sort de son ascenseur et voit son voisin revenant du magasin avec exactement la même boîte à outils. 
-                C'est là qu'il réalise l'absurdité de cet achat coûteux, utilisé à peine quelques jours.
-              </p>
-            </div>
-            
-            {/* Mobile - Contenu en haut */}
-            <div className="md:hidden mb-6 text-center">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">L'Étincelle Circulaire</h3>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
-                En novembre 2024, Simon emménage dans un nouvel appartement. Afin de monter ses meubles et d'accrocher ses tableaux, 
-                il se retrouve face à une triste réalité : il lui faut une boîte à outils et une perceuse.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
-                Et voilà, 300 CHF de frais supplémentaires à ajouter à la longue liste d'achats pour s'installer. 
-                Deux semaines et quelques manuels IKEA plus tard, ces deux mêmes objets finissent dans un placard… à prendre la poussière.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed">
-                Jusqu'au jour où, un matin, Simon sort de son ascenseur et voit son voisin revenant du magasin avec exactement la même boîte à outils. 
-                C'est là qu'il réalise l'absurdité de cet achat coûteux, utilisé à peine quelques jours.
-              </p>
-            </div>
-            
-            {/* Citation à droite */}
-            <div className="md:w-1/2 md:pl-12">
-              <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
-                <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
-                  "Il devait bien y avoir une meilleure façon de faire !"
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Deuxième étape - Du Concept au Prototype */}
-        <div className="mb-12 sm:mb-16 md:mb-24 relative">
-          <div className="flex flex-col md:flex-row items-center">
-            {/* Citation à gauche sur desktop */}
-            <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right order-2 md:order-1">
-              <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
-                <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
-                  "Moins d'achats, plus de partage : voilà l'avenir."
-                </p>
-              </div>
-            </div>
-            
-            {/* Contenu à droite sur desktop, en bas sur mobile */}
-            <div className="md:w-1/2 md:pl-12 order-1 md:order-2 mb-6 md:mb-0">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-center md:text-left">
-                Du Concept au Prototype
-              </h3>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-center md:text-left">
-                Après plusieurs mois de réflexion, Simon décide de passer à l'action : développer une application simple et intuitive, 
-                capable de connecter ceux qui ont besoin d'objets ponctuellement avec ceux qui les possèdent déjà.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-center md:text-left">
-                L'objectif est clair : réduire la surconsommation et mettre en avant une économie de partage et circulaire. 
-                Il partage son idée avec Téo, un ami de longue date passionné de design web, qui rejoint immédiatement l'aventure.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-center md:text-left">
-                Ensemble, ils affinent le concept, identifient les besoins du marché et posent les premières bases de l'application. 
-                ShareNSpare est en train de naître !
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        {/* Troisième étape - Lancement et Vision */}
-        <div className="relative">
-          <div className="flex flex-col md:flex-row items-center">
-            {/* Desktop - Contenu à gauche */}
-            <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-left">Lancement et Vision</h3>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
-                Août 2025 : le concept est prêt et nous créons officiellement ShareNSpare ! Ce n'est plus seulement une idée, 
-                mais un projet concret avec une mission claire : rendre la location simple, accessible et bénéfique pour tous.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
-                Chaque jour, nous travaillons avec passion pour transformer cette vision en réalité. Mais nous ne le faisons pas seuls : 
-                c'est aussi grâce à vos idées et vos retours que nous développons l'application de partage de demain.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-left">
-                Alors, si vous ne faites pas encore partie de l'aventure, rejoignez ShareNSpare et devenez acteur du changement !
-              </p>
-            </div>
-            
-            {/* Mobile - Contenu en haut */}
-            <div className="md:hidden mb-6 text-center">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">Lancement et Vision</h3>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
-                Août 2025 : le concept est prêt et nous créons officiellement ShareNSpare ! Ce n'est plus seulement une idée, 
-                mais un projet concret avec une mission claire : rendre la location simple, accessible et bénéfique pour tous.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
-                Chaque jour, nous travaillons avec passion pour transformer cette vision en réalité. Mais nous ne le faisons pas seuls : 
-                c'est aussi grâce à vos idées et vos retours que nous développons l'application de partage de demain.
-              </p>
-              <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed">
-                Alors, si vous ne faites pas encore partie de l'aventure, rejoignez ShareNSpare et devenez acteur du changement !
-              </p>
-            </div>
-            
-            {/* Citation à droite */}
-            <div className="md:w-1/2 md:pl-12">
-              <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
-                <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
-                  "Seul on va plus vite, ensemble on va plus loin."
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Devise finale */}
-      <div className="text-center mt-12 sm:mt-16">
-        <p className="text-lg sm:text-xl font-bold text-[#00613a]">
-          Une seule devise guide notre projet : <span className='text-[#D17034]'>Do more with less.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* Comment ça marche - Fond vert, texte blanc */}
-      <section className="min-h-screen py-16 sm:py-20 md:py-24 bg-[#00613a] text-white flex items-center">
+      {/* Notre histoire */}
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center">
-  <span>Comment</span>{" "}
-  <span className="text-[#D17034]">ça marche ?</span>
-</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {/* Pour les particuliers */}
-            <div className="bg-white/10 backdrop-blur p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Pour les particuliers</h3>
-              <p className="mb-4 opacity-80 text-sm sm:text-base">
-                Vous avez des objets qui prennent la poussière ? Mettez-les à disposition de vos voisins et rentabilisez-les.
-              </p>
-              <p className="mb-4 opacity-80 text-sm sm:text-base">
-                Besoin d'un objet occasionnellement ? Empruntez-le près de chez vous plutôt que d'acheter.
-              </p>
-              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
-                <span className="text-xs sm:text-sm opacity-75">Paddle, perceuse, appareil à raclette...</span>
-                <Link 
-                  to="/c2c" 
-                  className="inline-flex items-center text-white font-semibold border-b-2 border-white pb-1 hover:border-[#D17034] hover:text-[#D17034] transition-opacity"
-                >
-                  En savoir plus
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
-                </Link>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">
+            Notre Histoire : Share<span className='text-[#D17034]'>N</span>Spare
+          </h2>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="relative">
+              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#00613a]/20"></div>
+
+              {/* Étape 1 - Une conversation qui change tout */}
+              <div className="mb-12 sm:mb-16 md:mb-24 relative">
+                <div className="flex flex-col md:flex-row items-center">
+                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-left">Une conversation qui change tout</h3>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
+                      Tout commence par un verre entre amis. Un soir de 2024, Simon retrouve un ami qui organise un petit festival de musique depuis quelques années. La conversation tourne vite autour des galères de l'organisation — mais surtout du financement nécessaire.
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
+                      Des projecteurs. Des enceintes. Des barrières. Des milliers de francs d'équipements immobilisés. Et si à quelques kilomètres de là, d'autres festivals pouvaient avoir besoin de ce matériel pour leur événement ?
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-left">
+                      Simon n'arrive pas à se sortir cette image de la tête. <em>"Pendant ce temps, des festivals à côté louent les mêmes trucs à prix d'or."</em>
+                    </p>
+                  </div>
+
+                  {/* Mobile */}
+                  <div className="md:hidden mb-6 text-center">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">Une conversation qui change tout</h3>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
+                      Tout commence par un verre entre amis. Un soir de 2024, Simon retrouve un ami qui organise un petit festival de musique. La conversation tourne autour des galères d'organisation — et du financement nécessaire.
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
+                      Des projecteurs. Des enceintes. Des barrières. Des milliers de francs d'équipements immobilisés. Et si à quelques kilomètres, d'autres festivals pouvaient en avoir besoin ?
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed">
+                      Simon n'arrive pas à se sortir cette image de la tête.
+                    </p>
+                  </div>
+
+                  <div className="md:w-1/2 md:pl-12">
+                    <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
+                      <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
+                        "Le pire dans tout ça ? J'ai du matériel qui vaut des milliers de francs qui dort dans un garage onze mois sur douze."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Étape 2 - Du Constat au Réseau */}
+              <div className="mb-12 sm:mb-16 md:mb-24 relative">
+                <div className="flex flex-col md:flex-row items-center">
+                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right order-2 md:order-1">
+                    <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
+                      <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
+                        "Et si les festivals arrêtaient de se tourner le dos ?"
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="md:w-1/2 md:pl-12 order-1 md:order-2 mb-6 md:mb-0">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-center md:text-left">
+                      Du Constat au Réseau
+                    </h3>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-center md:text-left">
+                      Simon ne lâche pas l'idée. Il commence à en parler autour de lui, à d'autres organisateurs. Et très vite, il réalise que son ami n'est pas un cas isolé — c'est la norme. Chaque festival gère ses équipements dans son coin, sans vraiment savoir ce que font les autres.
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-center md:text-left">
+                      La Suisse est l'un des pays avec la plus forte densité de festivals par habitant — et pourtant, il n'existait aucune plateforme pour les connecter entre eux.
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-center md:text-left">
+                      Il partage l'idée avec Téo, ami de longue date passionné de design et de tech, qui rejoint immédiatement l'aventure. ShareNSpare commence à prendre forme.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Étape 3 - Lancement et Vision */}
+              <div className="relative">
+                <div className="flex flex-col md:flex-row items-center">
+                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 text-right hidden md:block">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#D17034] text-left">Lancement et Vision</h3>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
+                      Août 2025 : le concept est prêt et nous créons officiellement ShareNSpare ! Ce n'est plus seulement une idée, mais un projet concret avec une mission claire : rendre la location simple, accessible et bénéfique pour tous.
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4 text-left">
+                      Chaque jour, nous travaillons avec passion pour transformer cette vision en réalité. Mais nous ne le faisons pas seuls : c'est aussi grâce à vos idées et vos retours que nous développons l'application de partage de demain.
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed text-left">
+                      Alors, si vous ne faites pas encore partie de l'aventure, rejoignez ShareNSpare et devenez acteur du changement !
+                    </p>
+                  </div>
+
+                  {/* Mobile */}
+                  <div className="md:hidden mb-6 text-center">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#00613a]">Lancement et Vision</h3>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed mb-4">
+                      Août 2025 : le concept est prêt et nous créons officiellement ShareNSpare ! Un projet concret avec une mission claire : rendre la location simple, accessible et bénéfique pour tous.
+                    </p>
+                    <p className="text-[#00613a] opacity-90 text-sm sm:text-base leading-relaxed">
+                      Alors, si vous ne faites pas encore partie de l'aventure, rejoignez ShareNSpare et devenez acteur du changement !
+                    </p>
+                  </div>
+
+                  <div className="md:w-1/2 md:pl-12">
+                    <div className="bg-[rgba(0,97,58,0.05)] p-6 rounded-xl shadow-lg">
+                      <p className="text-[#00613a] italic text-base sm:text-lg font-medium text-center">
+                        "Seul on va plus vite, ensemble on va plus loin."
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            {/* Pour les festivals */}
-<div className="bg-white/10 backdrop-blur p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-  <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
-    Pour les festivals
-  </h3>
 
-  <p className="mb-4 opacity-80 text-sm sm:text-base">
-    Mutualisez votre matériel événementiel avec d'autres festivals et transformez vos équipements inutilisés en sources de revenus.
-  </p>
-
-  <p className="mb-4 opacity-80 text-sm sm:text-base">
-    Accédez à du matériel professionnel près de chez vous sans investissement lourd et réduisez vos coûts d’organisation.
-  </p>
-
-  <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
-    <span className="text-xs sm:text-sm opacity-75">
-      Scènes, barrières, éclairages, groupes électrogènes...
-    </span>
-
-    <Link 
-      to="/festival" 
-      className="inline-flex items-center text-white font-semibold border-b-2 border-white pb-1 hover:border-[#D17034] hover:text-[#D17034] transition-opacity"
-    >
-      En savoir plus
-      <svg 
-        className="w-4 h-4 sm:w-5 sm:h-5 ml-2" 
-        fill="none" 
-        stroke="currentColor" 
-        viewBox="0 0 24 24"
-      >
-        <path 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth="2" 
-          d="M14 5l7 7m0 0l-7 7m7-7H3"
-        />
-      </svg>
-    </Link>
-  </div>
-</div>
+            <div className="text-center mt-12 sm:mt-16">
+              <p className="text-lg sm:text-xl font-bold text-[#00613a]">
+                Une seule devise guide notre projet : <span className='text-[#D17034]'>Do more with less.</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      
-      {/* Pourquoi ShareNspare - Fond blanc, texte vert */}
+
+      {/* Pourquoi ShareNSpare */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a] text-center">Pourquoi Share<span className='text-[#D17034]'>N</span>Spare ?</h2>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
               <div className="bg-[rgba(0,97,58,0.05)] p-5 sm:p-6 rounded-xl text-center">
                 <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-[#00613a]">
@@ -293,82 +193,72 @@ const About = () => {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">Impact écologique</h3>
                 <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                  Réduire les déchets et la production de nouveaux biens en utilisant mieux l'existant.
+                  Mutualiser le matériel existant, c'est réduire les achats inutiles, limiter les transports et diminuer l'empreinte carbone du secteur événementiel.
                 </p>
               </div>
-              
+
               <div className="bg-[rgba(0,97,58,0.05)] p-5 sm:p-6 rounded-xl text-center">
                 <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-[#00613a]">
                   <i className="fas fa-coins"></i>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">Économie locale</h3>
                 <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                  Créer de la valeur entre particuliers et entreprises dans une même communauté locale.
+                  Créer de la valeur entre festivals d'une même région, en transformant la concurrence en collaboration.
                 </p>
               </div>
-              
+
               <div className="bg-[rgba(0,97,58,0.05)] p-5 sm:p-6 rounded-xl text-center sm:col-span-2 md:col-span-1 sm:max-w-md sm:mx-auto md:max-w-none md:mx-0">
                 <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-[#00613a]">
                   <i className="fas fa-users"></i>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">Lien social</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#00613a]">Solidarité festivalière</h3>
                 <p className="text-[#00613a] opacity-80 text-sm sm:text-base">
-                  Favoriser les rencontres et les échanges dans votre quartier ou votre ville.
+                  Favoriser l'entraide entre organisateurs pour que chaque festival, petit ou grand, puisse exister et grandir.
                 </p>
               </div>
             </div>
-            
+
             <p className="text-lg sm:text-xl font-bold text-center mt-10 sm:mt-12 text-[#00613a]">
-              Moins d'achats, moins de déchets, plus de partage. <br/>
+              Moins de gaspillage, plus de collaboration, un secteur plus durable.<br/>
               <span className="inline-block mt-2 text-[#D17034]">Do more with less.</span>
             </p>
           </div>
         </div>
       </section>
-      
-      {/* Qui sommes-nous - Fond vert, texte blanc */}
+
+      {/* Qui sommes-nous */}
       <section className="py-16 sm:py-20 md:py-24 bg-[#00613a] text-white">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center">Qui sommes-nous ?</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
-            {/* Simon */}
             <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02]">
               <div className="h-48 sm:h-64 bg-gray-50 flex items-center justify-center">
                 <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden">
-                  <img 
-                    src={simon} 
-                    alt="Simon - Co-fondateur ShareNSpare" 
-                    className="w-full h-full object-cover" 
-                  />
+                  <img src={simon} alt="Simon - Co-fondateur ShareNSpare" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="p-5 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Simon Chappatte</h3>
                 <p className="text-[#D17034]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Stratégie</p>
                 <p className="text-gray-600 text-sm sm:text-base">
-                  Simon dirige la vision stratégique de ShareNSpare et développe les partenariats clés. 
-                  Il s'occupe du business model, de la croissance et des relations avec les entreprises partenaires.
+                  Simon dirige la vision stratégique de ShareNSpare et développe les partenariats clés.
+                  Il s'occupe du business model, de la croissance et des relations avec les festivals partenaires.
                 </p>
               </div>
             </div>
-            
-            {/* Teo */}
+
             <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02]">
               <div className="h-48 sm:h-64 bg-gray-50 flex items-center justify-center">
                 <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden">
-                  <img 
-                    src={teo} 
-                    alt="Teo - Co-fondateur ShareNSpare" 
-                    className="w-full h-full object-cover" 
-                  />
+                  <img src={teo} alt="Teo - Co-fondateur ShareNSpare" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="p-5 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#00613a]">Teo Gasquez</h3>
                 <p className="text-[#D17034]/70 mb-3 sm:mb-4 text-sm sm:text-base font-medium">Co-fondateur & Développement</p>
                 <p className="text-gray-600 text-sm sm:text-base">
-                  Teo conçoit et développe la plateforme ShareNSpare. Il pilote l'architecture technique, 
+                  Teo conçoit et développe la plateforme ShareNSpare. Il pilote l'architecture technique,
                   l'expérience utilisateur et assure le bon fonctionnement de l'application et du site web.
                 </p>
               </div>
@@ -376,16 +266,16 @@ const About = () => {
           </div>
         </div>
       </section>
-      
-      {/* Et maintenant - Fond blanc, texte vert */}
+
+      {/* Et maintenant */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-[#00613a]">Et maintenant ?</h2>
-            
+
             <div className="relative mb-10 sm:mb-12 text-left">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#00613a]/20"></div>
-              
+
               <div className="ml-6 sm:ml-8 mb-6 sm:mb-8 relative">
                 <div className="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#00613a]"></div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#D17034]">L'aventure commence</h3>
@@ -394,7 +284,7 @@ const About = () => {
                   Nous travaillons chaque jour pour créer la plateforme de partage la plus intuitive et efficace.
                 </p>
               </div>
-              
+
               <div className="ml-6 sm:ml-8 relative">
                 <div className="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#00613a]"></div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#D17034]">Rejoignez la communauté</h3>
@@ -404,20 +294,20 @@ const About = () => {
                 </p>
               </div>
             </div>
-            
+
             <p className="text-xl sm:text-2xl font-bold text-[#00613a]">
               Share<span className='text-[#D17034]'>N</span>Spare – Do more with less.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12">
-              <Link 
-                to="/c2c#countdown" 
+              <Link
+                to="/#countdown"
                 className="bg-[#00613a] text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-full hover:bg-opacity-90 transition-colors"
               >
                 Être informé du lancement
               </Link>
-              <Link 
-                to="/c2c#contact" 
+              <Link
+                to="/#contact"
                 className="border-2 border-[#00613a] text-[#00613a] font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-full hover:bg-[#D17034] hover:border-[#D17034] hover:text-white transition-colors"
               >
                 Nous contacter
