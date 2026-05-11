@@ -62,41 +62,7 @@ const Festival = () => {
   />
 </div>
 
-        {/* POURQUOI SHARENSPARE */}
-        <div className="space-y-4 px-4 lg:px-0">
-          <div className="flex items-start gap-3">
-            <span className="mt-1 w-8 h-8 shrink-0 rounded-full bg-[#00613a]/10 flex items-center justify-center">
-              <i className="fas fa-globe text-[#00613a] text-sm"></i>
-            </span>
-            <div>
-              <p className="font-semibold text-[#00613a]">Impact écologique</p>
-              <p className="text-gray-600 text-sm leading-relaxed">Mutualiser le matériel existant, c'est réduire les achats inutiles, limiter les transports et diminuer l'empreinte carbone du secteur événementiel.</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="mt-1 w-8 h-8 shrink-0 rounded-full bg-[#00613a]/10 flex items-center justify-center">
-              <i className="fas fa-coins text-[#00613a] text-sm"></i>
-            </span>
-            <div>
-              <p className="font-semibold text-[#00613a]">Économie locale</p>
-              <p className="text-gray-600 text-sm leading-relaxed">Créer de la valeur entre festivals d'une même région, en transformant la concurrence en collaboration.</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="mt-1 w-8 h-8 shrink-0 rounded-full bg-[#00613a]/10 flex items-center justify-center">
-              <i className="fas fa-users text-[#00613a] text-sm"></i>
-            </span>
-            <div>
-              <p className="font-semibold text-[#00613a]">Solidarité festivalière</p>
-              <p className="text-gray-600 text-sm leading-relaxed">Favoriser l'entraide entre organisateurs pour que chaque festival, petit ou grand, puisse exister et grandir.</p>
-            </div>
-          </div>
-        </div>
-
-        <p className="text-sm text-[#00613a]/70 font-medium text-center lg:text-left px-4 lg:px-0">
-          Moins de gaspillage, plus de collaboration, un secteur plus durable. <span className="text-[#D17034]">Do more with less.</span>
-        </p>
-
+        {/* BOUTONS PRINCIPAUX */}
         {/* BOUTONS PRINCIPAUX */}
         <div className="flex flex-col sm:flex-row gap-4 pt-6 items-center">
 
